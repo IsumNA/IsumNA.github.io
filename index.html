@@ -35,6 +35,17 @@ nav::after{content:'';position:absolute;left:0;right:0;bottom:-3px;height:3px;ba
 .nav-links{display:flex;gap:0.5rem;list-style:none;flex-shrink:0}
 .nav-links a{font-family:var(--sans);font-size:14px;font-weight:700;color:var(--ink);text-decoration:none;padding:8px 16px;border-radius:100px;border:2.5px solid var(--ink);background:white;transition:background 0.15s,transform 0.15s,color 0.15s;display:inline-block;cursor:pointer}
 .nav-links a:hover,.nav-links a.active{background:var(--ink);color:white;transform:rotate(-2deg) scale(1.05)}
+.voice-toggle{font-family:var(--sans);font-size:12px;font-weight:700;padding:7px 12px;border-radius:100px;border:2.5px solid var(--ink);background:rgba(255,255,255,0.95);color:var(--ink);cursor:pointer;transition:transform 0.15s,background 0.15s;white-space:nowrap}
+.voice-toggle:hover{transform:scale(1.04);background:white}
+.voice-toggle[aria-pressed="true"]{background:var(--ink);color:white}
+
+body:not(.voice-casual) .casual-only{display:none!important}
+body.voice-casual .skim-only{display:none!important}
+
+.skim-bullets{list-style:none;margin:0 0 1.25rem;padding:0;max-width:560px;position:relative;z-index:1;animation:heroPop 0.75s 0.28s cubic-bezier(0.34,1.4,0.64,1) both}
+.skim-bullets li{font-size:15px;color:#444;line-height:1.55;padding:0.35rem 0 0.35rem 1.35rem;position:relative;border-bottom:1px dashed rgba(26,16,20,0.12)}
+.skim-bullets li:last-child{border-bottom:none}
+.skim-bullets li::before{content:'';position:absolute;left:0;top:0.65em;width:7px;height:7px;border-radius:50%;background:var(--ink);border:2px solid var(--yellow)}
 
 .container{max-width:820px;margin:0 auto;padding:0 2rem}
 .page{display:none;animation:popIn 0.4s cubic-bezier(0.34,1.4,0.64,1) both}
@@ -188,8 +199,9 @@ footer{background:var(--ink);color:white;padding:3rem 0}
     </div>
   </div>
   <ul class="nav-links">
+    <li><button type="button" class="voice-toggle" id="voiceToggle" aria-pressed="false" title="Switch between investor-friendly skim and full personality">Full voice</button></li>
     <li><a onclick="show('home')" class="active" id="nh">home</a></li>
-    <li><a onclick="show('ideas')" id="ni">💡 ideas</a></li>
+    <li><a onclick="show('ideas')" id="ni">ideas</a></li>
   </ul>
 </nav>
 
@@ -202,21 +214,31 @@ footer{background:var(--ink);color:white;padding:3rem 0}
     <div class="sparkles" aria-hidden="true">
       <span class="sparkle">✦</span><span class="sparkle">✧</span><span class="sparkle">★</span><span class="sparkle">✦</span><span class="sparkle">✨</span>
     </div>
-    <div class="htag">open for chaos</div>
-<<<<<<< HEAD
-    <h2 class="big">hi! i <span class="wb">try</span> to make<br>things that actually<br>help people 🛠️</h2>
-    <p class="sub">Full-time thinker, part-time exam-taker, studying Engineering at Cambridge. I spend way too much time thinking about <b>AI, health tech,</b> and anywhere technology could make someone's life genuinely easier — and not nearly enough time thinking about what's going to be on my next exam paper. This is where I dump my brain. <b>Welcome.</b></p>
-=======
-    <h1 class="big"><span class="wb">Trying</span> to make<br>things that actually<br>help people 🛠️</h1>
-    <p class="sub">Full-time thinker, part-time exam-taker, studying Engineering at Cambridge. I spend way too much time thinking about <b>AI, health tech,</b> and anywhere technology could make someone's life genuinely easier. <b>Welcome!</b></p>
->>>>>>> cdae972f5519c56e4376c2b960a6b6e45a82c330
+    <div class="htag skim-only">Engineering @ Cambridge · AI / full-stack · ships end-to-end</div>
+    <div class="htag casual-only">open for chaos</div>
+    <h2 class="big skim-only">Builder focused on <span class="wb">AI</span>, health tech,<br>and software people actually use.</h2>
+    <h2 class="big casual-only">hi! i <span class="wb">try</span> to make<br>things that actually<br>help people 🛠️</h2>
+    <ul class="skim-bullets skim-only">
+      <li><b>Cambridge Engineering</b> — coursework + competitions in robotics, CV, and systems (e.g. design project winner, coding comp runner-up).</li>
+      <li><b>Shipped products</b> — solo full-stack MVP for <b>Treatly</b> (social accountability / locked rewards); multiple ML + automation projects in industry.</li>
+      <li><b>Experience</b> — SWE intern <b>Raspberry Pi</b> (upcoming); ML/CV <b>Cambridge Sensor Innovation</b>; AI tooling <b>Kaizens</b>; fast-turnaround contract work.</li>
+      <li><b>Focus</b> — turning messy real-world problems into working software; comfortable owning product + implementation.</li>
+    </ul>
+    <p class="sub casual-only">Full-time thinker, part-time exam-taker, studying Engineering at Cambridge. I spend way too much time thinking about <b>AI, health tech,</b> and anywhere technology could make someone's life genuinely easier — and not nearly enough time thinking about what's going to be on my next exam paper. This is where I dump my brain. <b>Welcome.</b></p>
+    <p class="sub skim-only" style="margin-top:-0.5rem">Open to ambitious projects and teams. Use <b>Full voice</b> in the nav if you want the less filtered version of this page.</p>
     <div class="badges">
-      <span class="badge b1">🎓 (definitely not typical) Engineer</span>
-      <span class="badge b2">🤖 ginormous tech nerd</span>
-      <span class="badge b3">🏸 badminton (keeps me sane)</span>
-      <span class="badge b4">💡 addicted builder (bad for sleep)</span>
-      <span class="badge b5">🧠 massive overthinker</span>
-      <span class="badge b6">🫠 perpetually sleep deprived (goes well with the above)</span>
+      <span class="badge b1 skim-only">Cambridge Engineering</span>
+      <span class="badge b2 skim-only">AI / ML &amp; full-stack</span>
+      <span class="badge b3 skim-only">SWE @ Raspberry Pi (intern)</span>
+      <span class="badge b4 skim-only">Shipped: Treatly MVP</span>
+      <span class="badge b5 skim-only">Robotics &amp; CV projects</span>
+      <span class="badge b6 skim-only">Badminton — competitive</span>
+      <span class="badge b1 casual-only">🎓 (definitely not typical) Engineer</span>
+      <span class="badge b2 casual-only">🤖 ginormous tech nerd</span>
+      <span class="badge b3 casual-only">🏸 badminton (keeps me sane)</span>
+      <span class="badge b4 casual-only">💡 addicted builder (bad for sleep)</span>
+      <span class="badge b5 casual-only">🧠 massive overthinker</span>
+      <span class="badge b6 casual-only">🫠 perpetually sleep deprived (goes well with the above)</span>
     </div>
   </div>
 
@@ -224,38 +246,47 @@ footer{background:var(--ink);color:white;padding:3rem 0}
     <div class="ac ac1">
       <p class="alabel">Academic status</p>
       <p class="aval">Surviving 7 Tripos papers</p>
-      <p class="aaside">spent more time building productivity apps than actually being productive.</p>
+      <p class="aaside casual-only">spent more time building productivity apps than actually being productive.</p>
+      <p class="aaside skim-only">Tripos load; still ship side projects.</p>
     </div>
     <div class="ac ac2">
-      <p class="alabel">Brain is full of</p>
-      <p class="aval">Unmatched creativity. Also unmatched exam technique — protip: overthinking isnt so great when theres a time limit...</p>
+      <p class="alabel">Interests</p>
+      <p class="aval skim-only">Applied ML, health tech, and tools that remove friction from day-to-day work.</p>
+      <p class="aval casual-only">Unmatched creativity. Also unmatched exam technique — protip: overthinking isnt so great when theres a time limit...</p>
     </div>
     <div class="ac ac3">
       <p class="alabel">Sport</p>
       <p class="aval">Competitive badminton 🏸</p>
-      <p class="aaside">took it up to dump all of my frustration on a shuttle. got more frustrated. played more badminton...---> ended up with some national championship medals...still frustrated  </p>
+      <p class="aaside casual-only">took it up to dump all of my frustration on a shuttle. got more frustrated. played more badminton...---> ended up with some national championship medals...still frustrated  </p>
+      <p class="aaside skim-only">National-level competition experience.</p>
     </div>
     <div class="ac ac4">
       <p class="alabel">This summer</p>
       <p class="aval">Software Engineer intern @ Raspberry Pi 🥧</p>
-      <p class="aaside">AI projects (shocking ik). very excited. also get hungry whenever i mention the company</p>
+      <p class="aaside casual-only">AI projects (shocking ik). very excited. also get hungry whenever i mention the company</p>
+      <p class="aaside skim-only">Focus on AI-related engineering work.</p>
     </div>
     <div class="ac ac5">
       <p class="alabel">Previously</p>
       <p class="aval">ML/CV @ Cambridge Sensor Innovation · AI @ Kaizens ....very packed summer</p>
+      <p class="aaside skim-only">Production ML deployment; enterprise AI integrations.</p>
     </div>
 
   <div class="cta" onclick="show('ideas')">
     <div>
-      <h2>💡 see my ideas</h2>
-      <p>shipped things, half-done things, things that never made it out the brain — all in one place</p>
+      <h2 class="skim-only">Shipped work &amp; project log</h2>
+      <p class="skim-only">Filter by status — shipped products, work in progress, and longer-term ideas.</p>
+      <h2 class="casual-only">💡 see my ideas</h2>
+      <p class="casual-only">shipped things, half-done things, things that never made it out the brain — all in one place</p>
     </div>
     <span class="cta-arrow">→</span>
   </div>
 
   <section class="ideas-access">
-    <h3>Instant access to my idea board</h3>
-    <p>Jump directly into what you want to see without scrolling around first.</p>
+    <h3 class="skim-only">Quick links</h3>
+    <h3 class="casual-only">Instant access to my idea board</h3>
+    <p class="skim-only">Jump to shipped work or the full list.</p>
+    <p class="casual-only">Jump directly into what you want to see without scrolling around first.</p>
     <div class="quick-links">
       <button class="qa-all" onclick="goToIdeas('all')">🚀 all ideas</button>
       <button class="qa-ship" onclick="goToIdeas('shipped')">✅ shipped projects</button>
@@ -272,8 +303,10 @@ footer{background:var(--ink);color:white;padding:3rem 0}
 <main><div class="container">
 
   <div class="ihero">
-    <h2>The idea dump 💡</h2>
-    <p>Everything — shipped, in progress, stuck in my head, and dead on arrival. My notebook, made public. Filter by status or just scroll. There are a lot. I have a problem.</p>
+    <h2 class="skim-only">Projects &amp; ideas</h2>
+    <h2 class="casual-only">The idea dump 💡</h2>
+    <p class="skim-only">Selected builds and experiments. Use filters for shipped work vs longer-horizon concepts.</p>
+    <p class="casual-only">Everything — shipped, in progress, stuck in my head, and dead on arrival. My notebook, made public. Filter by status or just scroll. There are a lot. I have a problem.</p>
     <div class="ideas-tools">
       <span class="count-pill" id="idea-count">Showing 0 ideas</span>
       <input id="idea-search" class="idea-search" type="search" placeholder="Search ideas, tech, or keywords..." oninput="updateFeed()">
@@ -291,10 +324,11 @@ footer{background:var(--ink);color:white;padding:3rem 0}
   <div class="feed">
 
     <!-- SHIPPED -->
-    <div class="ic" data-s="shipped" data-k="treatly productivity social platform full-stack web" data-gh="https://github.com/IsumNA/html-treatly">
+    <div class="ic" data-s="shipped" data-k="treatly productivity social platform full-stack web accountability rewards" data-gh="https://github.com/IsumNA/Treatly">
       <div class="itop"><p class="ititle">Treatly</p><span class="itag ts">✅ shipped</span></div>
-      <p class="ibody">Social accountability platform where friends pre-commit real rewards to each other's tasks — turning productivity into a shared, social experience. Built the full working prototype solo: task calendar, locked-reward system, give-to-receive economy, public reliability score. This one went from something i just made to stop me from procrastinating revision to a viral app</p>
-      <div class="ifooter"><div class="ifooter-left"><span class="inote">🎁 sole technical contributor · MVP live</span><a class="gh-link" href="https://github.com/IsumNA/Treatly" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div><div class="pills"><span class="pill">Full-stack</span><span class="pill">Web</span></div></div>
+      <p class="ibody skim-only"><b>What it is:</b> Social accountability app where friends stake real rewards on each other's tasks.<br><b>What shipped:</b> Working MVP — task calendar, locked reward commitments, reciprocal “give-to-receive” flows, public reliability scoring.<br><b>Role:</b> Sole builder (product + full-stack implementation). Originally built to scratch my own itch; grew into a broader user base.</p>
+      <p class="ibody casual-only">Social accountability platform where friends pre-commit real rewards to each other's tasks — turning productivity into a shared, social experience. Built the full working prototype solo: task calendar, locked-reward system, give-to-receive economy, public reliability score. This one went from something i just made to stop me from procrastinating revision to a viral app</p>
+      <div class="ifooter"><div class="ifooter-left"><span class="inote skim-only">Solo builder · MVP in production · actively iterating</span><span class="inote casual-only">🎁 sole technical contributor · MVP live</span><a class="gh-link" href="https://github.com/IsumNA/Treatly" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div><div class="pills"><span class="pill">Full-stack</span><span class="pill">Web</span></div></div>
     </div>
 
     <div class="ic" data-s="shipped">
@@ -346,13 +380,13 @@ footer{background:var(--ink);color:white;padding:3rem 0}
     </div>
 
     <!-- IN PROGRESS -->
-    <div class="ic" data-s="wip" data-k="website portfolio html css js" data-gh="https://github.com/IsumNA/IsumNA.github.io">
+    <div class="ic" data-s="wip" data-k="tripos revision cambridge exam prep planner drill javascript">
       <div class="itop"><p class="ititle">Tripos Revision Tracker</p><span class="itag tw">⚡ in progress</span></div>
       <p class="ibody">Cambridge exam prep tool covering all 7 IB papers. Drill mode, coverage tracking, planning tab. Built it while procrastinating from revision — the irony is fully understood. Actively used daily. Slightly too feature-rich for something that should've been a spreadsheet. Definitely not spending more time building the app than actually using the app to revise. Not at all. I love revision...</p>
       <div class="ifooter"><span class="inote">📚 being improved / used / over-engineered</span><div class="pills"><span class="pill">HTML</span><span class="pill">Vanilla JS</span></div></div>
     </div>
 
-    <div class="ic" data-s="wip">
+    <div class="ic" data-s="wip" data-k="website portfolio html css js github pages personal site" data-gh="https://github.com/IsumNA/IsumNA.github.io">
       <div class="itop"><p class="ititle">This website</p><span class="itag tw">⚡ in progress</span></div>
       <p class="ibody">Somewhere to put my ideas before they get washed away by 1000 more. Living idea scrapbook — not a portfolio, not a CV. Just a place that's mine. It's been through approximately 8 designs today.</p>
       <div class="ifooter"><div class="ifooter-left"><span class="inote">🛠 you're literally on it right now</span><a class="gh-link" href="https://github.com/IsumNA/IsumNA.github.io" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div><div class="pills"><span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JS</span></div></div>
@@ -455,7 +489,8 @@ footer{background:var(--ink);color:white;padding:3rem 0}
 
 <footer>
   <div class="fi">
-    <p class="fm">if you got this far,<br><span>let's talk 👋</span></p>
+    <p class="fm skim-only">Building at the intersection of <span>software, ML,</span> and real problems.<br><span>Reach out anytime.</span></p>
+    <p class="fm casual-only">if you got this far,<br><span>let's talk 👋</span></p>
     <div class="flinks">
       <a href="mailto:isumpna@gmail.com">email me</a>
       <a href="https://linkedin.com/in/isum-nanomi-arachchige/" target="_blank">linkedin</a>
@@ -465,6 +500,34 @@ footer{background:var(--ink);color:white;padding:3rem 0}
 
 <script>
 let currentFilter = 'all';
+(function initVoice () {
+  var casual = false;
+  try {
+    var params = new URLSearchParams(window.location.search);
+    var q = params.get('voice');
+    if (q === 'casual') casual = true;
+    else if (q === 'skim' || q === 'yc') casual = false;
+    else casual = window.localStorage.getItem('siteVoice') === 'casual';
+  } catch (e) {
+    casual = false;
+  }
+  function applyVoice () {
+    document.body.classList.toggle('voice-casual', casual);
+    var btn = document.getElementById('voiceToggle');
+    if (btn) {
+      btn.setAttribute('aria-pressed', casual ? 'true' : 'false');
+      btn.textContent = casual ? 'Skim view' : 'Full voice';
+    }
+  }
+  applyVoice();
+  document.getElementById('voiceToggle')?.addEventListener('click', function () {
+    casual = !casual;
+    try {
+      window.localStorage.setItem('siteVoice', casual ? 'casual' : 'skim');
+    } catch (e) {}
+    applyVoice();
+  });
+})();
 document.querySelector('.nav-brand')?.addEventListener('keydown', function (e) {
   if (e.key === 'Enter' || e.key === ' ') {
     e.preventDefault();
