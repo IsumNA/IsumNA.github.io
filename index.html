@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>hi.</title>
+<title>Isum Nanomi Arachchige</title>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -14,12 +14,25 @@
   --sans:'Fredoka',sans-serif;--mono:'DM Mono',monospace;
 }
 html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}
+}
 body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;overflow-x:hidden;min-height:100vh}
 
-nav{padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--ink);background:var(--blue);position:sticky;top:0;z-index:100;box-shadow:0 4px 0 rgba(0,0,0,0.15)}
-.nav-face{width:42px;height:42px;border-radius:50%;background:var(--blue);border:3px solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:22px;cursor:pointer;transition:transform 0.2s}
-.nav-face:hover{transform:rotate(-15deg) scale(1.1)}
-.nav-links{display:flex;gap:0.5rem;list-style:none}
+nav{padding:0.85rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;border-bottom:3px solid var(--ink);background:linear-gradient(135deg,var(--blue) 0%,#6eb6ff 50%,#9dd4ff 100%);position:sticky;top:0;z-index:100;box-shadow:0 4px 0 rgba(0,0,0,0.12)}
+nav::after{content:'';position:absolute;left:0;right:0;bottom:-3px;height:3px;background:linear-gradient(90deg,var(--red),var(--yellow),var(--green),var(--purple),var(--pink),var(--orange),var(--red));background-size:200% 100%;animation:rainbowLine 8s linear infinite}
+@keyframes rainbowLine{to{background-position:200% 0}}
+.nav-brand{display:flex;align-items:center;gap:0.75rem;cursor:pointer;text-align:left;flex:1;min-width:0}
+.nav-brand:focus-visible{outline:3px solid var(--ink);outline-offset:4px;border-radius:12px}
+.nav-face{width:44px;height:44px;flex-shrink:0;border-radius:50%;background:var(--yellow);border:3px solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:22px;transition:transform 0.25s cubic-bezier(0.34,1.4,0.64,1);box-shadow:3px 3px 0 var(--ink)}
+.nav-face:hover{transform:rotate(-12deg) scale(1.08)}
+.nav-heading-wrap{display:flex;flex-direction:column;gap:2px;min-width:0}
+.nav-site-title{margin:0;font-size:clamp(0.78rem,2vw,0.95rem);font-weight:700;letter-spacing:0.02em;text-transform:uppercase;opacity:0.92;text-shadow:0 1px 0 rgba(255,255,255,0.35);animation:navTitleIn 0.7s cubic-bezier(0.34,1.4,0.64,1) both}
+@keyframes navTitleIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+.nav-fullname{margin:0;font-size:clamp(1.05rem,3.5vw,1.55rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:var(--ink);background:linear-gradient(90deg,var(--ink),#2d1f28,var(--ink));background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shineName 4s ease-in-out infinite,navTitleIn 0.75s 0.08s cubic-bezier(0.34,1.4,0.64,1) both}
+@keyframes shineName{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.nav-links{display:flex;gap:0.5rem;list-style:none;flex-shrink:0}
 .nav-links a{font-family:var(--sans);font-size:14px;font-weight:700;color:var(--ink);text-decoration:none;padding:8px 16px;border-radius:100px;border:2.5px solid var(--ink);background:white;transition:background 0.15s,transform 0.15s,color 0.15s;display:inline-block;cursor:pointer}
 .nav-links a:hover,.nav-links a.active{background:var(--ink);color:white;transform:rotate(-2deg) scale(1.05)}
 
@@ -31,22 +44,43 @@ nav{padding:1rem 2rem;display:flex;align-items:center;justify-content:space-betw
 .hero{padding:3.5rem 0 3rem;border-bottom:3px solid var(--ink);position:relative;overflow:hidden}
 .blob1{position:absolute;right:-60px;top:-40px;width:280px;height:280px;border-radius:50%;background:var(--blue);opacity:0.14;animation:f1 6s ease-in-out infinite}
 .blob2{position:absolute;right:60px;bottom:-80px;width:190px;height:190px;border-radius:50%;background:var(--purple);opacity:0.11;animation:f2 8s ease-in-out infinite}
-@keyframes f1{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
-@keyframes f2{0%,100%{transform:translateY(0)}50%{transform:translateY(14px)}}
+.blob3{position:absolute;left:-40px;top:40%;width:120px;height:120px;border-radius:50%;background:var(--pink);opacity:0.1;animation:f3 7s ease-in-out infinite}
+@keyframes f1{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-18px) scale(1.03)}}
+@keyframes f2{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(14px) scale(1.04)}}
+@keyframes f3{0%,100%{transform:translate(0,0)}50%{transform:translate(12px,-20px)}}
+.sparkles{position:absolute;inset:0;pointer-events:none;z-index:2;overflow:hidden}
+.sparkle{position:absolute;font-size:clamp(14px,3vw,22px);opacity:0.55;animation:sparkleFloat 5s ease-in-out infinite}
+.sparkle:nth-child(1){left:8%;top:18%;animation-delay:0s}
+.sparkle:nth-child(2){left:22%;top:8%;animation-delay:0.7s}
+.sparkle:nth-child(3){right:18%;top:28%;animation-delay:1.2s}
+.sparkle:nth-child(4){right:8%;top:12%;animation-delay:0.3s}
+.sparkle:nth-child(5){left:45%;top:55%;animation-delay:1.8s}
+@keyframes sparkleFloat{0%,100%{transform:translateY(0) rotate(0deg) scale(1);opacity:0.45}50%{transform:translateY(-12px) rotate(15deg) scale(1.15);opacity:0.85}}
 
-.htag{display:inline-flex;align-items:center;gap:6px;background:var(--red);color:white;font-size:12px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;padding:5px 14px;border-radius:100px;border:2.5px solid var(--ink);margin-bottom:1.5rem}
-.htag::before{content:'★';font-size:10px}
-h1.big{font-size:clamp(2.6rem,8vw,5rem);font-weight:700;line-height:1.05;letter-spacing:-0.01em;margin-bottom:1.5rem;position:relative;z-index:1;color:var(--ink)}
+.htag{display:inline-flex;align-items:center;gap:6px;background:var(--red);color:white;font-size:12px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;padding:5px 14px;border-radius:100px;border:2.5px solid var(--ink);margin-bottom:1.5rem;animation:heroPop 0.65s 0.12s cubic-bezier(0.34,1.4,0.64,1) both}
+.htag::before{content:'★';font-size:10px;animation:starSpin 3s linear infinite}
+@keyframes starSpin{to{transform:rotate(360deg)}}
+h1.big,h2.big{font-size:clamp(2.6rem,8vw,5rem);font-weight:700;line-height:1.05;letter-spacing:-0.01em;margin-bottom:1.5rem;position:relative;z-index:1;color:var(--ink);animation:heroPop 0.7s 0.2s cubic-bezier(0.34,1.4,0.64,1) both}
+@keyframes heroPop{from{opacity:0;transform:translateY(16px) scale(0.96)}to{opacity:1;transform:translateY(0) scale(1)}}
 .wb{display:inline-block;animation:wb 3s ease-in-out infinite;color:var(--red)}
 @keyframes wb{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(3deg)}}
-.sub{font-size:16px;color:#555;line-height:1.75;max-width:520px;margin-bottom:2rem;font-weight:400;position:relative;z-index:1}
+.sub{font-size:16px;color:#555;line-height:1.75;max-width:520px;margin-bottom:2rem;font-weight:400;position:relative;z-index:1;animation:heroPop 0.75s 0.32s cubic-bezier(0.34,1.4,0.64,1) both}
 .sub b{color:var(--ink);font-weight:600}
 .badges{display:flex;flex-wrap:wrap;gap:8px;position:relative;z-index:1}
-.badge{font-size:13px;font-weight:500;padding:6px 14px;border-radius:100px;border:2.5px solid var(--ink);display:inline-block;transition:transform 0.2s;cursor:default}
+.badge{font-size:13px;font-weight:500;padding:6px 14px;border-radius:100px;border:2.5px solid var(--ink);display:inline-block;transition:transform 0.2s;cursor:default;animation:heroPop 0.55s cubic-bezier(0.34,1.4,0.64,1) both}
+.badge:nth-child(1){animation-delay:0.45s}.badge:nth-child(2){animation-delay:0.52s}.badge:nth-child(3){animation-delay:0.59s}.badge:nth-child(4){animation-delay:0.66s}.badge:nth-child(5){animation-delay:0.73s}.badge:nth-child(6){animation-delay:0.8s}
 .badge:hover{transform:scale(1.08) rotate(-3deg)}
 .b1{background:var(--yellow);color:var(--ink)}.b2{background:var(--blue);color:white}.b3{background:var(--green);color:var(--ink)}.b4{background:var(--purple);color:white}.b5{background:var(--pink);color:white}.b6{background:var(--orange);color:white}
 
-.name-header{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.75rem;position:relative;z-index:1}
+.name-header{display:flex;flex-wrap:wrap;gap:5px;position:relative;z-index:1}
+.name-header--nav{margin-bottom:0}
+.name-header--nav .name-letter{font-size:clamp(1.15rem,4vw,1.65rem);width:clamp(1.75rem,6vw,2.35rem);height:clamp(1.75rem,6vw,2.35rem);border-radius:10px;border-width:2.5px;box-shadow:2px 2px 0 var(--ink);animation:nlbobNav 2.2s ease-in-out infinite;cursor:pointer}
+.name-header--nav .name-letter:nth-child(1){animation-delay:0s}
+.name-header--nav .name-letter:nth-child(2){animation-delay:0.1s}
+.name-header--nav .name-letter:nth-child(3){animation-delay:0.2s}
+.name-header--nav .name-letter:nth-child(4){animation-delay:0.3s}
+.name-header--nav .name-letter:hover{transform:translate(-2px,-3px) rotate(-4deg) scale(1.12);box-shadow:4px 5px 0 var(--ink)}
+@keyframes nlbobNav{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-4px) rotate(2deg)}}
 .name-letter{font-family:var(--sans);font-size:clamp(3.5rem,12vw,7.5rem);font-weight:700;line-height:1;display:inline-flex;align-items:center;justify-content:center;width:clamp(3rem,10vw,7rem);height:clamp(3rem,10vw,7rem);border-radius:18px;border:3.5px solid var(--ink);box-shadow:4px 4px 0 var(--ink);cursor:default;transition:transform 0.15s,box-shadow 0.15s;user-select:none}
 .name-letter:hover{transform:translate(-3px,-4px) rotate(-5deg) scale(1.1);box-shadow:7px 8px 0 var(--ink)}
 .nl1{background:var(--red);color:white;animation:nlbob 2.8s ease-in-out infinite}
@@ -82,7 +116,7 @@ h1.big{font-size:clamp(2.6rem,8vw,5rem);font-weight:700;line-height:1.05;letter-
 .quick-links .qa-note{background:var(--yellow)}
 
 .ihero{padding:3rem 0 2rem;border-bottom:3px solid var(--ink)}
-.ihero h1{font-size:clamp(2rem,6vw,3.2rem);font-weight:700;letter-spacing:-0.02em;color:var(--ink);line-height:1.1;margin-bottom:0.75rem}
+.ihero h2{font-size:clamp(2rem,6vw,3.2rem);font-weight:700;letter-spacing:-0.02em;color:var(--ink);line-height:1.1;margin-bottom:0.75rem}
 .ihero p{font-size:15px;color:#777;line-height:1.7;max-width:540px}
 
 .ideas-tools{display:flex;align-items:center;justify-content:space-between;gap:0.75rem;flex-wrap:wrap;padding-top:1rem}
@@ -100,8 +134,10 @@ h1.big{font-size:clamp(2.6rem,8vw,5rem);font-weight:700;line-height:1.05;letter-
 .fb[data-f="rip"].on{background:var(--red);color:white;border-color:var(--ink)}
 
 .feed{display:flex;flex-direction:column;gap:1rem;padding:1.5rem 0 3rem}
-.ic{border:2.5px solid var(--ink);border-radius:16px;padding:1.5rem;background:white;transition:transform 0.2s,box-shadow 0.2s}
+.ic{border:2.5px solid var(--ink);border-radius:16px;padding:1.5rem;background:white;transition:transform 0.2s,box-shadow 0.2s,opacity 0.45s ease,filter 0.45s ease}
 .ic:hover{transform:translate(-2px,-3px);box-shadow:4px 5px 0 var(--ink)}
+.ic.ic-reveal{opacity:0;transform:translateY(18px) scale(0.98);filter:blur(2px)}
+.ic.ic-reveal.is-visible{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}
 .itop{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:8px}
 .ititle{font-size:18px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;line-height:1.3}
 .itag{font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:4px 12px;border-radius:100px;border:2px solid var(--ink);white-space:nowrap;flex-shrink:0}
@@ -131,13 +167,26 @@ footer{background:var(--ink);color:white;padding:3rem 0}
   nav{padding:0.75rem 1rem}.container{padding:0 1.25rem}
   .hero{padding:2.5rem 0 2rem}.about-grid{grid-template-columns:1fr}
   .nav-links a{font-size:11px;padding:5px 10px}
+  .nav-brand{width:100%;justify-content:flex-start}
+  .nav-fullname{-webkit-text-fill-color:var(--ink);background:none}
 }
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="nav-face" onclick="show('home')">👾</div>
+  <div class="nav-brand" onclick="show('home')" role="button" tabindex="0" aria-label="Go to home">
+    <div class="nav-face">👾</div>
+    <div class="nav-heading-wrap">
+      <div class="name-header name-header--nav" aria-hidden="true">
+        <span class="name-letter nl1">I</span>
+        <span class="name-letter nl2">s</span>
+        <span class="name-letter nl3">u</span>
+        <span class="name-letter nl4">m</span>
+      </div>
+      <h1 class="nav-fullname">Isum Nanomi Arachchige</h1>
+    </div>
+  </div>
   <ul class="nav-links">
     <li><a onclick="show('home')" class="active" id="nh">home</a></li>
     <li><a onclick="show('ideas')" id="ni">💡 ideas</a></li>
@@ -149,15 +198,12 @@ footer{background:var(--ink);color:white;padding:3rem 0}
 <main><div class="container">
   
   <div class="hero">
-    <div class="blob1"></div><div class="blob2"></div>
-    <div class="name-header">
-  <span class="name-letter nl1">I</span>
-  <span class="name-letter nl2">s</span>
-  <span class="name-letter nl3">u</span>
-  <span class="name-letter nl4">m</span>
-</div>
+    <div class="blob1"></div><div class="blob2"></div><div class="blob3"></div>
+    <div class="sparkles" aria-hidden="true">
+      <span class="sparkle">✦</span><span class="sparkle">✧</span><span class="sparkle">★</span><span class="sparkle">✦</span><span class="sparkle">✨</span>
+    </div>
     <div class="htag">open for chaos</div>
-    <h1 class="big">hi! i <span class="wb">try</span> to make<br>things that actually<br>help people 🛠️</h1>
+    <h2 class="big">hi! i <span class="wb">try</span> to make<br>things that actually<br>help people 🛠️</h2>
     <p class="sub">Full-time thinker, part-time exam-taker, studying Engineering at Cambridge. I spend way too much time thinking about <b>AI, health tech,</b> and anywhere technology could make someone's life genuinely easier — and not nearly enough time thinking about what's going to be on my next exam paper. This is where I dump my brain. <b>Welcome.</b></p>
     <div class="badges">
       <span class="badge b1">🎓 (definitely not typical) Engineer</span>
@@ -221,7 +267,7 @@ footer{background:var(--ink);color:white;padding:3rem 0}
 <main><div class="container">
 
   <div class="ihero">
-    <h1>The idea dump 💡</h1>
+    <h2>The idea dump 💡</h2>
     <p>Everything — shipped, in progress, stuck in my head, and dead on arrival. My notebook, made public. Filter by status or just scroll. There are a lot. I have a problem.</p>
     <div class="ideas-tools">
       <span class="count-pill" id="idea-count">Showing 0 ideas</span>
@@ -414,6 +460,12 @@ footer{background:var(--ink);color:white;padding:3rem 0}
 
 <script>
 let currentFilter = 'all';
+document.querySelector('.nav-brand')?.addEventListener('keydown', function (e) {
+  if (e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault();
+    show('home');
+  }
+});
 function show(name) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
@@ -447,6 +499,36 @@ function goToIdeas(f) {
   if (target) filter(target, f);
 }
 updateFeed();
+
+(function revealCards () {
+  const cards = document.querySelectorAll('#page-ideas .ic');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) return;
+  cards.forEach(function (el) {
+    el.classList.add('ic-reveal');
+  });
+  var io;
+  try {
+    io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) {
+            en.target.classList.add('is-visible');
+          }
+        });
+      },
+      { root: null, rootMargin: '0px 0px -40px 0px', threshold: 0.08 }
+    );
+  } catch (e) {
+    cards.forEach(function (el) {
+      el.classList.add('ic-reveal', 'is-visible');
+    });
+    return;
+  }
+  cards.forEach(function (el) {
+    io.observe(el);
+  });
+})();
 </script>
 </body>
 </html>
