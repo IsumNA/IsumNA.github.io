@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>hi.</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#FFF8EE;--ink:#1A1014;
+  --red:#FF4D4D;--blue:#4D9FFF;--yellow:#FFD93D;
+  --green:#6BCB77;--purple:#C77DFF;--pink:#FF6B9D;--orange:#FF8C42;
+  --sans:'Fredoka',sans-serif;--mono:'DM Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;overflow-x:hidden;min-height:100vh}
+
+nav{padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--ink);background:var(--yellow);position:sticky;top:0;z-index:100}
+.nav-face{width:42px;height:42px;border-radius:50%;background:var(--blue);border:3px solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:22px;cursor:pointer;transition:transform 0.2s}
+.nav-face:hover{transform:rotate(-15deg) scale(1.1)}
+.nav-links{display:flex;gap:0.5rem;list-style:none}
+.nav-links a{font-family:var(--sans);font-size:13px;font-weight:600;color:var(--ink);text-decoration:none;padding:6px 14px;border-radius:100px;border:2.5px solid var(--ink);background:white;transition:background 0.15s,transform 0.15s,color 0.15s;display:inline-block;cursor:pointer}
+.nav-links a:hover,.nav-links a.active{background:var(--ink);color:white;transform:rotate(-2deg) scale(1.05)}
+
+.container{max-width:820px;margin:0 auto;padding:0 2rem}
+.page{display:none;animation:popIn 0.4s cubic-bezier(0.34,1.4,0.64,1) both}
+.page.active{display:block}
+@keyframes popIn{from{opacity:0;transform:translateY(14px) scale(0.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+
+/* ── HOME ── */
+.hero{padding:3.5rem 0 3rem;border-bottom:3px solid var(--ink);position:relative;overflow:hidden}
+.blob1{position:absolute;right:-60px;top:-40px;width:280px;height:280px;border-radius:50%;background:var(--blue);opacity:0.14;animation:f1 6s ease-in-out infinite}
+.blob2{position:absolute;right:60px;bottom:-80px;width:190px;height:190px;border-radius:50%;background:var(--purple);opacity:0.11;animation:f2 8s ease-in-out infinite}
+@keyframes f1{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+@keyframes f2{0%,100%{transform:translateY(0)}50%{transform:translateY(14px)}}
+
+.htag{display:inline-flex;align-items:center;gap:6px;background:var(--red);color:white;font-size:12px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;padding:5px 14px;border-radius:100px;border:2.5px solid var(--ink);margin-bottom:1.5rem}
+.htag::before{content:'★';font-size:10px}
+h1.big{font-size:clamp(2.6rem,8vw,5rem);font-weight:700;line-height:1.05;letter-spacing:-0.01em;margin-bottom:1.5rem;position:relative;z-index:1;color:var(--ink)}
+.wb{display:inline-block;animation:wb 3s ease-in-out infinite;color:var(--red)}
+@keyframes wb{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(3deg)}}
+.sub{font-size:16px;color:#555;line-height:1.75;max-width:520px;margin-bottom:2rem;font-weight:400;position:relative;z-index:1}
+.sub b{color:var(--ink);font-weight:600}
+.badges{display:flex;flex-wrap:wrap;gap:8px;position:relative;z-index:1}
+.badge{font-size:13px;font-weight:500;padding:6px 14px;border-radius:100px;border:2.5px solid var(--ink);display:inline-block;transition:transform 0.2s;cursor:default}
+.badge:hover{transform:scale(1.08) rotate(-3deg)}
+.b1{background:var(--yellow);color:var(--ink)}.b2{background:var(--blue);color:white}
+.b3{background:var(--green);color:var(--ink)}.b4{background:var(--purple);color:white}.b5{background:var(--pink);color:white}
+
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;padding:2.5rem 0}
+.ac{border:2.5px solid var(--ink);border-radius:16px;padding:1.25rem;transition:transform 0.2s}
+.ac:hover{transform:rotate(-1deg) scale(1.02)}
+.ac1{background:var(--yellow)}.ac2{background:var(--blue);color:white}.ac3{background:var(--green)}.ac4{background:var(--pink);color:white}
+.alabel{font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;opacity:0.6;margin-bottom:6px}
+.aval{font-size:15px;font-weight:600;line-height:1.4;margin-bottom:4px}
+.aaside{font-family:var(--mono);font-size:11px;opacity:0.65}
+
+.cta{display:flex;align-items:center;justify-content:space-between;border:3px solid var(--ink);border-radius:20px;padding:1.75rem 2rem;background:var(--ink);color:white;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;margin-bottom:3rem}
+.cta:hover{transform:translate(-3px,-3px);box-shadow:5px 5px 0 var(--yellow)}
+.cta h2{font-size:1.5rem;font-weight:700;margin-bottom:4px}
+.cta p{font-size:13px;opacity:0.6;font-weight:400}
+.cta-arrow{font-size:2.5rem;transition:transform 0.2s}
+.cta:hover .cta-arrow{transform:translateX(6px)}
+
+/* ── IDEAS PAGE ── */
+.ihero{padding:3rem 0 2rem;border-bottom:3px solid var(--ink)}
+.ihero h1{font-size:clamp(2rem,6vw,3.2rem);font-weight:700;letter-spacing:-0.02em;color:var(--ink);line-height:1.1;margin-bottom:0.75rem}
+.ihero p{font-size:15px;color:#777;line-height:1.7;max-width:540px}
+
+.filters{display:flex;flex-wrap:wrap;gap:0.5rem;padding:1.25rem 0 1.5rem;border-bottom:2px solid var(--ink)}
+.fb{font-family:var(--sans);font-size:13px;font-weight:600;padding:6px 16px;border-radius:100px;border:2.5px solid var(--ink);background:white;color:var(--ink);cursor:pointer;transition:background 0.15s,transform 0.15s,color 0.15s}
+.fb:hover{transform:scale(1.05) rotate(-1deg)}
+.fb.on{background:var(--ink);color:white}
+.fb[data-f="shipped"].on{background:var(--green);color:var(--ink);border-color:var(--ink)}
+.fb[data-f="wip"].on{background:var(--orange);color:white;border-color:var(--ink)}
+.fb[data-f="notebook"].on{background:var(--yellow);color:var(--ink);border-color:var(--ink)}
+.fb[data-f="rip"].on{background:var(--red);color:white;border-color:var(--ink)}
+
+.feed{display:flex;flex-direction:column;gap:1rem;padding:1.5rem 0 3rem}
+
+.ic{border:2.5px solid var(--ink);border-radius:16px;padding:1.5rem;background:white;transition:transform 0.2s,box-shadow 0.2s}
+.ic:hover{transform:translate(-2px,-3px);box-shadow:4px 5px 0 var(--ink)}
+.itop{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:8px}
+.ititle{font-size:18px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;line-height:1.3}
+.itag{font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:4px 12px;border-radius:100px;border:2px solid var(--ink);white-space:nowrap;flex-shrink:0}
+.ts{background:var(--green);color:var(--ink)}
+.tw{background:var(--orange);color:white}
+.tn{background:var(--yellow);color:var(--ink)}
+.tr{background:#FFE8E8;color:var(--red)}
+
+.ibody{font-size:14px;color:#555;line-height:1.65;margin-bottom:10px}
+.ifooter{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.inote{font-family:var(--mono);font-size:11px;color:#bbb;font-style:italic}
+.pills{display:flex;flex-wrap:wrap;gap:4px}
+.pill{font-family:var(--mono);font-size:9px;padding:2px 8px;border-radius:100px;border:1.5px solid #ccc;color:#999;background:rgba(0,0,0,0.03)}
+
+.hidden{display:none!important}
+
+/* ── FOOTER ── */
+footer{background:var(--ink);color:white;padding:3rem 0}
+.fi{max-width:820px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
+.fm{font-size:clamp(1.25rem,3vw,1.75rem);font-weight:700;line-height:1.3}
+.fm span{color:var(--yellow)}
+.flinks{display:flex;gap:0.75rem;flex-wrap:wrap}
+.flinks a{font-size:13px;font-weight:600;padding:8px 16px;border-radius:100px;border:2.5px solid white;color:white;text-decoration:none;transition:background 0.15s,color 0.15s,transform 0.15s}
+.flinks a:hover{background:var(--yellow);color:var(--ink);border-color:var(--yellow);transform:scale(1.05)}
+
+@media(max-width:600px){
+  nav{padding:0.75rem 1rem}
+  .container{padding:0 1.25rem}
+  .hero{padding:2.5rem 0 2rem}
+  .about-grid{grid-template-columns:1fr}
+  .nav-links a{font-size:11px;padding:5px 10px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-face" onclick="show('home')">👾</div>
+  <ul class="nav-links">
+    <li><a onclick="show('home')" class="active" id="nh">home</a></li>
+    <li><a onclick="show('ideas')" id="ni">💡 ideas</a></li>
+  </ul>
+</nav>
+
+<!-- ══════ HOME ══════ -->
+<div class="page active" id="page-home">
+<main><div class="container">
+
+  <div class="hero">
+    <div class="blob1"></div>
+    <div class="blob2"></div>
+    <div class="htag">open for chaos</div>
+    <h1 class="big">hi! i make things<br>that <span class="wb">actually</span><br>help people 🛠️</h1>
+    <p class="sub">Engineer at Cambridge. I think about <b>AI, health tech,</b> and why good technology so often misses the people who need it most. This is where I dump my brain. Some of it's half-baked. Some might be good. <b>Welcome.</b></p>
+    <div class="badges">
+      <span class="badge b1">🎓 Cambridge Eng</span>
+      <span class="badge b2">🤖 AI nerd</span>
+      <span class="badge b3">🏸 Badminton</span>
+      <span class="badge b4">💡 Builder</span>
+      <span class="badge b5">🧠 Overthinker</span>
+    </div>
+  </div>
+
+  <div class="about-grid">
+    <div class="ac ac1">
+      <p class="alabel">Academic status</p>
+      <p class="aval">Surviving 7 Tripos papers</p>
+      <p class="aaside">send help please</p>
+    </div>
+    <div class="ac ac2">
+      <p class="alabel">Brain is full of</p>
+      <p class="aval">AI that actually helps people, not just impresses them</p>
+    </div>
+    <div class="ac ac3">
+      <p class="alabel">Sport</p>
+      <p class="aval">Competitive badminton 🏸</p>
+      <p class="aaside">yes it's a real sport</p>
+    </div>
+    <div class="ac ac4">
+      <p class="alabel">Summer plan</p>
+      <p class="aval">Build something real. Properly this time.</p>
+      <p class="aaside">no more procrastination apps (probably)</p>
+    </div>
+  </div>
+
+  <div class="cta" onclick="show('ideas')">
+    <div>
+      <h2>💡 see my ideas</h2>
+      <p>shipped things, half-baked things, dead things — all in one place</p>
+    </div>
+    <span class="cta-arrow">→</span>
+  </div>
+
+</div></main>
+</div>
+
+<!-- ══════ IDEAS ══════ -->
+<div class="page" id="page-ideas">
+<main><div class="container">
+
+  <div class="ihero">
+    <h1>The idea dump 💡</h1>
+    <p>Everything — shipped, in progress, stuck in my head, and dead on arrival. My notebook, made public. Filter by status or just scroll.</p>
+  </div>
+
+  <div class="filters">
+    <button class="fb on" data-f="all"      onclick="filter(this,'all')">all</button>
+    <button class="fb" data-f="shipped"     onclick="filter(this,'shipped')">✅ shipped</button>
+    <button class="fb" data-f="wip"         onclick="filter(this,'wip')">⚡ in progress</button>
+    <button class="fb" data-f="notebook"    onclick="filter(this,'notebook')">📓 notebook</button>
+    <button class="fb" data-f="rip"         onclick="filter(this,'rip')">💀 rip</button>
+  </div>
+
+  <div class="feed">
+
+    <!-- ── IN PROGRESS ── -->
+    <div class="ic" data-s="wip">
+      <div class="itop">
+        <p class="ititle">This website</p>
+        <span class="itag tw">⚡ in progress</span>
+      </div>
+      <p class="ibody">Somewhere to put my ideas before they disappear. Been through about 6 designs today. The goal is a living notebook — not a portfolio, not a CV. Just a place that's mine. Getting there.</p>
+      <div class="ifooter">
+        <span class="inote">🛠 currently being built</span>
+        <div class="pills"><span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JS</span></div>
+      </div>
+    </div>
+
+    <!-- ── SHIPPED ── -->
+    <div class="ic" data-s="shipped">
+      <div class="itop">
+        <p class="ititle">Tripos Revision Tracker</p>
+        <span class="itag ts">✅ shipped</span>
+      </div>
+      <p class="ibody">Cambridge exam prep tool covering all 7 IB papers. Drill mode, coverage tracking, planning tab. Built it while procrastinating from revision. The irony was not lost on me. I actually used it every day.</p>
+      <div class="ifooter">
+        <span class="inote">📚 born from desperation</span>
+        <div class="pills"><span class="pill">HTML</span><span class="pill">Vanilla JS</span></div>
+      </div>
+    </div>
+
+    <div class="ic" data-s="shipped">
+      <div class="itop">
+        <p class="ititle">Shuttle Elite</p>
+        <span class="itag ts">✅ shipped</span>
+      </div>
+      <p class="ibody">Badminton training app for my squad. Research-backed workout library, calendar logging. My friends use it, which I consider a massive personal victory.</p>
+      <div class="ifooter">
+        <span class="inote">🏸 real users: 3 (my friends)</span>
+        <div class="pills"><span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JS</span></div>
+      </div>
+    </div>
+
+    <div class="ic" data-s="shipped">
+      <div class="itop">
+        <p class="ititle">Whisper Transcriber</p>
+        <span class="itag ts">✅ shipped</span>
+      </div>
+      <p class="ibody">Long-audio transcription with automatic chunking. Built because the Whisper API has a file size limit and I needed it to just work. Classic scratch-your-own-itch build.</p>
+      <div class="ifooter">
+        <span class="inote">🎙 built because I was annoyed</span>
+        <div class="pills"><span class="pill">Python</span><span class="pill">Whisper API</span></div>
+      </div>
+    </div>
+
+    <div class="ic" data-s="shipped">
+      <div class="itop">
+        <p class="ititle">London Tube Ridership Modelling</p>
+        <span class="itag ts">✅ shipped</span>
+      </div>
+      <p class="ibody">Data pipeline for London Tube ridership — polynomial regression, periodogram, combined time series model. Did not make the Tube any faster. Sorry London.</p>
+      <div class="ifooter">
+        <span class="inote">📈 the Tube remains slow</span>
+        <div class="pills"><span class="pill">Python</span><span class="pill">NumPy</span></div>
+      </div>
+    </div>
+
+    <!-- ── NOTEBOOK ── -->
+    <div class="ic" data-s="notebook">
+      <div class="itop">
+        <p class="ititle">AI that navigates the UK benefits system for you</p>
+        <span class="itag tn">📓 notebook</span>
+      </div>
+      <p class="ibody">The system is deliberately complicated. Most people leave money on the table because they don't know what they're entitled to. A well-scoped conversational AI could genuinely help millions of people. Someone should build this. Maybe me.</p>
+      <div class="ifooter">
+        <span class="inote">☁️ still rattling around up there</span>
+      </div>
+    </div>
+
+    <div class="ic" data-s="notebook">
+      <div class="itop">
+        <p class="ititle">AI scribe for NHS clinicians</p>
+        <span class="itag tn">📓 notebook</span>
+      </div>
+      <p class="ibody">Clinicians spend a ridiculous amount of time on paperwork. Not because they want to — because the tools are awful. Ambient AI that listens and drafts notes, designed with a real doctor, not around one.</p>
+      <div class="ifooter">
+        <span class="inote">☁️ needs a clinician co-founder really</span>
+      </div>
+    </div>
+
+    <div class="ic" data-s="notebook">
+      <div class="itop">
+        <p class="ititle">Study app with a cat mascot ("Treats")</p>
+        <span class="itag tn">📓 notebook</span>
+      </div>
+      <p class="ibody">Gamified focus app — you feed a virtual cat by completing study sessions. The cat judges you when you're procrastinating. Had the name, had the mascot concept, ran out of time during exams.</p>
+      <div class="ifooter">
+        <span class="inote">🐱 waiting for summer</span>
+      </div>
+    </div>
+
+    <div class="ic" data-s="notebook">
+      <div class="itop">
+        <p class="ititle">RAG navigation for enterprise ERP software</p>
+        <span class="itag tn">📓 notebook</span>
+      </div>
+      <p class="ibody">Enterprise software is notoriously hard to navigate. What if you could just ask it in plain English where to find things? The market is real. The sales cycle is brutal. Early ideation only.</p>
+      <div class="ifooter">
+        <span class="inote">🚿 came to me in the shower</span>
+      </div>
+    </div>
+
+    <!-- ── RIP ── -->
+    <div class="ic" data-s="rip">
+      <div class="itop">
+        <p class="ititle">Badminton computer vision analytics</p>
+        <span class="itag tr">💀 rip</span>
+      </div>
+      <p class="ibody">CV to track shuttle trajectory, shot patterns, weak spots per player. Realised it needed cameras at every court, a physics engine, and 6 months free time I don't have. Tabled indefinitely.</p>
+      <div class="ifooter">
+        <span class="inote">💀 died a noble death</span>
+      </div>
+    </div>
+
+    <div class="ic" data-s="rip">
+      <div class="itop">
+        <p class="ititle">"Is my startup idea actually good?" app</p>
+        <span class="itag tr">💀 rip</span>
+      </div>
+      <p class="ibody">Trained on YC applications, pitch decks, post-mortems. Gives brutal honest feedback. Killed it when I realised nobody actually wants honest feedback on their startup idea. Sad but true.</p>
+      <div class="ifooter">
+        <span class="inote">💀 too real for this world</span>
+      </div>
+    </div>
+
+  </div>
+</div></main>
+</div>
+
+<footer>
+  <div class="fi">
+    <p class="fm">if you got this far,<br><span>let's talk 👋</span></p>
+    <div class="flinks">
+      <!-- Replace with your real email, GitHub, LinkedIn -->
+      <a href="mailto:YOUR_EMAIL">email me</a>
+      <a href="https://github.com/YOUR_USERNAME" target="_blank">github</a>
+      <a href="https://linkedin.com/in/YOUR_USERNAME" target="_blank">linkedin</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function show(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  document.getElementById('page-' + name).classList.add('active');
+  document.getElementById('n' + name[0]).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function filter(btn, f) {
+  document.querySelectorAll('.fb').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('.ic').forEach(c => {
+    c.classList.toggle('hidden', f !== 'all' && c.dataset.s !== f);
+  });
+}
+</script>
+</body>
+</html>
