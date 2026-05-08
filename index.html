@@ -186,7 +186,9 @@ h1.big,h2.big{font-size:clamp(2.6rem,8vw,5rem);font-weight:700;line-height:1.05;
 .ab-btn:hover{transform:scale(1.03);background:rgba(255,255,255,0.14)}
 .ab-btn.primary{background:var(--yellow);color:var(--ink);border-color:var(--ink)}
 
-.idea-persona-chip{display:inline-flex;align-items:center;gap:4px;font-family:var(--mono);font-size:10px;padding:4px 10px;border-radius:100px;border:2px solid var(--ink);background:rgba(255,255,255,0.85);margin-bottom:8px}
+.idea-persona-chip{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;font-family:var(--mono);font-size:10px;padding:6px 10px;border-radius:100px;border:2px solid var(--ink);background:rgba(255,255,255,0.85);margin-bottom:8px;line-height:1.35}
+.idea-persona-chip .chip-sep{opacity:0.45;font-weight:400}
+.idea-persona-chip .chip-more{font-weight:700;opacity:0.75}
 .ic-admin{display:none;flex-wrap:wrap;gap:6px;margin-top:10px}
 .idea-admin-active .ic-admin{display:flex}
 .ic-admin button{font-size:11px;font-weight:600;padding:4px 10px;border-radius:8px;border:2px solid var(--ink);background:white;cursor:pointer;font-family:inherit}
@@ -379,160 +381,160 @@ footer{background:var(--ink);color:white;padding:3rem 0}
   <div id="idea-feed-root" class="feed">
 
     <!-- SHIPPED -->
-    <div class="ic" data-s="shipped" data-k="treatly productivity social platform full-stack web accountability rewards" data-gh="https://github.com/IsumNA/Treatly">
+    <div class="ic" data-s="shipped" data-p="p-phd,p-first-year,p-alevel,p-intl-student,p-gym-beginner,p-adhd,p-entrepreneur,p-friends-uni,p-remote,p-weight,p-ldr,p-recovery,p-single-parent,p-saving,p-dry-jan,p-me" data-k="treatly productivity social platform full-stack web accountability rewards" data-gh="https://github.com/IsumNA/Treatly">
       <div class="itop"><p class="ititle">Treatly</p><span class="itag ts">✅ shipped</span></div>
       <p class="ibody skim-only"><b>What it is:</b> Social accountability app where friends stake real rewards on each other's tasks.<br><b>What shipped:</b> Working MVP — task calendar, locked reward commitments, reciprocal “give-to-receive” flows, public reliability scoring.<br><b>Role:</b> Sole builder (product + full-stack implementation). Originally built to scratch my own itch; grew into a broader user base.</p>
       <p class="ibody casual-only">Social accountability platform where friends pre-commit real rewards to each other's tasks — turning productivity into a shared, social experience. Built the full working prototype solo: task calendar, locked-reward system, give-to-receive economy, public reliability score. This one went from something i just made to stop me from procrastinating revision to a viral app</p>
       <div class="ifooter"><div class="ifooter-left"><span class="inote skim-only">Solo builder · MVP in production · actively iterating</span><span class="inote casual-only">🎁 sole technical contributor · MVP live</span><a class="gh-link" href="https://github.com/IsumNA/Treatly" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div><div class="pills"><span class="pill">Full-stack</span><span class="pill">Web</span></div></div>
     </div>
 
-    <div class="ic" data-s="shipped">
+    <div class="ic" data-s="shipped" data-p="p-phd,p-alevel,p-art-student,p-me">
       <div class="itop"><p class="ititle">Mars Lander (Cambridge coding competition runner-up)</p><span class="itag ts">✅ shipped</span></div>
       <p class="ibody">Extended Cambridge coursework into a full Mars lander simulation with voice control via sockets and TTS APIs. Came runner-up in the Cambridge Engineering competition... one of the few courseworks I actually enjoyed</p>
       <div class="ifooter"><span class="inote">🚀 runner-up · lander did not crash (mostly)</span><div class="pills"><span class="pill">C++</span><span class="pill">PID</span><span class="pill">Sockets</span><span class="pill">TTS</span></div></div>
     </div>
 
-    <div class="ic" data-s="shipped">
+    <div class="ic" data-s="shipped" data-p="p-phd,p-alevel,p-art-student,p-marathon,p-me">
       <div class="itop"><p class="ititle">Object-picking robot (Cambridge Design Project winner)</p><span class="itag ts">✅ shipped</span></div>
       <p class="ibody">Navigated a robot through a complex map to pick up and drop off reels at specific locations. Won the Cambridge Integrated Design Team Project. The robot picked things up very quickly. Was very satisfying.</p>
       <div class="ifooter"><span class="inote">🤖 winner · robot did what it was told (harder than you think)</span><div class="pills"><span class="pill">Robotics</span><span class="pill">Navigation</span></div></div>
     </div>
 
-    <div class="ic" data-s="shipped">
+    <div class="ic" data-s="shipped" data-p="p-chef,p-trades,p-remote,p-me">
       <div class="itop"><p class="ititle">Computer vision food inspector (government-funded)</p><span class="itag ts">✅ shipped</span></div>
       <p class="ibody">CV/ML solution for a government-funded project at Cambridge Sensor Innovation — detecting food properties through an industrial oven using a Raspberry Pi. Trained and deployed YOLO and TensorFlow models. Real project. Real oven. Real food.</p>
       <div class="ifooter"><span class="inote">🍕 government funded · food was inspected</span><div class="pills"><span class="pill">Python</span><span class="pill">YOLO</span><span class="pill">TensorFlow</span><span class="pill">RPi</span></div></div>
     </div>
 
-    <div class="ic" data-s="shipped">
+    <div class="ic" data-s="shipped" data-p="p-remote,p-finance,p-teacher,p-entrepreneur,p-me">
       <div class="itop"><p class="ititle">AI chatbot for data cleansing (Kaizens Group)</p><span class="itag ts">✅ shipped</span></div>
       <p class="ibody">Designed and built an AI chatbot to aid an existing data cleansing tool. Also drafted AI integration ideas across their whole platform. First proper AI internship. Learned that enterprise software is a wild place.</p>
       <div class="ifooter"><span class="inote">🤖 shipped to real users</span><div class="pills"><span class="pill">AI</span><span class="pill">Chatbot</span></div></div>
     </div>
 
-    <div class="ic" data-s="shipped">
+    <div class="ic" data-s="shipped" data-p="p-remote,p-finance,p-creator,p-entrepreneur,p-me">
       <div class="itop"><p class="ititle">Automated content report script</p><span class="itag ts">✅ shipped</span></div>
       <p class="ibody">AI-driven script that scrapes videos via Apify APIs and extracts structured data for automated reporting. Built and deployed in under a month at Just Understanding Data. Fast turnaround, actually worked. Very short term side contract for company</p>
       <div class="ifooter"><span class="inote">📊 shipped in under a month</span><div class="pills"><span class="pill">Python</span><span class="pill">Apify</span><span class="pill">AI</span></div></div>
     </div>
 
-    <div class="ic" data-s="shipped">
+    <div class="ic" data-s="shipped" data-p="p-remote,p-gamer,p-night-owl,p-creator,p-me">
       <div class="itop"><p class="ititle">Voice-activated AI assistant</p><span class="itag ts">✅ shipped</span></div>
       <p class="ibody">Real-time voice assistant using LiveKit and OpenAI — speech-to-text, text-to-speech, voice activity detection, and custom AI functions like multi-zone temperature control. Mainly me messing around with livekit to be honest.</p>
       <div class="ifooter"><span class="inote">🎙 "jarvis from temu"</span><div class="pills"><span class="pill">Python</span><span class="pill">LiveKit</span><span class="pill">OpenAI</span></div></div>
     </div>
 
-    <div class="ic" data-s="shipped">
+    <div class="ic" data-s="shipped" data-p="p-gym-beginner,p-weight,p-marathon,p-tired,p-recovery,p-me">
       <div class="itop"><p class="ititle">Virtual fitness trainer</p><span class="itag ts">✅ shipped</span></div>
       <p class="ibody">Tracks exercise reps in real time using your camera via OpenCV. Counts your reps. Judges your form silently. Full normalised database for food diary, session times, health stats. Compsci coursework and done so long ago i wasnt mature enough to use github (still not mature enough clearly)</p>
       <div class="ifooter"><span class="inote">💪 it counts reps. I do not.</span><div class="pills"><span class="pill">Python</span><span class="pill">OpenCV</span><span class="pill">SQL</span></div></div>
     </div>
 
-    <div class="ic" data-s="shipped">
+    <div class="ic" data-s="shipped" data-p="p-marathon,p-gym-beginner,p-life-change,p-me">
       <div class="itop"><p class="ititle">Badminton shuttlecock feeding machine</p><span class="itag ts">✅ shipped</span></div>
       <p class="ibody">Arduino-powered device that launches shuttlecocks at controllable speed using a potentiometer and motor drivers. C++ in Arduino IDE. The machine is real. It launched things. It's great. Simple but effective...</p>
       <div class="ifooter"><span class="inote">🏸 hardware · actually launches shuttles</span><div class="pills"><span class="pill">Arduino</span><span class="pill">C++</span><span class="pill">Hardware</span></div></div>
     </div>
 
     <!-- IN PROGRESS -->
-    <div class="ic" data-s="wip" data-k="tripos revision cambridge exam prep planner drill javascript">
+    <div class="ic" data-s="wip" data-p="p-phd,p-alevel,p-intl-student,p-tired,p-adhd,p-first-year,p-me" data-k="tripos revision cambridge exam prep planner drill javascript">
       <div class="itop"><p class="ititle">Tripos Revision Tracker</p><span class="itag tw">⚡ in progress</span></div>
       <p class="ibody">Cambridge exam prep tool covering all 7 IB papers. Drill mode, coverage tracking, planning tab. Built it while procrastinating from revision — the irony is fully understood. Actively used daily. Slightly too feature-rich for something that should've been a spreadsheet. Definitely not spending more time building the app than actually using the app to revise. Not at all. I love revision...</p>
       <div class="ifooter"><span class="inote">📚 being improved / used / over-engineered</span><div class="pills"><span class="pill">HTML</span><span class="pill">Vanilla JS</span></div></div>
     </div>
 
-    <div class="ic" data-s="wip" data-k="website portfolio html css js github pages personal site" data-gh="https://github.com/IsumNA/IsumNA.github.io">
+    <div class="ic" data-s="wip" data-p="p-entrepreneur,p-creator,p-art-student,p-me" data-k="website portfolio html css js github pages personal site" data-gh="https://github.com/IsumNA/IsumNA.github.io">
       <div class="itop"><p class="ititle">This website</p><span class="itag tw">⚡ in progress</span></div>
       <p class="ibody">Somewhere to put my ideas before they get washed away by 1000 more. Living idea scrapbook — not a portfolio, not a CV. Just a place that's mine. It's been through approximately 8 designs today.</p>
       <div class="ifooter"><div class="ifooter-left"><span class="inote">🛠 you're literally on it right now</span><a class="gh-link" href="https://github.com/IsumNA/IsumNA.github.io" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div><div class="pills"><span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JS</span></div></div>
     </div>
 
-    <div class="ic" data-s="notebook">
+    <div class="ic" data-s="notebook" data-p="p-junior-doctor,p-tired,p-single-parent,p-life-change,p-me">
       <div class="itop"><p class="ititle">AI scribe for NHS clinicians</p><span class="itag tn">📓 notebook</span></div>
       <p class="ibody">Clinicians spend a ridiculous amount of time on paperwork. Not because they want to — because the tools are awful. Ambient AI that listens and drafts notes, designed with a real doctor, not around one.</p>
       <div class="ifooter"><span class="inote">☁️ needs a clinician co-founder because I am definitely no medic...</span></div>
     </div>
 
-    <div class="ic" data-s="notebook">
+    <div class="ic" data-s="notebook" data-p="p-intl-student,p-alevel,p-parent-teen,p-saving,p-me">
       <div class="itop"><p class="ititle">Online AI doctor — light triage tool</p><span class="itag tn">📓 notebook</span></div>
       <p class="ibody">Not a replacement for a GP. Just a useful tool for when you want a light check before waiting weeks for an appointment. Train on clinician-verified images. Answers the "should I actually be worried?" question.</p>
       <div class="ifooter"><span class="inote">🏥 not medical advice. please see a doctor.</span></div>
     </div>
 
-    <div class="ic" data-s="notebook">
+    <div class="ic" data-s="notebook" data-p="p-retired,p-tired,p-marathon,p-life-change,p-me">
       <div class="itop"><p class="ititle">Audio navigation support for blind people</p><span class="itag tn">📓 notebook</span></div>
       <p class="ibody">Real-time hazard detection — crosswalks, obstacles, vehicles — with audio navigation guidance. CV that actually makes a meaningful difference to someone's daily life. This one I keep coming back to.</p>
       <div class="ifooter"><span class="inote">♿ accessibility matters</span></div>
     </div>
 
-    <div class="ic" data-s="notebook">
+    <div class="ic" data-s="notebook" data-p="p-art-student,p-intl-student,p-weight,p-single-parent,p-me">
       <div class="itop"><p class="ititle">Clothes emulator for online shopping</p><span class="itag tn">📓 notebook</span></div>
       <p class="ibody">AI that scans your body proportions and finds clothes that actually fit your shape and size. The preview-on-body thing exists but it's bad. The "find things that fit YOU specifically" part doesn't really exist yet.</p>
       <div class="ifooter"><span class="inote">👗 the fitting room, but make it AI</span></div>
     </div>
 
-    <div class="ic" data-s="notebook">
+    <div class="ic" data-s="notebook" data-p="p-art-student,p-newly-single,p-creator,p-me">
       <div class="itop"><p class="ititle">Haircut simulator + barber prompt generator</p><span class="itag tn">📓 notebook</span></div>
       <p class="ibody">Preview different haircuts on your actual face. Then generate the exact words you should say to your barber. Solves two problems: indecision, and the classic "show them a picture and hope for the best" approach.</p>
       <div class="ifooter"><span class="inote">✂️ the barber prompt is the real innovation</span></div>
     </div>
 
-    <div class="ic" data-s="notebook">
+    <div class="ic" data-s="notebook" data-p="p-first-year,p-declutter,p-life-change,p-saving,p-me">
       <div class="itop"><p class="ititle">Room design AR app</p><span class="itag tn">📓 notebook</span></div>
       <p class="ibody">Take a picture of your room, sketch a rough layout, and AI overlays furniture in augmented reality. Like IKEA's app but actually good and not limited to IKEA furniture.</p>
       <div class="ifooter"><span class="inote">🛋 IKEA place but useful</span></div>
     </div>
 
-    <div class="ic" data-s="notebook">
+    <div class="ic" data-s="notebook" data-p="p-remote,p-finance,p-teacher,p-creator,p-entrepreneur,p-me">
       <div class="itop"><p class="ititle">Meeting AI — live feedback and summariser</p><span class="itag tn">📓 notebook</span></div>
       <p class="ibody">Listens to meetings. Provides summaries, key actions, and — the interesting bit — live feedback suggesting when to expand on a point or when something hasn't been covered. Silent co-pilot for every call.</p>
       <div class="ifooter"><span class="inote">📝 the meeting that summarises itself</span></div>
     </div>
 
-    <div class="ic" data-s="notebook">
+    <div class="ic" data-s="notebook" data-p="p-retired,p-life-change,p-parent-teen,p-single-parent,p-me">
       <div class="itop"><p class="ititle">Gardener app — plant identifier and health tracker</p><span class="itag tn">📓 notebook</span></div>
       <p class="ibody">Detect types of flowers and weeds from a photo. Give health status — water level, disease, growth stage. Basically Shazam for plants that also tells you they're dying.</p>
       <div class="ifooter"><span class="inote">🌸 your plant is probably thirsty</span></div>
     </div>
 
-    <div class="ic" data-s="notebook">
+    <div class="ic" data-s="notebook" data-p="p-chef,p-first-year,p-saving,p-single-parent,p-intl-student,p-me">
       <div class="itop"><p class="ititle">AI cooking tool — what can I make with this?</p><span class="itag tn">📓 notebook</span></div>
       <p class="ibody">Scan your fridge, upload a grocery list, photograph your kitchen. Get recipes you can actually make right now. Exists elsewhere in basic form — nobody has nailed the UX yet.</p>
       <div class="ifooter"><span class="inote">🍳 solving "what do I cook" paralysis</span></div>
     </div>
 
-    <div class="ic" data-s="notebook">
+    <div class="ic" data-s="notebook" data-p="p-marathon,p-traveler,p-tired,p-life-change,p-me">
       <div class="itop"><p class="ititle">Cyclist rear-vehicle safety system</p><span class="itag tn">📓 notebook</span></div>
       <p class="ibody">Rear vehicle detection for cyclists with haptic feedback — vibrations and audio alerts when vehicles overtake dangerously. CV on a small device mounted to a bike. This one could genuinely save lives.</p>
       <div class="ifooter"><span class="inote">🚴 safety first</span></div>
     </div>
 
-    <div class="ic" data-s="notebook">
+    <div class="ic" data-s="notebook" data-p="p-creator,p-marathon,p-friends-uni,p-traveler,p-me">
       <div class="itop"><p class="ititle">Virtual AI sports commentary for small events</p><span class="itag tn">📓 notebook</span></div>
       <p class="ibody">Commentary is too expensive for small sporting events. AI commentator using match stats and real-time video. Local football leagues, school matches, amateur badminton tournaments — they all deserve commentary.</p>
       <div class="ifooter"><span class="inote">🎙 "and he shoots... the AI describes it"</span></div>
     </div>
 
     <!-- RIP -->
-    <div class="ic" data-s="rip">
+    <div class="ic" data-s="rip" data-p="p-marathon,p-creator,p-gamer,p-me">
       <div class="itop"><p class="ititle">Badminton computer vision analytics</p><span class="itag tr">💀 rip</span></div>
       <p class="ibody">CV to track shuttle trajectory, shot patterns, weak spots. Needed cameras at every court, a physics engine, and 6 months free time. The shuttle moves too fast and so does my life apparently.</p>
       <div class="ifooter"><span class="inote">💀 the shuttle was too fast</span></div>
     </div>
 
-    <div class="ic" data-s="rip">
+    <div class="ic" data-s="rip" data-p="p-entrepreneur,p-life-change,p-saving,p-trades,p-me">
       <div class="itop"><p class="ititle">Litter-picking drone</p><span class="itag tr">💀 rip</span></div>
       <p class="ibody">Drone that identifies rubbish, locates nearby bins, and cleans up streets using ML. Genuinely great idea. Killed by: drone regulations, cost, and the fact that I don't own a drone.</p>
       <div class="ifooter"><span class="inote">💀 streets remain dirty</span></div>
     </div>
 
-    <div class="ic" data-s="rip">
+    <div class="ic" data-s="rip" data-p="p-teacher,p-retired,p-declutter,p-me">
       <div class="itop"><p class="ititle">Library robot — book finder and sorter</p><span class="itag tr">💀 rip</span></div>
       <p class="ibody">Scans book titles, identifies section locations, sorts accordingly. Died when I realised libraries already have systems for this and getting access to a library robot is harder than it sounds.</p>
       <div class="ifooter"><span class="inote">💀 the librarian was not interested</span></div>
     </div>
 
-    <div class="ic" data-s="rip">
+    <div class="ic" data-s="rip" data-p="p-art-student,p-gamer,p-entrepreneur,p-me">
       <div class="itop"><p class="ititle">3D printer holographic preview</p><span class="itag tr">💀 rip</span></div>
       <p class="ibody">Preview real-life scale 3D prints before printing, using holograms. Extremely cool idea. Also requires hologram hardware that doesn't really exist at consumer level yet. Shelved pending the future.</p>
       <div class="ifooter"><span class="inote">💀 awaiting hologram technology</span></div>
@@ -558,8 +560,10 @@ footer{background:var(--ink);color:white;padding:3rem 0}
   <div class="modal-panel" onclick="event.stopPropagation()">
     <h3 id="modal-idea-title">Add idea</h3>
     <input type="hidden" id="mi-edit-id" value="">
-    <label for="mi-persona">Persona</label>
+    <label for="mi-persona">Primary persona</label>
     <select id="mi-persona"></select>
+    <label for="mi-persona-more">Also tag (optional — comma-separated ids, e.g. p-adhd,p-saving)</label>
+    <input id="mi-persona-more" type="text" placeholder="p-remote, p-creator" autocomplete="off">
     <label for="mi-status">Status</label>
     <select id="mi-status">
       <option value="shipped">shipped</option>
@@ -621,13 +625,40 @@ const ADMIN_CONFIG = Object.freeze({
 });
 
 const DEFAULT_PERSONAS = [
-  { id: 'p-me', emoji: '🙂', name: 'General / me', tagline: 'Default bucket for ideas', hue: '#FFD93D' },
-  { id: 'p-senior', emoji: '🧓', name: 'Grace, early 80s', tagline: 'Big text · simple flows · trust', hue: '#FF6B9D' },
-  { id: 'p-student', emoji: '🎒', name: 'Cambridge student', tagline: 'Time-poor · budget · calendar brain', hue: '#4D9FFF' },
-  { id: 'p-badminton', emoji: '🏸', name: 'Club badminton player', tagline: 'Training load · travel · stats', hue: '#6BCB77' },
-  { id: 'p-cyclist', emoji: '🚴', name: 'Cyclist in Cambridge', tagline: 'Commute · rain · bike theft angst', hue: '#C77DFF' },
-  { id: 'p-founder', emoji: '🧢', name: 'Indie hacker', tagline: 'Ship fast · distribution · focus', hue: '#FF8C42' },
-  { id: 'p-clinician', emoji: '⚕️', name: 'Time-pressed clinician', tagline: 'Notes · safety · less admin', hue: '#FFE8E8' },
+  { id: 'p-me', emoji: '🙂', name: 'General / me', tagline: 'Everything else lands here', hue: '#FFD93D' },
+  { id: 'p-phd', emoji: '🎓', name: 'PhD student', tagline: 'Deadlines · isolation · imposter syndrome', hue: '#4D9FFF' },
+  { id: 'p-first-year', emoji: '🏠', name: 'First year uni, living alone', tagline: 'No structure · no one watching', hue: '#9dd4ff' },
+  { id: 'p-alevel', emoji: '📚', name: 'A-level student', tagline: 'Parental pressure · revision guilt', hue: '#6BCB77' },
+  { id: 'p-intl-student', emoji: '🌍', name: 'International student', tagline: 'Homesick · new habits · new country', hue: '#C77DFF' },
+  { id: 'p-art-student', emoji: '🎨', name: 'Art / music student', tagline: 'Self-directed · no fixed schedule', hue: '#FF6B9D' },
+  { id: 'p-junior-doctor', emoji: '💼', name: 'Junior doctor', tagline: 'Shifts · exhausted · fragile routine', hue: '#FFE8E8' },
+  { id: 'p-remote', emoji: '🧑‍💻', name: 'Remote worker', tagline: 'No work/home boundary', hue: '#b8e0ff' },
+  { id: 'p-finance', emoji: '📈', name: 'Early career finance', tagline: 'Long hours · performance anxiety', hue: '#d4edda' },
+  { id: 'p-teacher', emoji: '🧑‍🏫', name: 'Teacher', tagline: 'Marking guilt · evenings disappear', hue: '#ffd6e8' },
+  { id: 'p-trades', emoji: '🏗️', name: 'Tradesperson', tagline: 'Physical day job · side income dreams', hue: '#e8dcc4' },
+  { id: 'p-chef', emoji: '🧑‍🍳', name: 'Chef', tagline: 'Antisocial hours · odd rhythm', hue: '#ffb4a2' },
+  { id: 'p-creator', emoji: '🎙️', name: 'Content creator', tagline: 'Self-employed · no accountability structure', hue: '#cdb4db' },
+  { id: 'p-gym-beginner', emoji: '🏋️', name: 'Gym beginner', tagline: 'Needs someone to hold them to it', hue: '#98f5e1' },
+  { id: 'p-recovery', emoji: '🧘', name: 'Person in recovery', tagline: 'Sobriety · mental health · daily check-ins', hue: '#a8dadc' },
+  { id: 'p-marathon', emoji: '🏃', name: 'Marathon trainee', tagline: 'Long plans · external motivation', hue: '#f4a261' },
+  { id: 'p-weight', emoji: '⚖️', name: 'Trying to lose weight', tagline: 'Accountability without shame', hue: '#e9c46a' },
+  { id: 'p-tired', emoji: '😴', name: 'Chronically tired', tagline: 'ADHD · sleep · executive function', hue: '#ccd5ae' },
+  { id: 'p-parent-teen', emoji: '👨‍👩‍👧', name: 'Parent of a teenager', tagline: 'Motivate without nagging', hue: '#ffc8dd' },
+  { id: 'p-ldr', emoji: '💑', name: 'Long distance couple', tagline: 'Shared goals across timezones', hue: '#ffafcc' },
+  { id: 'p-retired', emoji: '👴', name: 'Retired person', tagline: 'Structure gone · wants purpose', hue: '#bde0fe' },
+  { id: 'p-friends-uni', emoji: '🧑‍🤝‍🧑', name: 'Best friends at different unis', tagline: 'Stay connected through goals', hue: '#a2d2ff' },
+  { id: 'p-single-parent', emoji: '👩‍👦', name: 'Single parent', tagline: 'Time-poor · needs wins', hue: '#ffddd2' },
+  { id: 'p-life-change', emoji: '🌱', name: 'Big life change', tagline: 'Career switch · moving city', hue: '#d8f3dc' },
+  { id: 'p-saving', emoji: '💸', name: 'Trying to save money', tagline: 'No-spend · financial goals', hue: '#fefae0' },
+  { id: 'p-detox', emoji: '📵', name: 'Digital detox', tagline: 'Less time on phone', hue: '#e0e1dd' },
+  { id: 'p-adhd', emoji: '🧠', name: 'ADHD person', tagline: 'External accountability · rewards help', hue: '#ffcfd2' },
+  { id: 'p-entrepreneur', emoji: '🎯', name: 'Entrepreneur pre-launch', tagline: 'Building alone · no team', hue: '#ff9f1c' },
+  { id: 'p-declutter', emoji: '📦', name: 'Decluttering', tagline: 'One task a day · needs a push', hue: '#dda15e' },
+  { id: 'p-traveler', emoji: '✈️', name: 'Frequent traveller', tagline: 'Routine always disrupted', hue: '#8ecae6' },
+  { id: 'p-night-owl', emoji: '🌙', name: 'Night owl fixing sleep', tagline: 'Wants a morning routine', hue: '#c4b5fd' },
+  { id: 'p-dry-jan', emoji: '🍺', name: 'Dry January / challenge months', tagline: 'Public commitment helps', hue: '#90e0ef' },
+  { id: 'p-newly-single', emoji: '💔', name: 'Newly single', tagline: 'Rebuilding habits & identity', hue: '#f8ad9d' },
+  { id: 'p-gamer', emoji: '🎮', name: 'Gamer + productivity', tagline: 'Balance games with real life', hue: '#9381ff' },
 ];
 
 const STATUS_TAG = {
@@ -694,7 +725,25 @@ function loadPersonas () {
       return d;
     }
     const p = JSON.parse(raw);
-    if (Array.isArray(p) && p.length) return p;
+    if (!Array.isArray(p) || !p.length) {
+      const d = cloneDefaults();
+      localStorage.setItem(BOARD.LS_PERSONAS, JSON.stringify(d));
+      return d;
+    }
+    const have = {};
+    p.forEach(function (x) {
+      if (x && x.id) have[x.id] = true;
+    });
+    let changed = false;
+    DEFAULT_PERSONAS.forEach(function (d) {
+      if (!have[d.id]) {
+        p.push({ id: d.id, emoji: d.emoji, name: d.name, tagline: d.tagline, hue: d.hue });
+        have[d.id] = true;
+        changed = true;
+      }
+    });
+    if (changed) localStorage.setItem(BOARD.LS_PERSONAS, JSON.stringify(p));
+    return p;
   } catch (e) {}
   const d = cloneDefaults();
   try {
@@ -770,6 +819,36 @@ function personaById (id) {
   });
 }
 
+function parsePersonaIds (s) {
+  return String(s || 'p-me')
+    .split(',')
+    .map(function (x) {
+      return x.trim();
+    })
+    .filter(Boolean);
+}
+
+function personaChipHtml (personaIdStr) {
+  const ids = parsePersonaIds(personaIdStr);
+  if (!ids.length) return '';
+  const parts = ids.slice(0, 4).map(function (id) {
+    const p = personaById(id);
+    if (!p) return '';
+    return (
+      '<span title="' +
+      escapeHtml(p.tagline || '') +
+      '">' +
+      escapeHtml(p.emoji || '') +
+      ' ' +
+      escapeHtml(p.name || '') +
+      '</span>'
+    );
+  }).filter(Boolean);
+  let inner = parts.join('<span class="chip-sep"> · </span>');
+  if (ids.length > 4) inner += ' <span class="chip-more">+' + (ids.length - 4) + '</span>';
+  return '<div class="idea-persona-chip">' + inner + '</div>';
+}
+
 function renderPersonaStrip () {
   const wrap = document.getElementById('persona-strip');
   if (!wrap) return;
@@ -822,8 +901,19 @@ function tagLegacyIdeas () {
   });
 }
 
+function injectStaticPersonaChips () {
+  document.querySelectorAll('#idea-feed-root .ic:not([data-dynamic])').forEach(function (el) {
+    if (el.querySelector(':scope > .idea-persona-chip')) return;
+    const pid = el.getAttribute('data-p');
+    if (!pid) return;
+    const wrap = document.createElement('div');
+    wrap.innerHTML = personaChipHtml(pid);
+    const chip = wrap.firstElementChild;
+    if (chip) el.insertBefore(chip, el.firstChild);
+  });
+}
+
 function buildDynamicCard (idea) {
-  const p = personaById(idea.personaId) || { emoji: '🙂', name: 'persona' };
   const st = STATUS_TAG[idea.status] || STATUS_TAG.notebook;
   const pillsHtml = ((idea.pills && idea.pills) || [])
     .map(function (t) {
@@ -852,11 +942,7 @@ function buildDynamicCard (idea) {
     '" data-p="' +
     escapeHtml(idea.personaId || 'p-me') +
     '">' +
-    '<div class="idea-persona-chip">' +
-    escapeHtml(p.emoji || '') +
-    ' ' +
-    escapeHtml(p.name || '') +
-    '</div>' +
+    personaChipHtml(idea.personaId || 'p-me') +
     '<div class="itop"><p class="ititle">' +
     escapeHtml(idea.title) +
     '</p>' +
@@ -890,11 +976,15 @@ function renderDynamicIdeas () {
     wrap.innerHTML = buildDynamicCard(idea).trim();
     const node = wrap.firstElementChild;
     if (node) {
-      var pk = personaById(idea.personaId);
-      var pname = pk ? pk.name : '';
+      var pnames = parsePersonaIds(idea.personaId)
+        .map(function (pid) {
+          var pk = personaById(pid);
+          return pk ? pk.name + ' ' + (pk.tagline || '') : '';
+        })
+        .join(' ');
       node.setAttribute(
         'data-k',
-        [idea.title, idea.body, idea.note || '', idea.ghUrl || '', (idea.pills || []).join(' '), pname].join(' '),
+        [idea.title, idea.body, idea.note || '', idea.ghUrl || '', (idea.pills || []).join(' '), pnames].join(' '),
       );
       root.prepend(node);
     }
@@ -932,9 +1022,31 @@ function fillPersonaSelect (sel) {
   loadPersonas().forEach(function (p) {
     const o = document.createElement('option');
     o.value = p.id;
-    o.textContent = (p.emoji ? p.emoji + ' ' : '') + p.name;
+    o.textContent = (p.emoji ? p.emoji + ' ' : '') + p.name + ' (' + p.id + ')';
     sel.appendChild(o);
   });
+}
+
+function normalizePersonaIdString (primary, moreStr) {
+  const valid = {};
+  loadPersonas().forEach(function (p) {
+    valid[p.id] = true;
+  });
+  const out = [];
+  function push (id) {
+    id = String(id || '')
+      .trim()
+      .replace(/^,+|,+$/g, '');
+    if (id && valid[id] && out.indexOf(id) < 0) out.push(id);
+  }
+  push(primary);
+  String(moreStr || '')
+    .split(',')
+    .forEach(function (x) {
+      push(x.trim());
+    });
+  if (!out.length) push('p-me');
+  return out.join(',');
 }
 
 function openIdeaModal (existing) {
@@ -948,11 +1060,15 @@ function openIdeaModal (existing) {
     : currentPersona !== 'all'
       ? currentPersona
       : 'p-me';
+  const ids = parsePersonaIds(pid);
+  var firstPid = ids[0] || 'p-me';
   document.getElementById('mi-persona').value = loadPersonas().some(function (p) {
-    return p.id === pid;
+    return p.id === firstPid;
   })
-    ? pid
+    ? firstPid
     : 'p-me';
+  var moreEl = document.getElementById('mi-persona-more');
+  if (moreEl) moreEl.value = ids.slice(1).join(', ');
   document.getElementById('mi-status').value = (existing && existing.status) || 'notebook';
   document.getElementById('mi-title').value = (existing && existing.title) || '';
   document.getElementById('mi-body').value = (existing && existing.body) || '';
@@ -987,7 +1103,10 @@ function closePersonaModal () {
 
 function saveIdeaFromModal () {
   const idEdit = document.getElementById('mi-edit-id').value.trim();
-  const personaId = document.getElementById('mi-persona').value;
+  const personaId = normalizePersonaIdString(
+    document.getElementById('mi-persona').value,
+    document.getElementById('mi-persona-more')?.value || '',
+  );
   const status = document.getElementById('mi-status').value;
   const title = document.getElementById('mi-title').value.trim();
   const body = document.getElementById('mi-body').value.trim();
@@ -1016,7 +1135,15 @@ function saveIdeaFromModal () {
       ideas[ix].note = note || '';
       ideas[ix].pills = pills;
       ideas[ix].ghUrl = ghUrl || '';
-      ideas[ix].keywords = pills.join(' ');
+      ideas[ix].keywords =
+        pills.join(' ') +
+        ' ' +
+        parsePersonaIds(personaId)
+          .map(function (id) {
+            const pk = personaById(id);
+            return pk ? pk.name + ' ' + (pk.tagline || '') : '';
+          })
+          .join(' ');
     }
   } else {
     ideas.push({
@@ -1028,7 +1155,15 @@ function saveIdeaFromModal () {
       note: note || '',
       pills: pills,
       ghUrl: ghUrl || '',
-      keywords: pills.join(' '),
+      keywords:
+        pills.join(' ') +
+        ' ' +
+        parsePersonaIds(personaId)
+          .map(function (id) {
+            const pk = personaById(id);
+            return pk ? pk.name + ' ' + (pk.tagline || '') : '';
+          })
+          .join(' '),
       createdAt: Date.now(),
     });
   }
@@ -1113,8 +1248,8 @@ function updateFeed () {
   let visible = 0;
   document.querySelectorAll('#idea-feed-root .ic').forEach(function (c) {
     const statusOk = currentFilter === 'all' || c.dataset.s === currentFilter;
-    const personaId = c.dataset.p || 'p-me';
-    const personaOk = currentPersona === 'all' || personaId === currentPersona;
+    const personaIds = parsePersonaIds(c.getAttribute('data-p') || c.dataset.p || 'p-me');
+    const personaOk = currentPersona === 'all' || personaIds.indexOf(currentPersona) >= 0;
     const cardText = (c.innerText + ' ' + (c.dataset.k || '')).toLowerCase();
     const searchOk = !q || cardText.includes(q);
     const showCard = statusOk && personaOk && searchOk;
@@ -1163,6 +1298,7 @@ function initBoard () {
   loadPersonas();
   renderPersonaStrip();
   tagLegacyIdeas();
+  injectStaticPersonaChips();
   renderDynamicIdeas();
   revealLegacyCards();
   applyAdminUi();
