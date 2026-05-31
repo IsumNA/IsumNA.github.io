@@ -35,10 +35,6 @@ nav::after{content:'';position:absolute;left:0;right:0;bottom:-3px;height:3px;ba
 .nav-links{display:flex;gap:0.5rem;list-style:none;flex-shrink:0}
 .nav-links a{font-family:var(--sans);font-size:14px;font-weight:700;color:var(--ink);text-decoration:none;padding:8px 16px;border-radius:100px;border:2.5px solid var(--ink);background:white;transition:background 0.15s,transform 0.15s,color 0.15s;display:inline-block;cursor:pointer}
 .nav-links a:hover,.nav-links a.active{background:var(--ink);color:white;transform:rotate(-2deg) scale(1.05)}
-.voice-toggle{font-family:var(--sans);font-size:12px;font-weight:700;padding:7px 12px;border-radius:100px;border:2.5px solid var(--ink);background:rgba(255,255,255,0.95);color:var(--ink);cursor:pointer;transition:transform 0.15s,background 0.15s;white-space:nowrap}
-.voice-toggle:hover{transform:scale(1.04);background:white}
-.voice-toggle[aria-pressed="true"]{background:var(--ink);color:white}
-
 body:not(.voice-casual) .casual-only{display:none!important}
 body.voice-casual .skim-only{display:none!important}
 
@@ -162,8 +158,6 @@ h1.big,h2.big{font-size:clamp(2.6rem,8vw,5rem);font-weight:700;line-height:1.05;
 .inote{font-family:var(--mono);font-size:11px;color:#bbb;font-style:italic}
 .pills{display:flex;flex-wrap:wrap;gap:4px}
 .pill{font-family:var(--mono);font-size:9px;padding:2px 8px;border-radius:100px;border:1.5px solid #ccc;color:#999;background:rgba(0,0,0,0.03)}
-.gh-link{font-family:var(--mono);font-size:11px;text-decoration:none;color:var(--ink);padding:5px 10px;border-radius:10px;border:2px solid var(--ink);background:var(--blue);color:white;transition:transform 0.15s}
-.gh-link:hover{transform:translate(-1px,-1px)}
 .hidden{display:none!important}
 
 .persona-section{padding:0 0 1.25rem;border-bottom:2px solid var(--ink)}
@@ -241,7 +235,6 @@ footer{background:var(--ink);color:white;padding:3rem 0}
     </div>
   </div>
   <ul class="nav-links">
-    <li><button type="button" class="voice-toggle" id="voiceToggle" aria-pressed="false" title="Switch between investor-friendly skim and full personality">Full voice</button></li>
     <li><a onclick="show('home')" class="active" id="nh">home</a></li>
     <li><a onclick="show('ideas')" id="ni">ideas</a></li>
   </ul>
@@ -267,7 +260,7 @@ footer{background:var(--ink);color:white;padding:3rem 0}
       <li><b>Focus</b> — turning messy real-world problems into working software; comfortable owning product + implementation.</li>
     </ul>
     <p class="sub casual-only">Full-time thinker, part-time exam-taker, studying Engineering at Cambridge. I spend way too much time thinking about <b>AI, health tech,</b> and anywhere technology could make someone's life genuinely easier — and not nearly enough time thinking about what's going to be on my next exam paper. This is where I dump my brain. <b>Welcome.</b></p>
-    <p class="sub skim-only" style="margin-top:-0.5rem">Open to ambitious projects and teams. Use <b>Full voice</b> in the nav if you want the less filtered version of this page.</p>
+    <p class="sub skim-only" style="margin-top:-0.5rem">Open to ambitious projects and teams.</p>
     <div class="badges">
       <span class="badge b1 skim-only">Cambridge Engineering</span>
       <span class="badge b2 skim-only">AI / ML &amp; full-stack</span>
@@ -381,11 +374,11 @@ footer{background:var(--ink);color:white;padding:3rem 0}
   <div id="idea-feed-root" class="feed">
 
     <!-- SHIPPED -->
-    <div class="ic" data-s="shipped" data-p="p-phd,p-first-year,p-alevel,p-intl-student,p-gym-beginner,p-adhd,p-entrepreneur,p-friends-uni,p-remote,p-weight,p-ldr,p-recovery,p-single-parent,p-saving,p-dry-jan,p-me" data-k="treatly productivity social platform full-stack web accountability rewards" data-gh="https://github.com/IsumNA/Treatly">
+    <div class="ic" data-s="shipped" data-p="p-phd,p-first-year,p-alevel,p-intl-student,p-gym-beginner,p-adhd,p-entrepreneur,p-friends-uni,p-remote,p-weight,p-ldr,p-recovery,p-single-parent,p-saving,p-dry-jan,p-me" data-k="treatly productivity social platform full-stack web accountability rewards">
       <div class="itop"><p class="ititle">Treatly</p><span class="itag ts">✅ shipped</span></div>
       <p class="ibody skim-only"><b>What it is:</b> Social accountability app where friends stake real rewards on each other's tasks.<br><b>What shipped:</b> Working MVP — task calendar, locked reward commitments, reciprocal “give-to-receive” flows, public reliability scoring.<br><b>Role:</b> Sole builder (product + full-stack implementation). Originally built to scratch my own itch; grew into a broader user base.</p>
       <p class="ibody casual-only">Social accountability platform where friends pre-commit real rewards to each other's tasks — turning productivity into a shared, social experience. Built the full working prototype solo: task calendar, locked-reward system, give-to-receive economy, public reliability score. This one went from something i just made to stop me from procrastinating revision to a viral app</p>
-      <div class="ifooter"><div class="ifooter-left"><span class="inote skim-only">Solo builder · MVP in production · actively iterating</span><span class="inote casual-only">🎁 sole technical contributor · MVP live</span><a class="gh-link" href="https://github.com/IsumNA/Treatly" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div><div class="pills"><span class="pill">Full-stack</span><span class="pill">Web</span></div></div>
+      <div class="ifooter"><div class="ifooter-left"><span class="inote skim-only">Solo builder · MVP in production · actively iterating</span><span class="inote casual-only">🎁 sole technical contributor · MVP live</span></div><div class="pills"><span class="pill">Full-stack</span><span class="pill">Web</span></div></div>
     </div>
 
     <div class="ic" data-s="shipped" data-p="p-phd,p-alevel,p-art-student,p-me">
@@ -443,10 +436,10 @@ footer{background:var(--ink);color:white;padding:3rem 0}
       <div class="ifooter"><span class="inote">📚 being improved / used / over-engineered</span><div class="pills"><span class="pill">HTML</span><span class="pill">Vanilla JS</span></div></div>
     </div>
 
-    <div class="ic" data-s="wip" data-p="p-entrepreneur,p-creator,p-art-student,p-me" data-k="website portfolio html css js github pages personal site" data-gh="https://github.com/IsumNA/IsumNA.github.io">
+    <div class="ic" data-s="wip" data-p="p-entrepreneur,p-creator,p-art-student,p-me" data-k="website portfolio html css js personal site">
       <div class="itop"><p class="ititle">This website</p><span class="itag tw">⚡ in progress</span></div>
       <p class="ibody">Somewhere to put my ideas before they get washed away by 1000 more. Living idea scrapbook — not a portfolio, not a CV. Just a place that's mine. It's been through approximately 8 designs today.</p>
-      <div class="ifooter"><div class="ifooter-left"><span class="inote">🛠 you're literally on it right now</span><a class="gh-link" href="https://github.com/IsumNA/IsumNA.github.io" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div><div class="pills"><span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JS</span></div></div>
+      <div class="ifooter"><div class="ifooter-left"><span class="inote">🛠 you're literally on it right now</span></div><div class="pills"><span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JS</span></div></div>
     </div>
 
     <div class="ic" data-s="notebook" data-p="p-junior-doctor,p-tired,p-single-parent,p-life-change,p-me">
@@ -515,10 +508,10 @@ footer{background:var(--ink);color:white;padding:3rem 0}
       <div class="ifooter"><span class="inote">🎙 "and he shoots... the AI describes it"</span></div>
     </div>
 
-    <div class="ic" data-s="notebook" data-p="p-phd,p-alevel,p-first-year,p-entrepreneur,p-me" data-k="ai researcher swipe slideshow websites research snapshots">
-      <div class="itop"><p class="ititle">AI research swipeboard</p><span class="itag tn">📓 notebook</span></div>
+    <div class="ic" data-s="shipped" data-p="p-phd,p-alevel,p-first-year,p-entrepreneur,p-me" data-k="ai researcher swipe slideshow websites research snapshots">
+      <div class="itop"><p class="ititle">AI research swipeboard</p><span class="itag ts">✅ shipped</span></div>
       <p class="ibody">Swipe-based AI research interface showing live snapshots of relevant websites/papers so you can quickly sort what is useful, skip noise, and build a focused reading queue.</p>
-      <div class="ifooter"><span class="inote">🔬 research flow without tab chaos</span><div class="pills"><span class="pill">AI</span><span class="pill">Research</span><span class="pill">UX</span></div></div>
+      <div class="ifooter"><span class="inote">🔬 shipped · research flow without tab chaos</span><div class="pills"><span class="pill">AI</span><span class="pill">Research</span><span class="pill">UX</span></div></div>
     </div>
 
     <div class="ic" data-s="notebook" data-p="p-phd,p-first-year,p-adhd,p-alevel,p-dry-jan,p-me" data-k="whatsapp reminder messenger accountability text nudges">
@@ -627,8 +620,6 @@ footer{background:var(--ink);color:white;padding:3rem 0}
     <input id="mi-note" type="text" placeholder="e.g. solo build · needs designer">
     <label for="mi-pills">Tags (comma-separated, optional)</label>
     <input id="mi-pills" type="text" placeholder="AI, hardware, web">
-    <label for="mi-gh">GitHub URL (optional)</label>
-    <input id="mi-gh" type="url" placeholder="https://github.com/...">
     <div class="modal-actions">
       <button type="button" class="ab-btn" id="mi-cancel" style="border-color:var(--ink);color:var(--ink)">Cancel</button>
       <button type="button" class="ab-btn primary" id="mi-save" style="border-color:var(--ink)">Save</button>
@@ -715,35 +706,6 @@ const STATUS_TAG = {
   notebook: '<span class="itag tn">📓 notebook</span>',
   rip: '<span class="itag tr">💀 rip</span>',
 };
-
-(function initVoice () {
-  var casual = false;
-  try {
-    var params = new URLSearchParams(window.location.search);
-    var q = params.get('voice');
-    if (q === 'casual') casual = true;
-    else if (q === 'skim' || q === 'yc') casual = false;
-    else casual = window.localStorage.getItem('siteVoice') === 'casual';
-  } catch (e) {
-    casual = false;
-  }
-  function applyVoice () {
-    document.body.classList.toggle('voice-casual', casual);
-    var btn = document.getElementById('voiceToggle');
-    if (btn) {
-      btn.setAttribute('aria-pressed', casual ? 'true' : 'false');
-      btn.textContent = casual ? 'Skim view' : 'Full voice';
-    }
-  }
-  applyVoice();
-  document.getElementById('voiceToggle')?.addEventListener('click', function () {
-    casual = !casual;
-    try {
-      window.localStorage.setItem('siteVoice', casual ? 'casual' : 'skim');
-    } catch (e) {}
-    applyVoice();
-  });
-})();
 
 function escapeHtml (s) {
   const d = document.createElement('div');
@@ -968,9 +930,6 @@ function buildDynamicCard (idea) {
       return '<span class="pill">' + escapeHtml(String(t).trim()) + '</span>';
     })
     .join('');
-  const gh = idea.ghUrl
-    ? '<a class="gh-link" href="' + escapeHtml(idea.ghUrl) + '" target="_blank" rel="noopener noreferrer">GitHub ↗</a>'
-    : '';
   const footNote = idea.note
     ? '<span class="inote">' + escapeHtml(idea.note) + '</span>'
     : '<span class="inote">&nbsp;</span>';
@@ -1001,7 +960,6 @@ function buildDynamicCard (idea) {
     '</p>' +
     '<div class="ifooter"><div class="ifooter-left">' +
     footNote +
-    gh +
     '</div><div class="pills">' +
     pillsHtml +
     '</div></div>' +
@@ -1032,7 +990,7 @@ function renderDynamicIdeas () {
         .join(' ');
       node.setAttribute(
         'data-k',
-        [idea.title, idea.body, idea.note || '', idea.ghUrl || '', (idea.pills || []).join(' '), pnames].join(' '),
+        [idea.title, idea.body, idea.note || '', (idea.pills || []).join(' '), pnames].join(' '),
       );
       root.prepend(node);
     }
@@ -1122,7 +1080,6 @@ function openIdeaModal (existing) {
   document.getElementById('mi-body').value = (existing && existing.body) || '';
   document.getElementById('mi-note').value = (existing && existing.note) || '';
   document.getElementById('mi-pills').value = (existing && ideaPillsToString(existing.pills)) || '';
-  document.getElementById('mi-gh').value = (existing && existing.ghUrl) || '';
   m.classList.add('open');
 }
 
@@ -1163,7 +1120,6 @@ function saveIdeaFromModal () {
     return;
   }
   const note = document.getElementById('mi-note').value.trim();
-  const ghUrl = document.getElementById('mi-gh').value.trim();
   const pillsStr = document.getElementById('mi-pills').value.trim();
   const pills = pillsStr
     ? pillsStr.split(',').map(function (s) {
@@ -1182,7 +1138,6 @@ function saveIdeaFromModal () {
       ideas[ix].body = body;
       ideas[ix].note = note || '';
       ideas[ix].pills = pills;
-      ideas[ix].ghUrl = ghUrl || '';
       ideas[ix].keywords =
         pills.join(' ') +
         ' ' +
@@ -1202,7 +1157,6 @@ function saveIdeaFromModal () {
       body: body,
       note: note || '',
       pills: pills,
-      ghUrl: ghUrl || '',
       keywords:
         pills.join(' ') +
         ' ' +
