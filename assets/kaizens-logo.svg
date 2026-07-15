@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" role="img" aria-label="Kaizens Group logo">
+  <defs>
+    <linearGradient id="kg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a8a"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="80" rx="12" fill="#0b1220"/>
+  <g transform="translate(18,14)">
+    <path d="M8 4 L8 48 L20 48 L20 30 L34 48 L50 48 L32 26 L48 4 L32 4 L20 22 L20 4 Z" fill="url(#kg)"/>
+    <circle cx="44" cy="12" r="5" fill="#60a5fa"/>
+  </g>
+  <text x="88" y="50" font-family="system-ui,Segoe UI,sans-serif" font-size="28" font-weight="700" fill="#f8fafc" letter-spacing="-0.5">Kaizens</text>
+  <text x="88" y="66" font-family="system-ui,Segoe UI,sans-serif" font-size="11" font-weight="500" fill="#94a3b8" letter-spacing="2.5">GROUP</text>
+</svg>
