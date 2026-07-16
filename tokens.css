@@ -1,0 +1,87 @@
+/* Hallmark · Aurora tokens · dark / geometric-sans / warm-gold */
+:root {
+  --color-paper: oklch(14% 0.015 285);
+  --color-paper-2: oklch(18% 0.018 285);
+  --color-paper-3: oklch(22% 0.022 285);
+  --color-ink: oklch(95% 0.01 92);
+  --color-ink-2: oklch(88% 0.012 92);
+  --color-muted: oklch(74% 0.018 285);
+  --color-rule: oklch(31% 0.025 285);
+  --color-rule-strong: oklch(42% 0.035 285);
+  --color-accent: oklch(84% 0.16 94);
+  --color-accent-ink: oklch(18% 0.025 94);
+  --color-focus: oklch(90% 0.18 94);
+  --color-refract: oklch(72% 0.13 305);
+  --color-error: oklch(70% 0.16 28);
+  --color-success: oklch(76% 0.12 150);
+
+  --font-display: "Tomorrow", "Arial Narrow", sans-serif;
+  --font-body: "Geist", "Segoe UI", sans-serif;
+  --font-mono: "Geist Mono", "Cascadia Mono", monospace;
+
+  --space-3xs: 0.125rem;
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+  --space-4xl: 9rem;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.25rem;
+  --text-lg: 1.5625rem;
+  --text-xl: 1.953rem;
+  --text-2xl: 2.441rem;
+  --text-3xl: 3.052rem;
+  --text-4xl: 3.815rem;
+  --text-display-s: clamp(2.75rem, 4.5vw + 0.75rem, 5.25rem);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms;
+  --dur-short: 220ms;
+  --dur-long: 420ms;
+
+  --rule-hair: 1px;
+  --rule-focus: 2px;
+  --rule-accent: 2px;
+  --radius-xs: 0.35rem;
+  --radius-md: 0.9rem;
+  --radius-lg: 1.35rem;
+  --radius-pill: 999px;
+  --control-h: 2.75rem;
+  --page-max: 78rem;
+  --page-gutter: clamp(1rem, 4vw, 3rem);
+  --shadow-tight: 0 12px 30px oklch(5% 0.02 285 / 0.3);
+
+  --z-base: 1;
+  --z-raised: 10;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-modal: 400;
+  --z-toast: 500;
+  --z-tooltip: 600;
+
+  /* Compatibility aliases for the existing single-file site. */
+  --bg: var(--color-paper);
+  --surface: var(--color-paper-2);
+  --ink: var(--color-ink);
+  --muted: var(--color-muted);
+  --line: var(--color-rule);
+  --accent: var(--color-accent);
+  --accent-soft: var(--color-paper-3);
+  --accent-2: var(--color-refract);
+  --serif: var(--font-display);
+  --sans: var(--font-body);
+  --mono: var(--font-mono);
+  --shadow: var(--shadow-tight);
+  --radius: var(--radius-md);
+  --nav-h: 4.5rem;
+  --yellow: var(--color-accent);
+}

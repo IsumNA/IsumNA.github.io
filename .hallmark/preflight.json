@@ -1,0 +1,20 @@
+{
+  "date": "2026-07-16",
+  "framework": "vanilla HTML",
+  "entry": "index.html",
+  "fonts_before": [
+    "Instrument Serif",
+    "DM Sans",
+    "DM Mono"
+  ],
+  "palette_before": "light editorial with blue accent",
+  "motion": "native CSS and IntersectionObserver",
+  "spacing": "mixed rem and pixel values",
+  "preserved": [
+    "single-page architecture",
+    "portfolio content",
+    "Ideas Lab",
+    "localStorage data model",
+    "Kaizens logo asset"
+  ]
+}

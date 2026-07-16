@@ -7,7 +7,7 @@
 <title>Isum Nanomi Arachchige — Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@350;400;700&family=Geist+Mono:wght@400;500&family=Tomorrow:wght@400;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -185,8 +185,304 @@ a:hover{text-decoration:underline}
 .casual-only{display:none!important}
 @media(max-width:600px){.nav-links a,.nav-links button{font-size:12px;padding:7px 10px}}
 </style>
+<link rel="stylesheet" href="tokens.css">
+<style>
+/* Hallmark · genre: atmospheric · macrostructure: Split Studio · theme: Aurora · enrichment: Tier-A signal field · nav: N5 · footer: Ft5
+ * H2 Split Diptych knobs: ratio=7/5 · proof-column · divider=negative-space
+ * audience: investors · use: understand Isum and the work · tone: grounded confidence
+ * Hallmark · pre-emit critique: P4 H4 E4 S5 R4 V5
+ */
+html,body{overflow-x:clip}
+body{
+  background:
+    radial-gradient(circle at 84% 8%,color-mix(in oklch,var(--color-accent) 13%,transparent) 0,transparent 29%),
+    radial-gradient(circle at 10% 54%,color-mix(in oklch,var(--color-refract) 9%,transparent) 0,transparent 24%),
+    var(--color-paper);
+  color:var(--color-ink);
+  font-family:var(--font-body);
+  font-weight:350;
+  padding-block-start:calc(var(--nav-h) + var(--space-lg));
+}
+a{color:var(--color-ink)}
+.wrap{max-width:var(--page-max);padding-inline:var(--page-gutter)}
+.site-nav{
+  position:fixed;
+  inset:var(--space-md) auto auto 50%;
+  transform:translateX(-50%);
+  width:max-content;
+  max-width:calc(100% - (var(--space-md) * 2));
+  height:auto;
+  min-height:var(--control-h);
+  border:var(--rule-hair) solid var(--color-rule);
+  border-radius:var(--radius-pill);
+  background:color-mix(in oklch,var(--color-paper-2) 82%,transparent);
+  color:var(--color-ink);
+  backdrop-filter:blur(16px) saturate(125%);
+  box-shadow:var(--shadow-tight);
+  z-index:var(--z-sticky);
+}
+.site-nav .wrap{width:auto;padding:var(--space-xs) var(--space-sm);gap:var(--space-lg)}
+.brand{color:var(--color-ink);white-space:nowrap}
+.brand small{color:var(--color-muted);font:500 var(--text-xs)/1 var(--font-mono)}
+.brand strong{font-family:var(--font-display);font-size:var(--text-base);font-weight:700}
+.nav-links{flex-wrap:nowrap;gap:var(--space-2xs)}
+.nav-links a,.nav-links button{
+  color:var(--color-ink);
+  font-family:var(--font-body);
+  font-size:var(--text-sm);
+  min-height:var(--control-h);
+  display:inline-flex;
+  align-items:center;
+  white-space:nowrap;
+  border-radius:var(--radius-pill);
+  transition:background-color var(--dur-short) var(--ease-out),transform var(--dur-micro) var(--ease-out);
+}
+.nav-links a.active,.nav-links a.btn.primary{background:var(--color-accent);color:var(--color-accent-ink);border-color:var(--color-accent)}
+.nav-links a:active,.nav-links button:active,.btn:active{transform:translateY(1px)}
+:focus-visible{outline:var(--rule-focus) solid var(--color-focus);outline-offset:var(--space-2xs)}
+.hero{padding-block:var(--space-2xl) var(--space-3xl)}
+.hero-grid{grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:var(--space-3xl);align-items:center}
+.eyebrow{color:var(--color-accent);font:500 var(--text-xs)/1.4 var(--font-mono);margin-block-end:var(--space-lg)}
+.eyebrow::before{background:var(--color-accent)}
+.hero h1,.section-head h2,.design-copy h3,.cta-band h2,.ideas-page .ihero h2,.site-footer h2{
+  color:var(--color-ink);
+  font-family:var(--font-display);
+  font-style:normal;
+  font-weight:700;
+  letter-spacing:-.035em;
+  overflow-wrap:anywhere;
+  min-width:0;
+}
+.hero h1{font-size:var(--text-display-s);line-height:1.02;max-width:15ch;margin-block-end:var(--space-lg)}
+.hero h1 em{font-style:normal;color:var(--color-ink);text-decoration:underline;text-decoration-color:var(--color-accent);text-decoration-thickness:var(--rule-accent);text-underline-offset:var(--space-3xs)}
+.lead{color:var(--color-muted);font-size:var(--text-md);max-width:61ch;margin-block-end:var(--space-xl)}
+.hero-actions{gap:var(--space-sm);margin:0}
+.btn{
+  min-height:var(--control-h);
+  padding-inline:var(--space-lg);
+  border:var(--rule-hair) solid var(--color-rule-strong);
+  border-radius:var(--radius-pill);
+  background:transparent;
+  color:var(--color-ink);
+  box-shadow:none;
+  white-space:nowrap;
+  transition:background-color var(--dur-short) var(--ease-out),transform var(--dur-micro) var(--ease-out);
+}
+.btn.primary{background:var(--color-accent);color:var(--color-accent-ink);border-color:var(--color-accent)}
+.stat-panel{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  border:0;
+  border-radius:var(--radius-lg);
+  background:var(--color-paper-3);
+  color:var(--color-ink);
+  padding:var(--space-xl);
+  box-shadow:none;
+}
+.stat-panel::before{
+  content:"";
+  position:absolute;
+  inset:-40% -20% auto 20%;
+  height:76%;
+  z-index:-1;
+  transform:skewY(-12deg);
+  background:
+    repeating-linear-gradient(90deg,transparent 0 23px,color-mix(in oklch,var(--color-accent) 16%,transparent) 24px),
+    linear-gradient(135deg,color-mix(in oklch,var(--color-refract) 18%,transparent),transparent);
+  mask-image:linear-gradient(to bottom,var(--color-ink),transparent);
+}
+.stat-panel h3{color:var(--color-muted);font-family:var(--font-mono)}
+.stat-item{border-color:var(--color-rule);font-variant-numeric:tabular-nums}
+.stat-item span,.section-head p,.story-card p,.exp-card p,.exp-card li,.project-card p,.project-card li,.design-copy p,.ideas-page .ihero p,.ibody{color:var(--color-muted)}
+.section{
+  display:grid;
+  grid-template-columns:minmax(0,5fr) minmax(0,7fr);
+  column-gap:var(--space-3xl);
+  row-gap:var(--space-xl);
+  padding-block:var(--space-3xl);
+}
+.section-head{max-width:none;margin:0;align-self:start}
+.section-head .label{display:none}
+.section-head h2{font-size:var(--text-3xl);line-height:1.05;margin-block-end:var(--space-lg)}
+#story .story-grid,#story .quote,#competitions .comp-grid,#projects .project-grid{grid-column:2}
+#experience .section-head,#design .section-head{grid-column:2}
+#experience .timeline,#design .design-panel{grid-column:1;grid-row:1}
+.story-grid,.comp-grid{grid-template-columns:1fr;gap:var(--space-md)}
+.story-card,.exp-card,.project-card,.ic,.persona-card{
+  border:0;
+  border-radius:var(--radius-md);
+  background:var(--color-paper-2);
+  color:var(--color-ink);
+  box-shadow:none;
+}
+.story-card,.exp-card,.project-card{padding:var(--space-lg)}
+.story-card:nth-child(even),.exp-card:nth-child(even),.project-card:nth-child(3n+2){background:var(--color-paper-3)}
+.quote{
+  margin:0;
+  padding:var(--space-xl);
+  border:0;
+  border-radius:var(--radius-md);
+  background:var(--color-paper-3);
+  color:var(--color-ink);
+  font-size:var(--text-lg);
+}
+.exp-card{grid-template-columns:minmax(8rem,11rem) minmax(0,1fr);gap:var(--space-lg)}
+.exp-meta,.project-card .status,.tag,.gh-link,.inote,.pill{font-family:var(--font-mono)}
+.gh-link{display:inline-block;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.exp-card .role,.gh-link{color:var(--color-accent)}
+.comp-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.comp-card{
+  min-height:auto;
+  padding:var(--space-xl);
+  border-radius:var(--radius-md);
+  background:var(--color-paper-2);
+  color:var(--color-ink);
+}
+.comp-card:last-child{grid-column:1/-1;background:var(--color-paper-3)}
+.design-panel{
+  grid-template-columns:1fr;
+  gap:var(--space-xl);
+  border:0;
+  border-radius:var(--radius-lg);
+  background:var(--color-paper-2);
+  color:var(--color-ink);
+  box-shadow:none;
+}
+.logo-stage{background:var(--color-paper-3);color:var(--color-ink)}
+.tag{border-color:var(--color-rule-strong);background:transparent;color:var(--color-muted)}
+.project-grid{gap:var(--space-sm)}
+.project-card{transition:background-color var(--dur-short) var(--ease-out)}
+.status.shipped,.status.wip,.status.private,.ts,.tw,.tn,.tr{background:transparent;color:var(--color-muted);border-color:var(--color-rule-strong)}
+.pc-foot{border-color:var(--color-rule)}
+.research-note{grid-column:2;background:transparent;border-color:var(--color-rule-strong);color:var(--color-muted)}
+.section:last-child{display:block;padding-block:var(--space-xl) var(--space-3xl)}
+.cta-band{margin:0;padding:var(--space-xl);border:var(--rule-hair) solid var(--color-accent);border-radius:var(--radius-lg);background:var(--color-paper-3);color:var(--color-ink)}
+.cta-band h2{color:var(--color-ink)}
+.cta-band p{color:var(--color-muted)}
+.cta-band .btn.primary{background:var(--color-accent);color:var(--color-accent-ink);border-color:var(--color-accent)}
+.ideas-page .container{max-width:var(--page-max);margin-inline:auto;padding-inline:var(--page-gutter)}
+.ideas-page .ihero{padding-block:var(--space-3xl) var(--space-xl);border-color:var(--color-rule)}
+.ideas-page .ihero h2{font-size:var(--text-3xl)}
+.idea-search,.modal-panel input:not([type=checkbox]),.modal-panel select,.modal-panel textarea{
+  min-height:var(--control-h);
+  border:var(--rule-hair) solid var(--color-rule-strong);
+  outline:var(--rule-focus) solid transparent;
+  background:var(--color-paper-2);
+  color:var(--color-ink);
+}
+.idea-search::placeholder,.modal-panel input::placeholder,.modal-panel textarea::placeholder{color:var(--color-muted)}
+.idea-search:focus-visible,.modal-panel input:focus-visible,.modal-panel select:focus-visible,.modal-panel textarea:focus-visible{outline-color:var(--color-focus);border-width:var(--rule-hair)}
+.filters,.persona-section{border-color:var(--color-rule)}
+.fb,.count-pill{min-height:var(--control-h);background:transparent;color:var(--color-ink);border-color:var(--color-rule-strong)}
+.fb.on{background:var(--color-accent);color:var(--color-accent-ink);border-color:var(--color-accent)}
+.persona-card.on{border:var(--rule-hair) solid var(--color-accent);box-shadow:none}
+.modal-backdrop{background:color-mix(in oklch,var(--color-paper) 60%,transparent)}
+.modal-panel{background:var(--color-paper-2);color:var(--color-ink);border-color:var(--color-rule-strong)}
+.admin-bar{background:var(--color-paper-3);color:var(--color-ink);border-color:var(--color-rule-strong)}
+.ab-btn{color:var(--color-ink);border-color:var(--color-rule-strong)}
+.ab-btn.primary{background:var(--color-accent);color:var(--color-accent-ink);border-color:var(--color-accent)}
+.site-footer{background:var(--color-paper-2);color:var(--color-muted);padding-block:var(--space-3xl) var(--space-xl)}
+.site-footer .wrap{display:grid;grid-template-columns:1fr;gap:var(--space-xl)}
+.site-footer h2{font-size:var(--text-display-s);line-height:1;max-width:15ch;margin:0}
+.site-footer .flinks{order:2;padding-block-start:var(--space-lg);border-block-start:var(--rule-hair) solid var(--color-rule)}
+.flinks a{color:var(--color-ink);border-color:var(--color-rule-strong);white-space:nowrap}
+.foot-mini{order:3;color:var(--color-muted);margin:0}
+.reveal{opacity:0;transform:none;transition:opacity var(--dur-long) var(--ease-out)}
+.reveal.visible{opacity:1}
+.edit-toolbar{
+  position:fixed;
+  inset:auto var(--space-md) var(--space-md) auto;
+  z-index:var(--z-toast);
+  display:flex;
+  align-items:center;
+  gap:var(--space-xs);
+  max-width:calc(100% - (var(--space-md) * 2));
+  padding:var(--space-xs);
+  border:var(--rule-hair) solid var(--color-rule-strong);
+  border-radius:var(--radius-pill);
+  background:var(--color-paper-3);
+  color:var(--color-ink);
+  box-shadow:var(--shadow-tight);
+}
+.edit-toolbar__status{display:none;padding-inline:var(--space-sm);font:500 var(--text-xs)/1.2 var(--font-mono);color:var(--color-muted);white-space:nowrap}
+.edit-btn{
+  min-height:var(--control-h);
+  padding-inline:var(--space-md);
+  border:var(--rule-hair) solid var(--color-rule-strong);
+  border-radius:var(--radius-pill);
+  background:transparent;
+  color:var(--color-ink);
+  font:700 var(--text-sm)/1 var(--font-body);
+  white-space:nowrap;
+  cursor:pointer;
+  transition:background-color var(--dur-short) var(--ease-out),transform var(--dur-micro) var(--ease-out);
+}
+.edit-btn[data-variant="primary"]{background:var(--color-accent);color:var(--color-accent-ink);border-color:var(--color-accent)}
+.edit-btn:active{transform:translateY(1px)}
+.edit-btn:disabled,.btn:disabled,.fb:disabled,.ab-btn:disabled{opacity:.5;cursor:not-allowed}
+.edit-btn[data-state="loading"]{cursor:progress}
+.edit-btn[data-state="error"]{border-style:dashed}
+.edit-btn[data-state="success"]::after{content:" ✓"}
+.edit-toolbar [data-edit-action="save"],.edit-toolbar [data-edit-action="cancel"],.edit-toolbar [data-edit-action="export"],.edit-toolbar [data-edit-action="import"],.edit-toolbar [data-edit-action="reset"]{display:none}
+.is-editing .edit-toolbar__status,.is-editing .edit-toolbar [data-edit-action="save"],.is-editing .edit-toolbar [data-edit-action="cancel"],.is-editing .edit-toolbar [data-edit-action="export"],.is-editing .edit-toolbar [data-edit-action="import"],.is-editing .edit-toolbar [data-edit-action="reset"]{display:inline-flex}
+.is-editing .edit-toolbar [data-edit-action="edit"]{display:none}
+.editable-fragment[contenteditable="true"]{
+  border-radius:var(--radius-xs);
+  outline:var(--rule-focus) dashed color-mix(in oklch,var(--color-accent) 65%,transparent);
+  outline-offset:var(--space-2xs);
+  background:color-mix(in oklch,var(--color-accent) 8%,transparent);
+  cursor:text;
+}
+.editable-fragment[contenteditable="true"]:focus{outline-style:solid;background:color-mix(in oklch,var(--color-accent) 14%,transparent)}
+@media(hover:hover) and (pointer:fine){
+  .nav-links a:hover,.nav-links button:hover,.btn:hover,.edit-btn:hover,.fb:hover,.flinks a:hover{background:var(--color-paper-3);color:var(--color-ink);text-decoration:none}
+  .btn.primary:hover,.edit-btn[data-variant="primary"]:hover,.fb.on:hover{background:var(--color-accent);color:var(--color-accent-ink);transform:translateY(-1px)}
+  .project-card:hover,.ic:hover{background:var(--color-paper-3);box-shadow:none;transform:none}
+}
+@media(max-width:59.99rem){
+  .hero-grid,.section{grid-template-columns:minmax(0,1fr);gap:var(--space-xl)}
+  #story .story-grid,#story .quote,#competitions .comp-grid,#projects .project-grid,
+  #experience .section-head,#design .section-head,#experience .timeline,#design .design-panel,.research-note{grid-column:1;grid-row:auto}
+  .hero{padding-block-start:var(--space-2xl)}
+  .section{padding-block:var(--space-2xl)}
+  .section-head{max-width:44rem}
+}
+@media(max-width:39.99rem){
+  body{padding-block-start:calc(var(--nav-h) + var(--space-xl))}
+  .site-nav{inset-block-start:var(--space-sm);width:calc(100% - (var(--space-md) * 2))}
+  .site-nav .wrap{width:100%;justify-content:space-between;gap:var(--space-xs)}
+  .brand small,.nav-links li:nth-child(-n+3),.nav-links li:last-child{display:none}
+  .brand strong{max-width:11rem;overflow:hidden;text-overflow:ellipsis}
+  .nav-links a,.nav-links button{min-height:44px;padding-inline:var(--space-sm)}
+  .hero{padding-block-start:var(--space-lg);padding-block-end:var(--space-2xl)}
+  .hero h1{font-size:clamp(2.5rem,13vw,3rem)}
+  .section-head h2,.ideas-page .ihero h2{font-size:var(--text-2xl)}
+  .comp-grid{grid-template-columns:1fr}
+  .comp-card:last-child{grid-column:auto}
+  .exp-card{grid-template-columns:1fr}
+  .edit-toolbar{inset:auto var(--space-sm) var(--space-sm);display:grid;grid-template-columns:repeat(3,minmax(0,auto));justify-content:end;border-radius:var(--radius-md)}
+  .edit-toolbar__status{display:none}
+  .edit-btn{min-height:44px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:150ms!important;animation-iteration-count:1!important;transition-duration:150ms!important}
+  .reveal{opacity:1}
+}
+</style>
 </head>
 <body>
+
+<div class="edit-toolbar" id="edit-toolbar" aria-label="Page text editor">
+  <span class="edit-toolbar__status" id="edit-status" aria-live="polite">Text changes save on this browser</span>
+  <button class="edit-btn" type="button" data-edit-action="edit">Edit text</button>
+  <button class="edit-btn" type="button" data-edit-action="save" data-variant="primary">Save changes</button>
+  <button class="edit-btn" type="button" data-edit-action="cancel">Cancel</button>
+  <button class="edit-btn" type="button" data-edit-action="export">Export</button>
+  <button class="edit-btn" type="button" data-edit-action="import">Import</button>
+  <button class="edit-btn" type="button" data-edit-action="reset">Reset</button>
+  <input id="edit-import-file" type="file" accept="application/json" hidden>
+</div>
 
 <header class="site-nav">
   <div class="wrap">
@@ -209,9 +505,9 @@ a:hover{text-decoration:underline}
   <section class="hero wrap">
     <div class="hero-grid">
       <div>
-        <div class="eyebrow">Cambridge Engineering · AI · Design · Robotics</div>
-        <h1>Engineer, designer, and <em>relentless builder</em> of applied intelligence.</h1>
-        <p class="lead">I translate ambitious ideas into working software — from social products and enterprise AI to computer vision on embedded hardware. Trained for years as a competitive athlete; now I channel that same discipline into building until 3am.</p>
+        <div class="eyebrow">Cambridge Engineering · Applied AI · Product Building</div>
+        <h1>I build <em>practical AI</em> products.</h1>
+        <p class="lead">I’m an engineering student at Cambridge, interested in the point where software meets the physical world. My work spans social products, enterprise AI, computer vision, embedded hardware, and the design needed to make those systems useful.</p>
         <div class="hero-actions">
           <a class="btn primary" href="#projects">View projects</a>
           <a class="btn" href="https://github.com/IsumNA" target="_blank" rel="noopener">GitHub</a>
@@ -256,7 +552,7 @@ a:hover{text-decoration:underline}
     <div class="section-head reveal">
       <div class="label">Experience</div>
       <h2>Internships and industry delivery</h2>
-      <p>Across startups, consultancies, and research labs, I have consistently been the person who ships — often ahead of schedule and with ownership beyond the brief.</p>
+      <p>My experience spans startups, consultancies, and applied research. In each setting I’ve worked from an open problem toward something concrete: a deployed model, a production tool, a working prototype, or a clearer product direction.</p>
     </div>
     <div class="timeline">
       <article class="exp-card reveal">
@@ -1475,8 +1771,230 @@ document.getElementById('modal-persona')?.addEventListener('click', function (e)
   if (e.target.id === 'modal-persona') closePersonaModal();
 });
 
-if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initBoard);
-else initBoard();
+const SITE_EDITOR = Object.freeze({
+  storageKey: 'isumPortfolio_textEdits_v1',
+  version: 1,
+});
+
+let siteEditorFragments = [];
+let siteEditorOriginal = {};
+let siteEditorEditing = false;
+
+function loadSiteEdits () {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(SITE_EDITOR.storageKey) || '{}');
+    return parsed && parsed.version === SITE_EDITOR.version && parsed.changes
+      ? parsed.changes
+      : {};
+  } catch (e) {
+    return {};
+  }
+}
+
+function setEditorStatus (message) {
+  const status = document.getElementById('edit-status');
+  if (status) status.textContent = message;
+}
+
+function initSiteEditor () {
+  const scopes = [
+    document.querySelector('.site-nav'),
+    document.getElementById('page-home'),
+    document.getElementById('page-ideas'),
+    document.querySelector('.site-footer'),
+  ].filter(Boolean);
+  const textNodes = [];
+
+  scopes.forEach(function (scope) {
+    const walker = document.createTreeWalker(scope, NodeFilter.SHOW_TEXT, {
+      acceptNode: function (node) {
+        const parent = node.parentElement;
+        if (!parent || !node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        if (
+          parent.closest(
+            'script,style,input,textarea,select,option,.edit-toolbar,.modal-backdrop,.admin-bar,.persona-strip,.ic-admin',
+          )
+        ) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      },
+    });
+    let node;
+    while ((node = walker.nextNode())) textNodes.push(node);
+  });
+
+  textNodes.forEach(function (node, index) {
+    const value = node.nodeValue;
+    const leading = value.match(/^\s*/)[0];
+    const trailing = value.match(/\s*$/)[0];
+    const core = value.slice(leading.length, value.length - trailing.length);
+    if (!core) return;
+
+    const key = 'text-' + index;
+    const span = document.createElement('span');
+    span.className = 'editable-fragment';
+    span.dataset.editKey = key;
+    span.textContent = core;
+    span.spellcheck = true;
+
+    const fragment = document.createDocumentFragment();
+    if (leading) fragment.appendChild(document.createTextNode(leading));
+    fragment.appendChild(span);
+    if (trailing) fragment.appendChild(document.createTextNode(trailing));
+    node.parentNode.replaceChild(fragment, node);
+
+    siteEditorOriginal[key] = core;
+    siteEditorFragments.push(span);
+  });
+
+  applySiteEdits(loadSiteEdits());
+  bindSiteEditor();
+}
+
+function applySiteEdits (changes) {
+  siteEditorFragments.forEach(function (span) {
+    const key = span.dataset.editKey;
+    if (Object.prototype.hasOwnProperty.call(changes, key)) {
+      span.textContent = String(changes[key]);
+    }
+  });
+}
+
+function setSiteEditing (enabled) {
+  siteEditorEditing = !!enabled;
+  document.body.classList.toggle('is-editing', siteEditorEditing);
+  siteEditorFragments.forEach(function (span) {
+    span.contentEditable = siteEditorEditing ? 'true' : 'false';
+  });
+  setEditorStatus(siteEditorEditing ? 'Editing text — links are paused' : 'Text changes save on this browser');
+  if (siteEditorEditing && siteEditorFragments[0]) siteEditorFragments[0].focus();
+}
+
+function saveSiteEdits () {
+  const changes = {};
+  siteEditorFragments.forEach(function (span) {
+    changes[span.dataset.editKey] = span.textContent;
+  });
+  localStorage.setItem(
+    SITE_EDITOR.storageKey,
+    JSON.stringify({ version: SITE_EDITOR.version, savedAt: new Date().toISOString(), changes: changes }),
+  );
+  setSiteEditing(false);
+  setEditorStatus('Saved on this browser');
+  return changes;
+}
+
+function cancelSiteEdits () {
+  const saved = loadSiteEdits();
+  siteEditorFragments.forEach(function (span) {
+    const key = span.dataset.editKey;
+    span.textContent = Object.prototype.hasOwnProperty.call(saved, key)
+      ? saved[key]
+      : siteEditorOriginal[key];
+  });
+  setSiteEditing(false);
+  setEditorStatus('Unsaved changes discarded');
+}
+
+function exportSiteEdits () {
+  const changes = siteEditorEditing ? saveSiteEdits() : loadSiteEdits();
+  const blob = new Blob(
+    [JSON.stringify({ version: SITE_EDITOR.version, exportedAt: new Date().toISOString(), changes: changes }, null, 2)],
+    { type: 'application/json' },
+  );
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = 'isum-portfolio-text-edits.json';
+  link.click();
+  URL.revokeObjectURL(link.href);
+  setEditorStatus('Edits exported');
+}
+
+function importSiteEdits (file) {
+  const reader = new FileReader();
+  reader.onload = function () {
+    try {
+      const parsed = JSON.parse(String(reader.result || ''));
+      if (!parsed || parsed.version !== SITE_EDITOR.version || !parsed.changes) {
+        throw new Error('Unsupported edits file');
+      }
+      localStorage.setItem(
+        SITE_EDITOR.storageKey,
+        JSON.stringify({ version: SITE_EDITOR.version, savedAt: new Date().toISOString(), changes: parsed.changes }),
+      );
+      applySiteEdits(parsed.changes);
+      setSiteEditing(false);
+      setEditorStatus('Imported and saved');
+    } catch (e) {
+      setEditorStatus('Import failed — choose an exported edits file');
+    }
+  };
+  reader.readAsText(file);
+}
+
+function resetSiteEdits () {
+  if (!window.confirm('Reset all portfolio text edits saved in this browser?')) return;
+  localStorage.removeItem(SITE_EDITOR.storageKey);
+  siteEditorFragments.forEach(function (span) {
+    span.textContent = siteEditorOriginal[span.dataset.editKey];
+  });
+  setSiteEditing(false);
+  setEditorStatus('Text reset to the published version');
+}
+
+function bindSiteEditor () {
+  const toolbar = document.getElementById('edit-toolbar');
+  const fileInput = document.getElementById('edit-import-file');
+  if (!toolbar || !fileInput) return;
+
+  toolbar.addEventListener('click', function (event) {
+    const button = event.target.closest('[data-edit-action]');
+    if (!button) return;
+    const action = button.dataset.editAction;
+    if (action === 'edit') setSiteEditing(true);
+    if (action === 'save') saveSiteEdits();
+    if (action === 'cancel') cancelSiteEdits();
+    if (action === 'export') exportSiteEdits();
+    if (action === 'import') fileInput.click();
+    if (action === 'reset') resetSiteEdits();
+  });
+
+  fileInput.addEventListener('change', function () {
+    if (fileInput.files && fileInput.files[0]) importSiteEdits(fileInput.files[0]);
+    fileInput.value = '';
+  });
+
+  document.addEventListener(
+    'click',
+    function (event) {
+      if (siteEditorEditing && event.target.closest('.editable-fragment')) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    },
+    true,
+  );
+
+  document.addEventListener('keydown', function (event) {
+    if (!siteEditorEditing || !event.target.closest('.editable-fragment')) return;
+    if (event.key === 'Enter') event.preventDefault();
+    if (event.key === 'Escape') cancelSiteEdits();
+  });
+
+  document.addEventListener('paste', function (event) {
+    if (!siteEditorEditing || !event.target.closest('.editable-fragment')) return;
+    event.preventDefault();
+    const text = (event.clipboardData || window.clipboardData).getData('text/plain');
+    document.execCommand('insertText', false, text.replace(/\s*\n+\s*/g, ' '));
+  });
+}
+
+function bootSite () {
+  initBoard();
+  initSiteEditor();
+}
+
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bootSite);
+else bootSite();
 
 </script>
 </body>
