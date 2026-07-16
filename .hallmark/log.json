@@ -1,6 +1,13 @@
 [
   {
     "date": "2026-07-16",
+    "macrostructure": "Long Document",
+    "theme": "Cobalt",
+    "enrichment": "none",
+    "brief": "Simple professional investor-facing portfolio with clear hierarchy"
+  },
+  {
+    "date": "2026-07-16",
     "macrostructure": "Split Studio",
     "theme": "Aurora",
     "enrichment": "Tier-A signal field",
