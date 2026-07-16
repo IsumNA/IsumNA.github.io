@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Contact Isum Nanomi Arachchige — email, LinkedIn, GitHub, and other links.">
+<title>Contact — Isum Nanomi Arachchige</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+/* Hallmark · genre: modern-minimal · theme: Cobalt · standalone contact page matching index.html */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+body{
+  background:var(--color-paper);
+  color:var(--color-ink);
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.65;
+  overflow-x:hidden;
+}
+a{color:var(--color-accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:var(--page-max);margin:0 auto;padding:0 var(--page-gutter)}
+
+.site-nav{
+  position:sticky;
+  top:0;
+  z-index:var(--z-sticky);
+  min-height:var(--nav-h);
+  display:flex;
+  align-items:center;
+  border-block-end:var(--rule-hair) solid var(--color-rule);
+  background:var(--color-paper);
+}
+.site-nav .wrap{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:var(--space-xl);
+  padding-block:var(--space-sm);
+}
+.brand{display:flex;flex-direction:column;gap:2px;color:inherit;text-align:left}
+.brand:hover{text-decoration:none}
+.brand small{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-muted);font-weight:600}
+.brand strong{font-family:var(--font-display);font-size:clamp(1.15rem,2.5vw,1.45rem);font-weight:600;letter-spacing:-.02em}
+.nav-links{display:flex;gap:var(--space-2xs);list-style:none;flex-wrap:wrap}
+.nav-links a{
+  display:inline-flex;
+  align-items:center;
+  min-height:var(--control-h);
+  font-size:14px;
+  font-weight:500;
+  color:var(--color-ink);
+  padding-inline:var(--space-sm);
+  border-radius:var(--radius-xs);
+  border:1px solid transparent;
+  transition:background var(--dur-micro) var(--ease-out);
+}
+.nav-links a:hover{background:var(--color-paper-2);text-decoration:none}
+.nav-links a.btn-contact{background:var(--color-accent);color:var(--color-accent-ink)}
+.nav-links a.btn-contact:hover{background:var(--color-accent);color:var(--color-accent-ink)}
+
+.contact-hero{padding-block:var(--space-2xl) var(--space-xl)}
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--font-mono);
+  font-size:12px;
+  font-weight:500;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--color-muted);
+  margin-block-end:var(--space-lg);
+}
+.eyebrow::before{content:'';width:28px;height:2px;background:var(--color-accent)}
+.contact-hero h1{
+  max-width:16ch;
+  font-family:var(--font-display);
+  font-size:var(--text-display-s);
+  font-weight:600;
+  line-height:1.04;
+  letter-spacing:-.04em;
+}
+.contact-hero h1 em{font-style:normal;color:var(--color-accent)}
+.contact-hero .lead{
+  max-width:58ch;
+  color:var(--color-muted);
+  font-size:var(--text-md);
+  margin-block-start:var(--space-lg);
+}
+
+.contact-section{padding-block:var(--space-xl) var(--space-3xl)}
+.channel-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-lg)}
+.channel-card{
+  display:flex;
+  flex-direction:column;
+  gap:var(--space-xs);
+  padding:var(--space-xl);
+  border:var(--rule-hair) solid var(--color-rule);
+  border-radius:var(--radius-md);
+  background:var(--color-paper);
+  color:inherit;
+  transition:background var(--dur-short) var(--ease-out);
+}
+.channel-card:hover{background:var(--color-paper-2);text-decoration:none}
+.channel-card .ch-label{
+  font-family:var(--font-mono);
+  font-size:var(--text-xs);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--color-muted);
+}
+.channel-card h2{
+  font-family:var(--font-display);
+  font-size:var(--text-lg);
+  font-weight:600;
+  letter-spacing:-.02em;
+  color:var(--color-ink);
+}
+.channel-card p{color:var(--color-muted);font-size:var(--text-sm)}
+.channel-card .ch-value{
+  margin-block-start:auto;
+  padding-block-start:var(--space-md);
+  font-family:var(--font-mono);
+  font-size:var(--text-sm);
+  color:var(--color-accent);
+  word-break:break-all;
+}
+
+.elsewhere{
+  margin-block-start:var(--space-2xl);
+  padding-block-start:var(--space-xl);
+  border-block-start:var(--rule-hair) solid var(--color-rule);
+}
+.elsewhere h2{
+  font-family:var(--font-display);
+  font-size:var(--text-xl);
+  font-weight:600;
+  letter-spacing:-.03em;
+  margin-block-end:var(--space-2xs);
+}
+.elsewhere > p{color:var(--color-muted);max-width:58ch;margin-block-end:var(--space-lg)}
+.link-list{display:flex;flex-wrap:wrap;gap:var(--space-sm);list-style:none}
+.link-list a{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  min-height:var(--control-h);
+  padding-inline:var(--space-md);
+  font-size:14px;
+  font-weight:500;
+  color:var(--color-ink);
+  border:var(--rule-hair) solid var(--color-rule-strong);
+  border-radius:var(--radius-xs);
+  background:var(--color-paper);
+  transition:background var(--dur-micro) var(--ease-out);
+}
+.link-list a:hover{background:var(--color-paper-2);text-decoration:none}
+.link-list a span{font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-muted)}
+
+.site-footer{
+  padding-block:var(--space-xl);
+  border-block-start:var(--rule-hair) solid var(--color-rule);
+  color:var(--color-muted);
+}
+.site-footer .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--space-lg)}
+.site-footer h2{font-family:var(--font-display);font-size:var(--text-lg);font-weight:600;color:var(--color-ink)}
+.site-footer p{font-size:14px}
+.flinks{display:flex;flex-wrap:wrap;gap:.65rem}
+.flinks a{
+  font-size:13px;
+  font-weight:500;
+  padding:8px 16px;
+  border-radius:var(--radius-xs);
+  border:var(--rule-hair) solid var(--color-rule-strong);
+  color:var(--color-ink);
+}
+.flinks a:hover{background:var(--color-paper-2);text-decoration:none}
+
+.edit-toolbar{
+  position:fixed;
+  inset:auto var(--space-md) var(--space-md) auto;
+  z-index:var(--z-toast);
+  display:flex;
+  align-items:center;
+  gap:var(--space-2xs);
+  padding:var(--space-2xs);
+  border:var(--rule-hair) solid var(--color-rule);
+  border-radius:var(--radius-md);
+  background:var(--color-paper);
+  box-shadow:var(--shadow-tight);
+}
+.edit-toolbar__status{
+  display:none;
+  padding-inline:var(--space-sm);
+  font:500 var(--text-xs)/1.2 var(--font-mono);
+  color:var(--color-muted);
+  white-space:nowrap;
+}
+.edit-btn{
+  font:inherit;
+  font-size:13px;
+  font-weight:500;
+  padding:8px 14px;
+  border:var(--rule-hair) solid var(--color-rule-strong);
+  border-radius:var(--radius-xs);
+  background:var(--color-paper);
+  color:var(--color-ink);
+  cursor:pointer;
+}
+.edit-btn:hover{background:var(--color-paper-2)}
+.edit-btn[data-variant="primary"]{background:var(--color-accent);color:var(--color-accent-ink);border-color:var(--color-accent)}
+.edit-toolbar [data-edit-action="save"],.edit-toolbar [data-edit-action="cancel"],.edit-toolbar [data-edit-action="reset"]{display:none}
+.is-editing .edit-toolbar__status,
+.is-editing .edit-toolbar [data-edit-action="save"],
+.is-editing .edit-toolbar [data-edit-action="cancel"],
+.is-editing .edit-toolbar [data-edit-action="reset"]{display:inline-flex}
+.is-editing .edit-toolbar [data-edit-action="edit"]{display:none}
+.editable-fragment[contenteditable="true"]{
+  background:var(--color-paper-2);
+  outline:2px dashed var(--color-accent);
+  outline-offset:2px;
+  border-radius:2px;
+}
+
+@media(max-width:59.99rem){
+  .channel-grid{grid-template-columns:1fr}
+}
+@media(max-width:39.99rem){
+  .contact-hero{padding-block:var(--space-xl)}
+  .contact-hero h1{font-size:clamp(2.35rem,12vw,3rem)}
+  .nav-links a{font-size:12px;padding-inline:10px}
+  .site-footer .wrap{display:grid;grid-template-columns:1fr}
+  .edit-toolbar{inset:auto var(--space-sm) var(--space-sm)}
+  .edit-toolbar__status{display:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="edit-toolbar" id="edit-toolbar" aria-label="Page text editor">
+  <span class="edit-toolbar__status" id="edit-status" aria-live="polite">Text changes save on this browser</span>
+  <button class="edit-btn" type="button" data-edit-action="edit">Edit text</button>
+  <button class="edit-btn" type="button" data-edit-action="save" data-variant="primary">Save changes</button>
+  <button class="edit-btn" type="button" data-edit-action="cancel">Cancel</button>
+  <button class="edit-btn" type="button" data-edit-action="reset">Reset</button>
+</div>
+
+<header class="site-nav">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Go to portfolio home">
+      <small>Portfolio</small>
+      <strong>Isum Nanomi Arachchige</strong>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#story">Story</a></li>
+      <li><a href="index.html#experience">Experience</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="index.html#ideas">Ideas Lab</a></li>
+      <li><a href="contact.html" class="btn-contact" aria-current="page">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <section class="contact-hero wrap">
+    <div class="eyebrow">Contact</div>
+    <h1>Let's <em>talk</em>.</h1>
+    <p class="lead">Whether it's an internship, a collaboration, a founder team, or a technically deep project — I read everything and reply quickly. Email is the fastest way to reach me.</p>
+  </section>
+
+  <section class="contact-section wrap">
+    <div class="channel-grid">
+      <a class="channel-card" href="mailto:isumpna@gmail.com">
+        <span class="ch-label">Email · fastest</span>
+        <h2>Gmail</h2>
+        <p>Best for anything substantive — opportunities, collaborations, or just a good question.</p>
+        <span class="ch-value">isumpna@gmail.com</span>
+      </a>
+      <a class="channel-card" href="https://linkedin.com/in/isum-nanomi-arachchige/" target="_blank" rel="noopener">
+        <span class="ch-label">Professional</span>
+        <h2>LinkedIn</h2>
+        <p>Experience, education, and endorsements. Connection requests with a note get answered first.</p>
+        <span class="ch-value">linkedin.com/in/isum-nanomi-arachchige</span>
+      </a>
+      <a class="channel-card" href="https://github.com/IsumNA" target="_blank" rel="noopener">
+        <span class="ch-label">Code</span>
+        <h2>GitHub</h2>
+        <p>Public repositories, shipped projects, and experiments. The most honest picture of how I build.</p>
+        <span class="ch-value">github.com/IsumNA</span>
+      </a>
+    </div>
+
+    <div class="elsewhere">
+      <h2>Elsewhere on the web</h2>
+      <p>Work and projects mentioned across the portfolio, if you want to dig deeper before reaching out.</p>
+      <ul class="link-list">
+        <li><a href="https://kaizens.co.uk" target="_blank" rel="noopener">Kaizens Group <span>brand &amp; enterprise AI work</span></a></li>
+        <li><a href="https://github.com/IsumNA/Treatly" target="_blank" rel="noopener">Treatly <span>social accountability app</span></a></li>
+        <li><a href="index.html#projects">Full project list <span>on the portfolio</span></a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div><h2>Let's build something.</h2><p>Engineering · AI · Design · Robotics</p></div>
+    <div class="flinks">
+      <a href="mailto:isumpna@gmail.com">email me</a>
+      <a href="https://linkedin.com/in/isum-nanomi-arachchige/" target="_blank" rel="noopener">linkedin</a>
+      <a href="index.html">portfolio</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* Same editable-text behaviour as the main site, scoped to this page with its own storage key. */
+(function () {
+  var STORAGE_KEY = 'isumContact_textEdits_v1';
+  var VERSION = 1;
+  var fragments = [];
+  var original = {};
+  var editing = false;
+
+  function loadEdits () {
+    try {
+      var parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      return parsed && parsed.version === VERSION && parsed.changes ? parsed.changes : {};
+    } catch (e) { return {}; }
+  }
+
+  function setStatus (message) {
+    var status = document.getElementById('edit-status');
+    if (status) status.textContent = message;
+  }
+
+  function init () {
+    var scopes = [document.querySelector('.site-nav'), document.querySelector('main'), document.querySelector('.site-footer')].filter(Boolean);
+    var textNodes = [];
+    scopes.forEach(function (scope) {
+      var walker = document.createTreeWalker(scope, NodeFilter.SHOW_TEXT, {
+        acceptNode: function (node) {
+          var parent = node.parentElement;
+          if (!parent || !node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+          if (parent.closest('script,style,.edit-toolbar')) return NodeFilter.FILTER_REJECT;
+          return NodeFilter.FILTER_ACCEPT;
+        },
+      });
+      var node;
+      while ((node = walker.nextNode())) textNodes.push(node);
+    });
+
+    textNodes.forEach(function (node, index) {
+      var value = node.nodeValue;
+      var leading = value.match(/^\s*/)[0];
+      var trailing = value.match(/\s*$/)[0];
+      var core = value.slice(leading.length, value.length - trailing.length);
+      if (!core) return;
+      var key = 'text-' + index;
+      var span = document.createElement('span');
+      span.className = 'editable-fragment';
+      span.dataset.editKey = key;
+      span.textContent = core;
+      span.spellcheck = true;
+      var fragment = document.createDocumentFragment();
+      if (leading) fragment.appendChild(document.createTextNode(leading));
+      fragment.appendChild(span);
+      if (trailing) fragment.appendChild(document.createTextNode(trailing));
+      node.parentNode.replaceChild(fragment, node);
+      original[key] = core;
+      fragments.push(span);
+    });
+
+    applyEdits(loadEdits());
+    bind();
+  }
+
+  function applyEdits (changes) {
+    fragments.forEach(function (span) {
+      var key = span.dataset.editKey;
+      if (Object.prototype.hasOwnProperty.call(changes, key)) span.textContent = String(changes[key]);
+    });
+  }
+
+  function setEditing (enabled) {
+    editing = !!enabled;
+    document.body.classList.toggle('is-editing', editing);
+    fragments.forEach(function (span) { span.contentEditable = editing ? 'true' : 'false'; });
+    setStatus(editing ? 'Editing text — links are paused' : 'Text changes save on this browser');
+    if (editing && fragments[0]) fragments[0].focus();
+  }
+
+  function saveEdits () {
+    var changes = {};
+    fragments.forEach(function (span) { changes[span.dataset.editKey] = span.textContent; });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ version: VERSION, savedAt: new Date().toISOString(), changes: changes }));
+    setEditing(false);
+    setStatus('Saved on this browser');
+  }
+
+  function cancelEdits () {
+    var saved = loadEdits();
+    fragments.forEach(function (span) {
+      var key = span.dataset.editKey;
+      span.textContent = Object.prototype.hasOwnProperty.call(saved, key) ? saved[key] : original[key];
+    });
+    setEditing(false);
+    setStatus('Unsaved changes discarded');
+  }
+
+  function resetEdits () {
+    if (!window.confirm('Reset all contact page text edits saved in this browser?')) return;
+    localStorage.removeItem(STORAGE_KEY);
+    fragments.forEach(function (span) { span.textContent = original[span.dataset.editKey]; });
+    setEditing(false);
+    setStatus('Text reset to the published version');
+  }
+
+  function bind () {
+    var toolbar = document.getElementById('edit-toolbar');
+    if (!toolbar) return;
+    toolbar.addEventListener('click', function (event) {
+      var button = event.target.closest('[data-edit-action]');
+      if (!button) return;
+      var action = button.dataset.editAction;
+      if (action === 'edit') setEditing(true);
+      if (action === 'save') saveEdits();
+      if (action === 'cancel') cancelEdits();
+      if (action === 'reset') resetEdits();
+    });
+    document.addEventListener('click', function (event) {
+      if (editing && event.target.closest('.editable-fragment')) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    }, true);
+    document.addEventListener('keydown', function (event) {
+      if (!editing || !event.target.closest('.editable-fragment')) return;
+      if (event.key === 'Enter') event.preventDefault();
+      if (event.key === 'Escape') cancelEdits();
+    });
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+</body>
+</html>

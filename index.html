@@ -832,7 +832,7 @@ a{color:var(--color-accent)}
       <li><a href="#experience" onclick="goSection('experience');return false;">Experience</a></li>
       <li><a href="#projects" onclick="goSection('projects');return false;">Projects</a></li>
       <li><a onclick="show('ideas')" class="" id="ni">Ideas Lab</a></li>
-      <li><a href="mailto:isumpna@gmail.com" class="btn primary" style="padding:9px 16px">Contact</a></li>
+      <li><a href="contact.html" class="btn primary" style="padding:9px 16px">Contact</a></li>
     </ul>
   </div>
 </header>
@@ -1091,7 +1091,7 @@ a{color:var(--color-accent)}
         <h2>Open to ambitious work.</h2>
         <p>Internships, collaborations, founder teams, and technically deep projects — especially where AI meets the physical world.</p>
       </div>
-      <a class="btn primary" href="mailto:isumpna@gmail.com">isumpna@gmail.com</a>
+      <a class="btn primary" href="contact.html">Contact me</a>
     </div>
   </section>
 </main>
@@ -1352,6 +1352,7 @@ a{color:var(--color-accent)}
   <div class="wrap">
     <div><h2>Let's build something.</h2><p>Engineering · AI · Design · Robotics</p></div>
     <div class="flinks">
+      <a href="contact.html">contact</a>
       <a href="mailto:isumpna@gmail.com">email me</a>
       <a href="https://linkedin.com/in/isum-nanomi-arachchige/" target="_blank">linkedin</a>
     </div>
@@ -2322,6 +2323,7 @@ function bindSiteEditor () {
 function bootSite () {
   initBoard();
   initSiteEditor();
+  if (window.location.hash === '#ideas') show('ideas');
 }
 
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bootSite);
