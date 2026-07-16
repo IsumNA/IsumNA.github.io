@@ -228,6 +228,27 @@ a:hover{text-decoration:underline}
   outline-offset:2px;
   border-radius:2px;
 }
+.editable-box{position:relative}
+.editable-box.is-removed{display:none!important}
+.box-remove-btn{
+  position:absolute;
+  inset:var(--space-xs) var(--space-xs) auto auto;
+  z-index:var(--z-raised);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  width:1.75rem;
+  height:1.75rem;
+  padding:0;
+  border:var(--rule-hair) solid var(--color-rule-strong);
+  border-radius:var(--radius-xs);
+  background:var(--color-paper);
+  color:var(--color-muted);
+  font:500 1rem/1 var(--font-mono);
+  cursor:pointer;
+}
+.box-remove-btn:hover{border-color:var(--color-error);color:var(--color-error)}
+.is-editing .box-remove-btn{display:inline-flex}
 
 @media(max-width:59.99rem){
   .channel-grid{grid-template-columns:1fr}
@@ -328,12 +349,16 @@ a:hover{text-decoration:underline}
   var fragments = [];
   var original = {};
   var editing = false;
+  var boxes = [];
 
-  function loadEdits () {
+  function loadState () {
     try {
       var parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-      return parsed && parsed.version === VERSION && parsed.changes ? parsed.changes : {};
-    } catch (e) { return {}; }
+      if (parsed && parsed.version === VERSION && parsed.changes) {
+        return { changes: parsed.changes, removed: Array.isArray(parsed.removed) ? parsed.removed : [] };
+      }
+    } catch (e) { /* corrupted state falls through to defaults */ }
+    return { changes: {}, removed: [] };
   }
 
   function setStatus (message) {
@@ -349,7 +374,7 @@ a:hover{text-decoration:underline}
         acceptNode: function (node) {
           var parent = node.parentElement;
           if (!parent || !node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
-          if (parent.closest('script,style,.edit-toolbar')) return NodeFilter.FILTER_REJECT;
+          if (parent.closest('script,style,.edit-toolbar,.box-remove-btn')) return NodeFilter.FILTER_REJECT;
           return NodeFilter.FILTER_ACCEPT;
         },
       });
@@ -378,8 +403,45 @@ a:hover{text-decoration:underline}
       fragments.push(span);
     });
 
-    applyEdits(loadEdits());
+    initBoxes();
+    var saved = loadState();
+    applyEdits(saved.changes);
+    applyRemovals(saved.removed);
     bind();
+  }
+
+  function initBoxes () {
+    document.querySelectorAll('.channel-card, .link-list li').forEach(function (el, index) {
+      var key = 'box-' + index;
+      el.classList.add('editable-box');
+      el.dataset.boxKey = key;
+      var button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'box-remove-btn';
+      button.setAttribute('aria-label', 'Remove this box');
+      button.title = 'Remove this box';
+      button.textContent = '\u00d7';
+      button.addEventListener('click', function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        if (editing) el.classList.add('is-removed');
+      });
+      el.appendChild(button);
+      boxes.push({ key: key, el: el });
+    });
+  }
+
+  function applyRemovals (removed) {
+    var set = new Set(removed);
+    boxes.forEach(function (box) {
+      box.el.classList.toggle('is-removed', set.has(box.key));
+    });
+  }
+
+  function collectRemovals () {
+    return boxes
+      .filter(function (box) { return box.el.classList.contains('is-removed'); })
+      .map(function (box) { return box.key; });
   }
 
   function applyEdits (changes) {
@@ -393,34 +455,36 @@ a:hover{text-decoration:underline}
     editing = !!enabled;
     document.body.classList.toggle('is-editing', editing);
     fragments.forEach(function (span) { span.contentEditable = editing ? 'true' : 'false'; });
-    setStatus(editing ? 'Editing text — links are paused' : 'Text changes save on this browser');
+    setStatus(editing ? 'Editing — links paused · \u00d7 removes a box' : 'Text changes save on this browser');
     if (editing && fragments[0]) fragments[0].focus();
   }
 
   function saveEdits () {
     var changes = {};
     fragments.forEach(function (span) { changes[span.dataset.editKey] = span.textContent; });
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({ version: VERSION, savedAt: new Date().toISOString(), changes: changes }));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ version: VERSION, savedAt: new Date().toISOString(), changes: changes, removed: collectRemovals() }));
     setEditing(false);
     setStatus('Saved on this browser');
   }
 
   function cancelEdits () {
-    var saved = loadEdits();
+    var saved = loadState();
     fragments.forEach(function (span) {
       var key = span.dataset.editKey;
-      span.textContent = Object.prototype.hasOwnProperty.call(saved, key) ? saved[key] : original[key];
+      span.textContent = Object.prototype.hasOwnProperty.call(saved.changes, key) ? saved.changes[key] : original[key];
     });
+    applyRemovals(saved.removed);
     setEditing(false);
     setStatus('Unsaved changes discarded');
   }
 
   function resetEdits () {
-    if (!window.confirm('Reset all contact page text edits saved in this browser?')) return;
+    if (!window.confirm('Reset all contact page edits and removed boxes saved in this browser?')) return;
     localStorage.removeItem(STORAGE_KEY);
     fragments.forEach(function (span) { span.textContent = original[span.dataset.editKey]; });
+    applyRemovals([]);
     setEditing(false);
-    setStatus('Text reset to the published version');
+    setStatus('Page reset to the published version');
   }
 
   function bind () {

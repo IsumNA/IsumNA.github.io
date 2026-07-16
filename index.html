@@ -778,6 +778,27 @@ a{color:var(--color-accent)}
   background:var(--color-paper-2);
   outline-color:var(--color-accent);
 }
+.editable-box{position:relative}
+.editable-box.is-removed{display:none!important}
+.box-remove-btn{
+  position:absolute;
+  inset:var(--space-xs) var(--space-xs) auto auto;
+  z-index:var(--z-raised);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  width:1.75rem;
+  height:1.75rem;
+  padding:0;
+  border:var(--rule-hair) solid var(--color-rule-strong);
+  border-radius:var(--radius-xs);
+  background:var(--color-paper);
+  color:var(--color-muted);
+  font:500 1rem/1 var(--font-mono);
+  cursor:pointer;
+}
+.box-remove-btn:hover{border-color:var(--color-error);color:var(--color-error)}
+.is-editing .box-remove-btn{display:inline-flex}
 @media(hover:hover) and (pointer:fine){
   .nav-links a:hover,.nav-links button:hover,.btn:hover,.edit-btn:hover,.fb:hover,.flinks a:hover{
     background:var(--color-paper-2);
@@ -2115,16 +2136,19 @@ const SITE_EDITOR = Object.freeze({
 let siteEditorFragments = [];
 let siteEditorOriginal = {};
 let siteEditorEditing = false;
+let siteEditorBoxes = [];
 
-function loadSiteEdits () {
+function loadSiteState () {
   try {
     const parsed = JSON.parse(localStorage.getItem(SITE_EDITOR.storageKey) || '{}');
-    return parsed && parsed.version === SITE_EDITOR.version && parsed.changes
-      ? parsed.changes
-      : {};
-  } catch (e) {
-    return {};
-  }
+    if (parsed && parsed.version === SITE_EDITOR.version && parsed.changes) {
+      return {
+        changes: parsed.changes,
+        removed: Array.isArray(parsed.removed) ? parsed.removed : [],
+      };
+    }
+  } catch (e) { /* corrupted state falls through to defaults */ }
+  return { changes: {}, removed: [] };
 }
 
 function setEditorStatus (message) {
@@ -2148,7 +2172,7 @@ function initSiteEditor () {
         if (!parent || !node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
         if (
           parent.closest(
-            'script,style,input,textarea,select,option,.edit-toolbar,.modal-backdrop,.admin-bar,.persona-strip,.ic-admin',
+            'script,style,input,textarea,select,option,.edit-toolbar,.modal-backdrop,.admin-bar,.persona-strip,.ic-admin,.box-remove-btn',
           )
         ) return NodeFilter.FILTER_REJECT;
         return NodeFilter.FILTER_ACCEPT;
@@ -2182,8 +2206,49 @@ function initSiteEditor () {
     siteEditorFragments.push(span);
   });
 
-  applySiteEdits(loadSiteEdits());
+  initSiteBoxes();
+  const saved = loadSiteState();
+  applySiteEdits(saved.changes);
+  applySiteRemovals(saved.removed);
   bindSiteEditor();
+}
+
+function initSiteBoxes () {
+  const boxes = document.querySelectorAll(
+    '#page-home .story-card, #page-home .exp-card, #page-home .comp-card, #page-home .project-card, ' +
+    '#page-home .quote, #page-home .stat-item, #page-home .design-panel, #page-home .cta-band',
+  );
+  boxes.forEach(function (el, index) {
+    const key = 'box-' + index;
+    el.classList.add('editable-box');
+    el.dataset.boxKey = key;
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'box-remove-btn';
+    button.setAttribute('aria-label', 'Remove this box');
+    button.title = 'Remove this box';
+    button.textContent = '\u00d7';
+    button.addEventListener('click', function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      if (siteEditorEditing) el.classList.add('is-removed');
+    });
+    el.appendChild(button);
+    siteEditorBoxes.push({ key: key, el: el });
+  });
+}
+
+function applySiteRemovals (removed) {
+  const set = new Set(removed);
+  siteEditorBoxes.forEach(function (box) {
+    box.el.classList.toggle('is-removed', set.has(box.key));
+  });
+}
+
+function collectSiteRemovals () {
+  return siteEditorBoxes
+    .filter(function (box) { return box.el.classList.contains('is-removed'); })
+    .map(function (box) { return box.key; });
 }
 
 function applySiteEdits (changes) {
@@ -2201,7 +2266,7 @@ function setSiteEditing (enabled) {
   siteEditorFragments.forEach(function (span) {
     span.contentEditable = siteEditorEditing ? 'true' : 'false';
   });
-  setEditorStatus(siteEditorEditing ? 'Editing text — links are paused' : 'Text changes save on this browser');
+  setEditorStatus(siteEditorEditing ? 'Editing — links paused · \u00d7 removes a box' : 'Text changes save on this browser');
   if (siteEditorEditing && siteEditorFragments[0]) siteEditorFragments[0].focus();
 }
 
@@ -2210,31 +2275,33 @@ function saveSiteEdits () {
   siteEditorFragments.forEach(function (span) {
     changes[span.dataset.editKey] = span.textContent;
   });
+  const removed = collectSiteRemovals();
   localStorage.setItem(
     SITE_EDITOR.storageKey,
-    JSON.stringify({ version: SITE_EDITOR.version, savedAt: new Date().toISOString(), changes: changes }),
+    JSON.stringify({ version: SITE_EDITOR.version, savedAt: new Date().toISOString(), changes: changes, removed: removed }),
   );
   setSiteEditing(false);
   setEditorStatus('Saved on this browser');
-  return changes;
+  return { changes: changes, removed: removed };
 }
 
 function cancelSiteEdits () {
-  const saved = loadSiteEdits();
+  const saved = loadSiteState();
   siteEditorFragments.forEach(function (span) {
     const key = span.dataset.editKey;
-    span.textContent = Object.prototype.hasOwnProperty.call(saved, key)
-      ? saved[key]
+    span.textContent = Object.prototype.hasOwnProperty.call(saved.changes, key)
+      ? saved.changes[key]
       : siteEditorOriginal[key];
   });
+  applySiteRemovals(saved.removed);
   setSiteEditing(false);
   setEditorStatus('Unsaved changes discarded');
 }
 
 function exportSiteEdits () {
-  const changes = siteEditorEditing ? saveSiteEdits() : loadSiteEdits();
+  const state = siteEditorEditing ? saveSiteEdits() : loadSiteState();
   const blob = new Blob(
-    [JSON.stringify({ version: SITE_EDITOR.version, exportedAt: new Date().toISOString(), changes: changes }, null, 2)],
+    [JSON.stringify({ version: SITE_EDITOR.version, exportedAt: new Date().toISOString(), changes: state.changes, removed: state.removed }, null, 2)],
     { type: 'application/json' },
   );
   const link = document.createElement('a');
@@ -2253,11 +2320,13 @@ function importSiteEdits (file) {
       if (!parsed || parsed.version !== SITE_EDITOR.version || !parsed.changes) {
         throw new Error('Unsupported edits file');
       }
+      const removed = Array.isArray(parsed.removed) ? parsed.removed : [];
       localStorage.setItem(
         SITE_EDITOR.storageKey,
-        JSON.stringify({ version: SITE_EDITOR.version, savedAt: new Date().toISOString(), changes: parsed.changes }),
+        JSON.stringify({ version: SITE_EDITOR.version, savedAt: new Date().toISOString(), changes: parsed.changes, removed: removed }),
       );
       applySiteEdits(parsed.changes);
+      applySiteRemovals(removed);
       setSiteEditing(false);
       setEditorStatus('Imported and saved');
     } catch (e) {
@@ -2268,13 +2337,14 @@ function importSiteEdits (file) {
 }
 
 function resetSiteEdits () {
-  if (!window.confirm('Reset all portfolio text edits saved in this browser?')) return;
+  if (!window.confirm('Reset all text edits and removed boxes saved in this browser?')) return;
   localStorage.removeItem(SITE_EDITOR.storageKey);
   siteEditorFragments.forEach(function (span) {
     span.textContent = siteEditorOriginal[span.dataset.editKey];
   });
+  applySiteRemovals([]);
   setSiteEditing(false);
-  setEditorStatus('Text reset to the published version');
+  setEditorStatus('Page reset to the published version');
 }
 
 function bindSiteEditor () {
