@@ -799,6 +799,123 @@ a{color:var(--color-accent)}
 }
 .box-remove-btn:hover{border-color:var(--color-error);color:var(--color-error)}
 .is-editing .box-remove-btn{display:inline-flex}
+
+/* Ideas Lab repair · preserves the existing board model and Cobalt system.
+ * Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V4
+ */
+.comp-card:last-child{grid-column:auto}
+.ideas-page{min-height:calc(100vh - var(--nav-h));background:var(--color-paper)}
+.ideas-page .container{
+  width:100%;
+  max-width:var(--page-max);
+  min-width:0;
+  margin-inline:auto;
+  padding-inline:var(--page-gutter);
+}
+.ideas-page .ihero{
+  display:grid;
+  grid-template-columns:minmax(0,3fr) minmax(18rem,2fr);
+  column-gap:var(--space-3xl);
+  align-items:end;
+  padding-block:var(--space-2xl) var(--space-xl);
+}
+.ideas-page .ihero h2{max-width:14ch;margin:0 0 var(--space-sm);overflow-wrap:anywhere}
+.ideas-page .ihero > p{max-width:56ch;margin:0}
+.ideas-tools{
+  display:grid;
+  grid-template-columns:auto minmax(12rem,1fr);
+  align-items:center;
+  gap:var(--space-sm);
+  min-width:0;
+  padding:0;
+}
+.count-pill{display:inline-flex;align-items:center;white-space:nowrap}
+.idea-search{width:100%;min-width:0}
+.persona-section{padding-block:var(--space-xl);min-width:0}
+.persona-section h3{
+  margin:0 0 var(--space-xs);
+  color:var(--color-ink);
+  font-family:var(--font-display);
+  font-size:var(--text-md);
+  font-weight:600;
+  letter-spacing:-.02em;
+  text-transform:none;
+}
+.ideas-intro-persona{max-width:64ch;margin:0 0 var(--space-md)}
+.persona-strip{
+  display:grid;
+  grid-auto-flow:column;
+  grid-auto-columns:minmax(9.5rem,11rem);
+  gap:var(--space-sm);
+  overflow-x:auto;
+  overscroll-behavior-inline:contain;
+  scroll-snap-type:inline proximity;
+  padding:var(--space-2xs) var(--space-2xs) var(--space-sm);
+}
+.persona-card{
+  width:auto;
+  min-width:0;
+  min-height:7.5rem;
+  padding:var(--space-md);
+  text-align:left;
+  scroll-snap-align:start;
+}
+.persona-card .avatar{
+  width:2.5rem;
+  height:2.5rem;
+  margin:0 0 var(--space-sm);
+  font-size:1.25rem;
+}
+.persona-card .p-name{font-size:var(--text-sm);line-height:1.3;overflow-wrap:anywhere}
+.persona-card .p-tag{
+  margin-block-start:var(--space-2xs);
+  font-size:var(--text-xs);
+  line-height:1.35;
+  overflow-wrap:anywhere;
+}
+.filters{
+  align-items:center;
+  gap:var(--space-xs);
+  padding-block:var(--space-lg);
+}
+.fb{white-space:nowrap}
+.feed{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  align-items:stretch;
+  gap:var(--space-lg);
+  padding-block:var(--space-xl) var(--space-3xl);
+}
+.ideas-page .ic{
+  display:flex;
+  min-width:0;
+  height:100%;
+  flex-direction:column;
+  padding:var(--space-lg);
+  overflow:hidden;
+}
+.ideas-page .ic.ic-reveal{opacity:1;transform:none}
+.idea-persona-chip{
+  max-width:100%;
+  margin-block-end:var(--space-md);
+  border-radius:var(--radius-xs);
+  line-height:1.4;
+  overflow-wrap:anywhere;
+}
+.itop{min-width:0;margin-block-end:var(--space-sm)}
+.ititle{min-width:0;font-family:var(--font-display);font-size:var(--text-md);line-height:1.3;overflow-wrap:anywhere}
+.itag{flex:0 0 auto;white-space:nowrap}
+.ibody{margin-block-end:var(--space-lg);overflow-wrap:anywhere}
+.ifooter{
+  align-items:flex-end;
+  margin-block-start:auto;
+  padding-block-start:var(--space-md);
+  border-block-start:var(--rule-hair) solid var(--color-rule);
+}
+.ifooter-left,.inote{min-width:0;overflow-wrap:anywhere}
+.pills{justify-content:flex-end}
+.admin-bar{margin-block:var(--space-lg)}
+.admin-bar span{min-width:12rem}
 @media(hover:hover) and (pointer:fine){
   .nav-links a:hover,.nav-links button:hover,.btn:hover,.edit-btn:hover,.fb:hover,.flinks a:hover{
     background:var(--color-paper-2);
@@ -815,6 +932,8 @@ a{color:var(--color-accent)}
   .section{padding-block:var(--space-2xl)}
   .project-grid{grid-template-columns:1fr}
   .design-panel{grid-template-columns:1fr}
+  .ideas-page .ihero{grid-template-columns:minmax(0,1fr);gap:var(--space-lg)}
+  .ideas-tools{max-width:40rem}
 }
 @media(max-width:39.99rem){
   body{padding-block-start:0}
@@ -825,6 +944,19 @@ a{color:var(--color-accent)}
   .story-grid,.comp-grid{grid-template-columns:1fr}
   .comp-card:last-child{grid-column:auto}
   .exp-card{grid-template-columns:1fr;gap:var(--space-md)}
+  .ideas-page .ihero{padding-block:var(--space-xl)}
+  .ideas-tools{grid-template-columns:minmax(0,1fr)}
+  .count-pill{justify-self:start}
+  .persona-section{padding-block:var(--space-lg)}
+  .persona-strip{grid-auto-columns:minmax(8.75rem,72vw)}
+  .filters{padding-block:var(--space-md)}
+  .fb{flex:1 1 calc(50% - var(--space-xs));justify-content:center}
+  .feed{grid-template-columns:minmax(0,1fr);gap:var(--space-md);padding-block:var(--space-lg) var(--space-2xl)}
+  .ideas-page .ic{padding:var(--space-md)}
+  .itop{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--space-xs)}
+  .itag{justify-self:start}
+  .ifooter{align-items:flex-start}
+  .pills{justify-content:flex-start}
   .site-footer .wrap{display:grid;grid-template-columns:1fr}
 }
 </style>
@@ -852,7 +984,7 @@ a{color:var(--color-accent)}
       <li><a href="#story" onclick="goSection('story');return false;">Story</a></li>
       <li><a href="#experience" onclick="goSection('experience');return false;">Experience</a></li>
       <li><a href="#projects" onclick="goSection('projects');return false;">Projects</a></li>
-      <li><a onclick="show('ideas')" class="" id="ni">Ideas Lab</a></li>
+      <li><a href="#ideas" onclick="show('ideas');return false;" class="" id="ni">Ideas Lab</a></li>
       <li><a href="contact.html" class="btn primary" style="padding:9px 16px">Contact</a></li>
     </ul>
   </div>
@@ -868,8 +1000,7 @@ a{color:var(--color-accent)}
         <p class="lead">I’m an engineering student at Cambridge, interested in the point where software meets the physical world. My work spans social products, enterprise AI, computer vision, embedded hardware, and the design needed to make those systems useful.</p>
         <div class="hero-actions">
           <a class="btn primary" href="#projects">View projects</a>
-          <a class="btn" href="https://github.com/IsumNA" target="_blank" rel="noopener">GitHub</a>
-          <a class="btn" href="https://linkedin.com/in/isum-nanomi-arachchige/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="contact.html">Contact me</a>
         </div>
       </div>
       <aside class="stat-panel reveal">
@@ -984,6 +1115,11 @@ a{color:var(--color-accent)}
         <div class="tag">Sport · National level</div>
         <h3>Competitive badminton</h3>
         <p>Years of daily training, national championship medals, and the discipline that still defines how I approach engineering sprints.</p>
+      </article>
+      <article class="comp-card reveal">
+        <div class="tag">Global hackathon · Legal AI</div>
+        <h3>LLM x Hack the Law 2026</h3>
+        <p>Pitched the team’s legal AI prototype to Clifford Chance, Perplexity, and the wider hackathon audience. As the team’s only technical member, I engineered the full stack and turned the concept into a working product for the final presentation.</p>
       </article>
     </div>
   </section>
@@ -2025,6 +2161,10 @@ function show (name) {
   document.getElementById('page-' + name).classList.add('active');
   var nav = document.getElementById('ni');
   if (nav) nav.classList.toggle('active', name === 'ideas');
+  var nextHash = name === 'ideas' ? '#ideas' : '';
+  if (window.location.hash !== nextHash) {
+    window.history.replaceState(null, '', window.location.pathname + window.location.search + nextHash);
+  }
   window.scrollTo({ top: 0, behavior: 'smooth' });
   if (name === 'ideas') updateFeed();
 }
