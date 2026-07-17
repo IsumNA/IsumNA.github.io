@@ -2190,9 +2190,19 @@ document.getElementById('modal-persona')?.addEventListener('click', function (e)
 });
 
 const SITE_EDITOR = Object.freeze({
-  storageKey: 'isumPortfolio_textEdits_v1',
-  version: 1,
+  storageKey: 'isumPortfolio_siteEdits_v2',
+  legacyKeys: ['isumPortfolio_textEdits_v1'],
+  version: 2,
 });
+
+/* Keys are content-hashes of the ORIGINAL text, not positional indices.
+   Positional keys scrambled the page whenever the markup changed between
+   a save and a later visit (old strings landed on the wrong nodes). */
+function siteEditHash (s) {
+  let h = 5381;
+  for (let i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) >>> 0;
+  return h.toString(36);
+}
 
 let siteEditorFragments = [];
 let siteEditorOriginal = {};
@@ -2201,6 +2211,9 @@ let siteEditorBoxes = [];
 
 function loadSiteState () {
   try {
+    /* Drop pre-v2 positional saves: their indices no longer match the markup
+       and applying them scrambles the page (the "Ideas tab messed up" bug). */
+    SITE_EDITOR.legacyKeys.forEach(function (k) { localStorage.removeItem(k); });
     const parsed = JSON.parse(localStorage.getItem(SITE_EDITOR.storageKey) || '{}');
     if (parsed && parsed.version === SITE_EDITOR.version && parsed.changes) {
       return {
@@ -2243,14 +2256,17 @@ function initSiteEditor () {
     while ((node = walker.nextNode())) textNodes.push(node);
   });
 
-  textNodes.forEach(function (node, index) {
+  const seenHashes = {};
+  textNodes.forEach(function (node) {
     const value = node.nodeValue;
     const leading = value.match(/^\s*/)[0];
     const trailing = value.match(/\s*$/)[0];
     const core = value.slice(leading.length, value.length - trailing.length);
     if (!core) return;
 
-    const key = 'text-' + index;
+    const hash = siteEditHash(core);
+    seenHashes[hash] = (seenHashes[hash] || 0) + 1;
+    const key = 't-' + hash + '-' + seenHashes[hash];
     const span = document.createElement('span');
     span.className = 'editable-fragment';
     span.dataset.editKey = key;
@@ -2279,8 +2295,12 @@ function initSiteBoxes () {
     '#page-home .story-card, #page-home .exp-card, #page-home .comp-card, #page-home .project-card, ' +
     '#page-home .quote, #page-home .stat-item, #page-home .design-panel, #page-home .cta-band',
   );
-  boxes.forEach(function (el, index) {
-    const key = 'box-' + index;
+  const seenBoxHashes = {};
+  boxes.forEach(function (el) {
+    const label = (el.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 80);
+    const hash = siteEditHash(label);
+    seenBoxHashes[hash] = (seenBoxHashes[hash] || 0) + 1;
+    const key = 'b-' + hash + '-' + seenBoxHashes[hash];
     el.classList.add('editable-box');
     el.dataset.boxKey = key;
     const button = document.createElement('button');
@@ -2460,6 +2480,12 @@ function bootSite () {
   initSiteEditor();
   if (window.location.hash === '#ideas') show('ideas');
 }
+
+window.addEventListener('hashchange', function () {
+  const wantIdeas = window.location.hash === '#ideas';
+  const ideasActive = document.getElementById('page-ideas').classList.contains('active');
+  if (wantIdeas !== ideasActive) show(wantIdeas ? 'ideas' : 'home');
+});
 
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bootSite);
 else bootSite();

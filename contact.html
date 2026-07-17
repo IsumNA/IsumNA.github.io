@@ -395,15 +395,24 @@ a:hover{text-decoration:underline}
 <script>
 /* Same editable-text behaviour as the main site, scoped to this page with its own storage key. */
 (function () {
-  var STORAGE_KEY = 'isumContact_textEdits_v1';
-  var VERSION = 1;
+  var STORAGE_KEY = 'isumContact_siteEdits_v2';
+  var LEGACY_KEYS = ['isumContact_textEdits_v1'];
+  var VERSION = 2;
   var fragments = [];
   var original = {};
   var editing = false;
   var boxes = [];
 
+  /* Content-hash keys survive markup changes; positional indices did not. */
+  function editHash (s) {
+    var h = 5381;
+    for (var i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) >>> 0;
+    return h.toString(36);
+  }
+
   function loadState () {
     try {
+      LEGACY_KEYS.forEach(function (k) { localStorage.removeItem(k); });
       var parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
       if (parsed && parsed.version === VERSION && parsed.changes) {
         return { changes: parsed.changes, removed: Array.isArray(parsed.removed) ? parsed.removed : [] };
@@ -433,13 +442,16 @@ a:hover{text-decoration:underline}
       while ((node = walker.nextNode())) textNodes.push(node);
     });
 
-    textNodes.forEach(function (node, index) {
+    var seenHashes = {};
+    textNodes.forEach(function (node) {
       var value = node.nodeValue;
       var leading = value.match(/^\s*/)[0];
       var trailing = value.match(/\s*$/)[0];
       var core = value.slice(leading.length, value.length - trailing.length);
       if (!core) return;
-      var key = 'text-' + index;
+      var hash = editHash(core);
+      seenHashes[hash] = (seenHashes[hash] || 0) + 1;
+      var key = 't-' + hash + '-' + seenHashes[hash];
       var span = document.createElement('span');
       span.className = 'editable-fragment';
       span.dataset.editKey = key;
@@ -462,8 +474,12 @@ a:hover{text-decoration:underline}
   }
 
   function initBoxes () {
-    document.querySelectorAll('.channel-card, .link-list li').forEach(function (el, index) {
-      var key = 'box-' + index;
+    var seenBoxHashes = {};
+    document.querySelectorAll('.channel-card, .link-list li').forEach(function (el) {
+      var label = (el.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 80);
+      var hash = editHash(label);
+      seenBoxHashes[hash] = (seenBoxHashes[hash] || 0) + 1;
+      var key = 'b-' + hash + '-' + seenBoxHashes[hash];
       el.classList.add('editable-box');
       el.dataset.boxKey = key;
       var button = document.createElement('button');
