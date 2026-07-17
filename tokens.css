@@ -1,23 +1,27 @@
-/* Hallmark · Cobalt tokens · light / geometric-sans / restrained-blue */
+/* Hallmark · Coral tokens · warm light paper / Geist / single coral accent */
 :root {
-  --color-paper: oklch(98% 0.006 255);
-  --color-paper-2: oklch(95% 0.008 255);
-  --color-paper-3: oklch(92% 0.012 255);
-  --color-ink: oklch(22% 0.025 255);
-  --color-ink-2: oklch(34% 0.025 255);
-  --color-muted: oklch(48% 0.022 255);
-  --color-rule: oklch(86% 0.014 255);
-  --color-rule-strong: oklch(72% 0.025 255);
-  --color-accent: oklch(48% 0.18 255);
-  --color-accent-ink: oklch(98% 0.006 255);
-  --color-focus: oklch(56% 0.19 255);
-  --color-refract: oklch(70% 0.08 255);
+  --color-paper: oklch(97.4% 0.005 85);
+  --color-paper-2: oklch(94.9% 0.007 85);
+  --color-paper-3: oklch(92.2% 0.009 85);
+  --color-card: oklch(99.4% 0.002 85);
+  --color-ink: oklch(22% 0.015 55);
+  --color-ink-2: oklch(33% 0.016 55);
+  --color-muted: oklch(47% 0.02 55);
+  --color-rule: oklch(89% 0.009 85);
+  --color-rule-strong: oklch(79% 0.015 85);
+  --color-accent: oklch(58% 0.155 32);
+  --color-accent-strong: oklch(51% 0.16 32);
+  --color-accent-soft: oklch(93.5% 0.03 32);
+  --color-accent-ink: oklch(98.6% 0.004 85);
+  --color-focus: oklch(54% 0.17 32);
+  --color-refract: oklch(74% 0.06 32);
   --color-error: oklch(52% 0.18 28);
-  --color-success: oklch(48% 0.12 150);
+  --color-warn: oklch(52% 0.12 75);
+  --color-success: oklch(48% 0.11 150);
 
-  --font-display: "Space Grotesk", "Segoe UI", sans-serif;
-  --font-body: "IBM Plex Sans", "Segoe UI", sans-serif;
-  --font-mono: "IBM Plex Mono", "Cascadia Mono", monospace;
+  --font-display: "Geist", "Segoe UI", sans-serif;
+  --font-body: "Geist", "Segoe UI", sans-serif;
+  --font-mono: "Geist Mono", "Cascadia Mono", monospace;
 
   --space-3xs: 0.125rem;
   --space-2xs: 0.25rem;
@@ -33,13 +37,13 @@
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: 1rem;
-  --text-md: 1.25rem;
-  --text-lg: 1.5625rem;
-  --text-xl: 1.953rem;
-  --text-2xl: 2.441rem;
-  --text-3xl: 3.052rem;
-  --text-4xl: 3.815rem;
-  --text-display-s: clamp(2.5rem, 4vw + 0.5rem, 4.5rem);
+  --text-md: 1.1875rem;
+  --text-lg: 1.5rem;
+  --text-xl: 1.875rem;
+  --text-2xl: 2.375rem;
+  --text-3xl: 2.95rem;
+  --text-4xl: 3.7rem;
+  --text-display-s: clamp(2.7rem, 4.4vw + 0.6rem, 4.4rem);
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
@@ -51,14 +55,15 @@
   --rule-hair: 1px;
   --rule-focus: 2px;
   --rule-accent: 2px;
-  --radius-xs: 0.25rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
+  --radius-xs: 0.375rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 1rem;
   --radius-pill: 999px;
   --control-h: 2.75rem;
-  --page-max: 72rem;
-  --page-gutter: clamp(1rem, 4vw, 3rem);
-  --shadow-tight: 0 8px 24px oklch(22% 0.025 255 / 0.08);
+  --page-max: 70rem;
+  --page-gutter: clamp(1.25rem, 4vw, 3rem);
+  --shadow-tight: 0 1px 2px oklch(22% 0.015 55 / 0.05), 0 8px 24px oklch(22% 0.015 55 / 0.06);
+  --shadow-lift: 0 2px 4px oklch(22% 0.015 55 / 0.05), 0 16px 40px oklch(22% 0.015 55 / 0.09);
 
   --z-base: 1;
   --z-raised: 10;
@@ -68,20 +73,20 @@
   --z-toast: 500;
   --z-tooltip: 600;
 
-  /* Compatibility aliases for the existing single-file site. */
+  /* Compatibility aliases for inline styles that still reference the old names. */
   --bg: var(--color-paper);
-  --surface: var(--color-paper-2);
+  --surface: var(--color-card);
   --ink: var(--color-ink);
   --muted: var(--color-muted);
   --line: var(--color-rule);
   --accent: var(--color-accent);
-  --accent-soft: var(--color-paper-3);
+  --accent-soft: var(--color-accent-soft);
   --accent-2: var(--color-refract);
   --serif: var(--font-display);
   --sans: var(--font-body);
   --mono: var(--font-mono);
   --shadow: var(--shadow-tight);
   --radius: var(--radius-md);
-  --nav-h: 4.5rem;
-  --yellow: var(--color-accent);
+  --nav-h: 4.25rem;
+  --yellow: var(--color-accent-soft);
 }

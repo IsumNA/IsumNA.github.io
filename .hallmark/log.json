@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-07-17",
+    "macrostructure": "Stat-Led",
+    "theme": "Coral",
+    "enrichment": "none",
+    "nav": "N9 edge-aligned",
+    "footer": "Ft5 statement",
+    "scope": "app",
+    "brief": "Full-site formatting/design upgrade: consolidated three conflicting CSS layers into one system across home, Ideas Lab, and contact"
+  },
+  {
     "date": "2026-07-16",
     "macrostructure": "Long Document",
     "theme": "Cobalt",
