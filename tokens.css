@@ -1,27 +1,28 @@
-/* Hallmark · Coral tokens · warm light paper / Geist / single coral accent */
+/* Signal Lab — cool precision system (not cream/coral) */
 :root {
-  --color-paper: oklch(97.4% 0.005 85);
-  --color-paper-2: oklch(94.9% 0.007 85);
-  --color-paper-3: oklch(92.2% 0.009 85);
-  --color-card: oklch(99.4% 0.002 85);
-  --color-ink: oklch(22% 0.015 55);
-  --color-ink-2: oklch(33% 0.016 55);
-  --color-muted: oklch(47% 0.02 55);
-  --color-rule: oklch(89% 0.009 85);
-  --color-rule-strong: oklch(79% 0.015 85);
-  --color-accent: oklch(58% 0.155 32);
-  --color-accent-strong: oklch(51% 0.16 32);
-  --color-accent-soft: oklch(93.5% 0.03 32);
-  --color-accent-ink: oklch(98.6% 0.004 85);
-  --color-focus: oklch(54% 0.17 32);
-  --color-refract: oklch(74% 0.06 32);
-  --color-error: oklch(52% 0.18 28);
-  --color-warn: oklch(52% 0.12 75);
-  --color-success: oklch(48% 0.11 150);
+  --color-paper: #eef1f4;
+  --color-paper-2: #e4e9ef;
+  --color-paper-3: #d7dee7;
+  --color-card: #f7f9fb;
+  --color-ink: #0a1219;
+  --color-ink-2: #1a2733;
+  --color-muted: #5a6b7a;
+  --color-rule: rgba(10, 18, 25, 0.1);
+  --color-rule-strong: rgba(10, 18, 25, 0.18);
+  --color-accent: #0c7c78;
+  --color-accent-strong: #095f5c;
+  --color-accent-soft: #d4efee;
+  --color-accent-ink: #f4fbfb;
+  --color-focus: #0c7c78;
+  --color-refract: #2a9d98;
+  --color-error: #b42318;
+  --color-warn: #b54708;
+  --color-success: #067647;
+  --color-hero-ink: #f4f7fa;
 
-  --font-display: "Geist", "Segoe UI", sans-serif;
-  --font-body: "Geist", "Segoe UI", sans-serif;
-  --font-mono: "Geist Mono", "Cascadia Mono", monospace;
+  --font-display: "Syne", "Segoe UI", sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", "Cascadia Mono", monospace;
 
   --space-3xs: 0.125rem;
   --space-2xs: 0.25rem;
@@ -37,33 +38,33 @@
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: 1rem;
-  --text-md: 1.1875rem;
+  --text-md: 1.125rem;
   --text-lg: 1.5rem;
   --text-xl: 1.875rem;
-  --text-2xl: 2.375rem;
-  --text-3xl: 2.95rem;
-  --text-4xl: 3.7rem;
-  --text-display-s: clamp(2.7rem, 4.4vw + 0.6rem, 4.4rem);
+  --text-2xl: 2.5rem;
+  --text-3xl: 3.25rem;
+  --text-4xl: 4rem;
+  --text-display-s: clamp(2.8rem, 5vw + 0.5rem, 4.75rem);
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
   --dur-micro: 120ms;
-  --dur-short: 220ms;
-  --dur-long: 420ms;
+  --dur-short: 240ms;
+  --dur-long: 520ms;
 
   --rule-hair: 1px;
   --rule-focus: 2px;
   --rule-accent: 2px;
-  --radius-xs: 0.375rem;
-  --radius-md: 0.625rem;
-  --radius-lg: 1rem;
+  --radius-xs: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
   --radius-pill: 999px;
   --control-h: 2.75rem;
-  --page-max: 70rem;
+  --page-max: 72rem;
   --page-gutter: clamp(1.25rem, 4vw, 3rem);
-  --shadow-tight: 0 1px 2px oklch(22% 0.015 55 / 0.05), 0 8px 24px oklch(22% 0.015 55 / 0.06);
-  --shadow-lift: 0 2px 4px oklch(22% 0.015 55 / 0.05), 0 16px 40px oklch(22% 0.015 55 / 0.09);
+  --shadow-tight: 0 1px 0 rgba(10, 18, 25, 0.04), 0 12px 32px rgba(10, 18, 25, 0.06);
+  --shadow-lift: 0 20px 50px rgba(10, 18, 25, 0.12);
 
   --z-base: 1;
   --z-raised: 10;
@@ -73,7 +74,6 @@
   --z-toast: 500;
   --z-tooltip: 600;
 
-  /* Compatibility aliases for inline styles that still reference the old names. */
   --bg: var(--color-paper);
   --surface: var(--color-card);
   --ink: var(--color-ink);
@@ -87,6 +87,6 @@
   --mono: var(--font-mono);
   --shadow: var(--shadow-tight);
   --radius: var(--radius-md);
-  --nav-h: 4.25rem;
+  --nav-h: 4rem;
   --yellow: var(--color-accent-soft);
 }
