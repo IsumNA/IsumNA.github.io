@@ -1,29 +1,21 @@
-/* Engineering pad — pale green computation paper, graphite, one highlighter.
-   The site is Isum's notebook made public, so it is drawn like one. */
+/* Minimal: white page, black text, one typeface, one grey for secondary text. */
 :root {
-  --paper: #edf1e7;        /* pad green */
-  --paper-2: #e3e9dc;      /* darker sheet, hovers and wells */
-  --slip: #f6f8f2;         /* loose slip of paper: idea cards, inputs */
-  --grid: #c9d4bf;         /* pad grid and hairlines */
-  --grid-strong: #a9b89c;
-  --graphite: #1f231d;     /* text and solid controls */
-  --graphite-2: #3a4036;
-  --muted: #586052;
-  --highlight: #efe03c;    /* highlighter: shipped things, the one loud colour */
-  --highlight-soft: #f5ec8f;
-  --red-pen: #b8322a;      /* corrections: retired ideas, destructive actions */
+  --bg: #ffffff;
+  --text: #000000;
+  --muted: #6e6e6e;
+  --line: #e8e8e8;
+  --wash: #f5f5f5;      /* hover and input backgrounds */
+  --danger: #c4321f;
 
-  --font-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
-  --font-text: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
 
-  /* scale ≈ 1.25, body at 18px */
   --t-xs: 0.8125rem;
-  --t-sm: 0.9375rem;
-  --t-base: 1.125rem;
-  --t-md: 1.3125rem;
-  --t-lg: 1.75rem;
-  --t-xl: clamp(2rem, 3.6vw + 0.6rem, 3rem);
-  --t-display: clamp(2.5rem, 6.4vw + 0.4rem, 5.5rem);
+  --t-sm: 0.875rem;
+  --t-base: 1rem;
+  --t-md: 1.125rem;
+  --t-lg: 1.375rem;
+  --t-xl: 1.75rem;
+  --t-display: clamp(2rem, 3.5vw + 1rem, 3rem);
 
   --s-1: 0.25rem;
   --s-2: 0.5rem;
@@ -32,17 +24,12 @@
   --s-5: 1.5rem;
   --s-6: 2rem;
   --s-7: 3rem;
-  --s-8: 4.5rem;
-  --s-9: 7rem;
+  --s-8: 5rem;
+  --s-9: 8rem;
 
-  --measure: 38rem;        /* ~68 characters of serif body */
-  --page-max: 74rem;
-  --gutter: clamp(1rem, 4vw, 3rem);
-  --nav-h: 3.75rem;
-
-  --r-sm: 3px;
-  --r-md: 6px;
-  --r-pill: 999px;
-
-  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --measure: 36rem;
+  --page-max: 46rem;     /* one narrow column, like a document */
+  --gutter: 1.25rem;
+  --nav-h: 3.5rem;
+  --radius: 8px;
 }

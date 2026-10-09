@@ -7,7 +7,7 @@
 <title>Isum Nanomi Arachchige — Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="site.css">
 <script>/* The text editor is for Isum only: open the site with ?edit, or log in as admin. */
@@ -56,22 +56,6 @@ try{if(/[?&]edit\b/.test(location.search)||sessionStorage.getItem('ideaBoard_adm
             <a class="btn primary" href="#projects">View projects</a>
             <a class="btn" href="contact.html">Contact</a>
           </div>
-          <div class="horizon" id="horizon">
-            <div class="horizon-head">
-              <h2>Everything in my notebook, by how far away it is</h2>
-              <div class="horizon-legend" id="horizon-count"></div>
-            </div>
-            <div class="horizon-plot" id="horizon-plot"></div>
-            <div class="horizon-axis" aria-hidden="true"><span>Now</span><span>Decades out</span></div>
-            <p class="horizon-caption" id="horizon-caption" aria-live="polite">Point at a dot to read the idea. Click it to open it in the Ideas Lab.</p>
-          </div>
-          <div class="stat-strip reveal">
-            <div class="stat-item"><span>Education</span><b>Cambridge Engineering Tripos</b></div>
-            <div class="stat-item"><span>Internship</span><b>SWE, Raspberry Pi</b></div>
-            <div class="stat-item"><span>Shipped</span><b>Treatly · Gov ML</b></div>
-            <div class="stat-item"><span>Athletics</span><b>National medallist</b></div>
-            <div class="stat-item"><span>Design</span><b>Kaizens brand</b></div>
-          </div>
         </div>
       </div>
     </div>
@@ -85,7 +69,7 @@ try{if(/[?&]edit\b/.test(location.search)||sessionStorage.getItem('ideaBoard_adm
     <p class="story-lede reveal">Although it was painful, being an athlete gave me life lessons that I could never have gotten elsewhere. Firstly, I got used to losing- it became part of the process. I learnt that no one really cares if you fail, and losing 1000 times was so worth it, if it meant I get to win once. I honestly cannot count the number of times I have trained so hard for a tournament, flown or driven hours to get there, only to lose and not perform how I wanted. Still one of the worst feelings I can remember.</p>
     <p class="story-lede reveal">But do I regret it? Of course not, because no matter how many matches I lost or lose in the future, I am still a national championship medallist, and was ranked 2nd in the country for my age group.</p>
     <p class="story-lede reveal">The point is- it really gave me perspective to how failure is literally setting you up for success! No one remembers the losses! So a huge thing I carry on from my childhood and what my dad has taught me is that it is always worth sticking it out. Which is partly why I am still playing and competing (not as much as before).</p>
-    <blockquote class="quote reveal"><mark>The time has come after 20 years, where I can FINALLY focus on what I'm best at.</mark></blockquote>
+    <blockquote class="quote reveal">The time has come after 20 years, where I can FINALLY focus on what I'm best at.</blockquote>
     <div class="story-grid">
       <article class="story-card reveal">
         <h3>Building hobby</h3>
@@ -157,7 +141,7 @@ try{if(/[?&]edit\b/.test(location.search)||sessionStorage.getItem('ideaBoard_adm
 
   <section class="section wrap" id="competitions">
     <div class="section-head reveal">
-      <h2>Hackathons/<wbr>Competitions</h2>
+      <h2>Hackathons & competitions</h2>
       <p>Have a whole new hackathon schedule planned!</p>
     </div>
     <div class="comp-grid">
@@ -1617,109 +1601,6 @@ window.addEventListener('hashchange', function () {
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bootSite);
 else bootSite();
 
-</script>
-<script>
-/* Horizon: plots every idea card in the Ideas Lab on one line, from shipped (now) to notebook (decades out). */
-(function () {
-  var plot = document.getElementById('horizon-plot');
-  if (!plot) return;
-  var caption = document.getElementById('horizon-caption');
-  if (window.matchMedia && window.matchMedia('(hover: none)').matches) {
-    caption.textContent = 'Tap a dot to read the idea. Tap it again to open it in the Ideas Lab.';
-  }
-  var defaultCaption = caption.textContent;
-  var ZONES = [
-    { s: 'shipped', label: 'Shipped', from: 0, to: 0.3 },
-    { s: 'wip', label: 'Building', from: 0.3, to: 0.42 },
-    { s: 'notebook', label: 'Notebook', from: 0.42, to: 1 },
-  ];
-
-  function cardsFor (status) {
-    return Array.prototype.filter.call(document.querySelectorAll('#idea-feed-root .ic'), function (c) {
-      return (c.dataset.s || '') === status;
-    });
-  }
-  function titleOf (card) {
-    var t = card.querySelector('.ititle');
-    return t ? t.textContent.trim() : 'Idea';
-  }
-  function bodyOf (card) {
-    var b = card.querySelector('.ibody:not(.casual-only)');
-    var text = b ? b.textContent.replace(/\s+/g, ' ').trim() : '';
-    var stop = text.indexOf('. ');
-    return stop > 20 && stop < 170 ? text.slice(0, stop + 1) : (text.length > 170 ? text.slice(0, 167) + '…' : text);
-  }
-  function openIdeas (status, card) {
-    show('ideas');
-    var btn = document.querySelector('.fb[data-f="' + status + '"]');
-    if (btn) filter(btn, status);
-    if (card) {
-      window.setTimeout(function () {
-        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        card.style.outline = '2px solid var(--graphite)';
-        card.style.outlineOffset = '3px';
-        window.setTimeout(function () { card.style.outline = ''; }, 2400);
-      }, 120);
-    }
-  }
-  function say (card, dot) {
-    plot.querySelectorAll('.is-on').forEach(function (d) { if (d !== dot) d.classList.remove('is-on'); });
-    if (!card) { caption.textContent = defaultCaption; return; }
-    dot.classList.add('is-on');
-    caption.innerHTML = '';
-    var b = document.createElement('b');
-    b.textContent = titleOf(card);
-    caption.appendChild(b);
-    caption.appendChild(document.createTextNode(' ' + bodyOf(card)));
-  }
-
-  var counts = [];
-  var order = 0;
-  ZONES.forEach(function (z) {
-    var cards = cardsFor(z.s);
-    counts.push(cards.length + ' ' + z.label.toLowerCase());
-    var zone = document.createElement('div');
-    zone.className = 'horizon-zone';
-    zone.style.left = (z.from * 100) + '%';
-    plot.appendChild(zone);
-
-    cards.forEach(function (card, i) {
-      var x = z.from + (z.to - z.from) * ((i + 0.6) / (cards.length + 0.4));
-      var dot = document.createElement('button');
-      dot.type = 'button';
-      dot.className = 'horizon-dot';
-      dot.dataset.s = z.s;
-      var hsh = 0, t = titleOf(card);
-      for (var k = 0; k < t.length; k++) hsh = (hsh * 31 + t.charCodeAt(k)) >>> 0;
-      x += (((hsh >> 8) % 100) / 100 - 0.5) * (z.to - z.from) / (cards.length + 1) * 0.6;
-      x = Math.min(z.to - 0.015, Math.max(z.from + 0.02, x));
-      dot.style.left = (x * 100) + '%';
-      dot.style.top = (30 + (hsh % 56)) + '%';
-      dot.style.setProperty('--d', (order++ * 28) + 'ms');
-      dot.setAttribute('aria-label', titleOf(card) + ' (' + z.label.toLowerCase() + ')');
-      dot.addEventListener('mouseenter', function () { say(card, dot); });
-      dot.addEventListener('focus', function () { say(card, dot); });
-      dot.addEventListener('click', function (e) {
-        /* On touch the first tap reads the idea, the second opens it. */
-        var touch = e.pointerType === 'touch' || (window.matchMedia && window.matchMedia('(hover: none)').matches);
-        if (touch && !dot.classList.contains('is-on')) { say(card, dot); return; }
-        openIdeas(z.s, card);
-      });
-      plot.appendChild(dot);
-    });
-  });
-  plot.addEventListener('mouseleave', function () { say(null); });
-  var legend = document.getElementById('horizon-count');
-  ZONES.forEach(function (z, i) {
-    var b = document.createElement('button');
-    b.type = 'button';
-    b.innerHTML = '<i class="horizon-key" data-s="' + z.s + '"></i>' + counts[i];
-    b.addEventListener('click', function () { openIdeas(z.s); });
-    legend.appendChild(b);
-  });
-  var h = document.getElementById('horizon');
-  h.classList.add('is-drawing');
-})();
 </script>
 </body>
 </html>
