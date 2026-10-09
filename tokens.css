@@ -1,92 +1,48 @@
-/* Signal Lab — cool precision system (not cream/coral) */
+/* Engineering pad — pale green computation paper, graphite, one highlighter.
+   The site is Isum's notebook made public, so it is drawn like one. */
 :root {
-  --color-paper: #eef1f4;
-  --color-paper-2: #e4e9ef;
-  --color-paper-3: #d7dee7;
-  --color-card: #f7f9fb;
-  --color-ink: #0a1219;
-  --color-ink-2: #1a2733;
-  --color-muted: #5a6b7a;
-  --color-rule: rgba(10, 18, 25, 0.1);
-  --color-rule-strong: rgba(10, 18, 25, 0.18);
-  --color-accent: #0c7c78;
-  --color-accent-strong: #095f5c;
-  --color-accent-soft: #d4efee;
-  --color-accent-ink: #f4fbfb;
-  --color-focus: #0c7c78;
-  --color-refract: #2a9d98;
-  --color-error: #b42318;
-  --color-warn: #b54708;
-  --color-success: #067647;
-  --color-hero-ink: #f4f7fa;
+  --paper: #edf1e7;        /* pad green */
+  --paper-2: #e3e9dc;      /* darker sheet, hovers and wells */
+  --slip: #f6f8f2;         /* loose slip of paper: idea cards, inputs */
+  --grid: #c9d4bf;         /* pad grid and hairlines */
+  --grid-strong: #a9b89c;
+  --graphite: #1f231d;     /* text and solid controls */
+  --graphite-2: #3a4036;
+  --muted: #586052;
+  --highlight: #efe03c;    /* highlighter: shipped things, the one loud colour */
+  --highlight-soft: #f5ec8f;
+  --red-pen: #b8322a;      /* corrections: retired ideas, destructive actions */
 
-  --font-display: "Syne", "Segoe UI", sans-serif;
-  --font-body: "IBM Plex Sans", "Segoe UI", sans-serif;
-  --font-mono: "IBM Plex Mono", "Cascadia Mono", monospace;
+  --font-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --font-text: "Source Serif 4", Georgia, "Times New Roman", serif;
 
-  --space-3xs: 0.125rem;
-  --space-2xs: 0.25rem;
-  --space-xs: 0.5rem;
-  --space-sm: 0.75rem;
-  --space-md: 1rem;
-  --space-lg: 1.5rem;
-  --space-xl: 2.5rem;
-  --space-2xl: 4rem;
-  --space-3xl: 6rem;
-  --space-4xl: 9rem;
+  /* scale ≈ 1.25, body at 18px */
+  --t-xs: 0.8125rem;
+  --t-sm: 0.9375rem;
+  --t-base: 1.125rem;
+  --t-md: 1.3125rem;
+  --t-lg: 1.75rem;
+  --t-xl: clamp(2rem, 3.6vw + 0.6rem, 3rem);
+  --t-display: clamp(2.5rem, 6.4vw + 0.4rem, 5.5rem);
 
-  --text-xs: 0.75rem;
-  --text-sm: 0.875rem;
-  --text-base: 1rem;
-  --text-md: 1.125rem;
-  --text-lg: 1.5rem;
-  --text-xl: 1.875rem;
-  --text-2xl: 2.5rem;
-  --text-3xl: 3.25rem;
-  --text-4xl: 4rem;
-  --text-display-s: clamp(2.8rem, 5vw + 0.5rem, 4.75rem);
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-5: 1.5rem;
+  --s-6: 2rem;
+  --s-7: 3rem;
+  --s-8: 4.5rem;
+  --s-9: 7rem;
 
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
-  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-  --dur-micro: 120ms;
-  --dur-short: 240ms;
-  --dur-long: 520ms;
+  --measure: 38rem;        /* ~68 characters of serif body */
+  --page-max: 74rem;
+  --gutter: clamp(1rem, 4vw, 3rem);
+  --nav-h: 3.75rem;
 
-  --rule-hair: 1px;
-  --rule-focus: 2px;
-  --rule-accent: 2px;
-  --radius-xs: 0.25rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
-  --radius-pill: 999px;
-  --control-h: 2.75rem;
-  --page-max: 72rem;
-  --page-gutter: clamp(1.25rem, 4vw, 3rem);
-  --shadow-tight: 0 1px 0 rgba(10, 18, 25, 0.04), 0 12px 32px rgba(10, 18, 25, 0.06);
-  --shadow-lift: 0 20px 50px rgba(10, 18, 25, 0.12);
+  --r-sm: 3px;
+  --r-md: 6px;
+  --r-pill: 999px;
 
-  --z-base: 1;
-  --z-raised: 10;
-  --z-dropdown: 100;
-  --z-sticky: 200;
-  --z-modal: 400;
-  --z-toast: 500;
-  --z-tooltip: 600;
-
-  --bg: var(--color-paper);
-  --surface: var(--color-card);
-  --ink: var(--color-ink);
-  --muted: var(--color-muted);
-  --line: var(--color-rule);
-  --accent: var(--color-accent);
-  --accent-soft: var(--color-accent-soft);
-  --accent-2: var(--color-refract);
-  --serif: var(--font-display);
-  --sans: var(--font-body);
-  --mono: var(--font-mono);
-  --shadow: var(--shadow-tight);
-  --radius: var(--radius-md);
-  --nav-h: 4rem;
-  --yellow: var(--color-accent-soft);
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
 }
